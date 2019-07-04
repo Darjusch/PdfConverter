@@ -31,6 +31,6 @@ def split(pdfContent):
     pdfContentRight.mediaBox.upperLeft = (w / 2, h)
     return pdfContentLeft, pdfContentRight
 
-#def fastPdfSplitter(path, pageNumber, self):
+#def fastPdfSplitter(path, pageNumber):
 #    with Pool(processes=4) as pool:
 #        pass
