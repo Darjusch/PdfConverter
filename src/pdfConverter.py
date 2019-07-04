@@ -1,5 +1,6 @@
 import copy
 import logging
+import os
 from multiprocessing import Pool
 
 from PyPDF2 import PdfFileWriter, PdfFileReader
@@ -10,7 +11,9 @@ def pdfSplitter(path, pageNumber):
     logging.basicConfig(format='%(asctime)s %(message)s')
 
     input = PdfFileReader(open(path, 'rb'))
-    outputPdf = open('output' + str(pageNumber) + ".pdf", 'wb')
+    save_path = "Output"
+    name_with_path = os.path.join(save_path, 'output' + str(pageNumber) + ".pdf")
+    outputPdf = open(name_with_path, 'wb')
     output = PdfFileWriter()
     # for nn,p in enumerate([input.getPage(i) for i in range(0,10)]):
     for pageNumber, pdfContent in enumerate([input.getPage(i) for i in range(0, input.getNumPages())]):
@@ -22,6 +25,8 @@ def pdfSplitter(path, pageNumber):
         output.addPage(right)
 
     output.write(outputPdf)
+    outputPdf.close()
+
 
 def split(pdfContent):
     pdfContentLeft = copy.copy(pdfContent)
