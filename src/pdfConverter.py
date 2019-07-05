@@ -6,35 +6,36 @@ from multiprocessing import Pool
 from PyPDF2 import PdfFileWriter, PdfFileReader
 
 
-def pdfSplitter(path, pageNumber):
+def pdf_splitter(page_number, path):
     logging.getLogger().setLevel(logging.INFO)
     logging.basicConfig(format='%(asctime)s %(message)s')
 
     input = PdfFileReader(open(path, 'rb'))
     save_path = "Output"
-    name_with_path = os.path.join(save_path, 'output' + str(pageNumber) + ".pdf")
-    outputPdf = open(name_with_path, 'wb')
+    name_with_path = os.path.join(save_path, 'output' + str(page_number) + ".pdf")
+    output_pdf = open(name_with_path, 'wb')
     output = PdfFileWriter()
-    # for nn,p in enumerate([input.getPage(i) for i in range(0,10)]):
-    for pageNumber, pdfContent in enumerate([input.getPage(i) for i in range(0, input.getNumPages())]):
-        logging.info('Pagenumber: ' + str(pageNumber) + ' is being processed.')
-        left, right = split(pdfContent)
 
-        if pageNumber or pageNumber is 0:
+    for page_number, pdf_content in enumerate([input.getPage(i) for i in range(0, input.getNumPages())]):
+
+        logging.info('Pagenumber: ' + str(page_number) + ' is being processed.')
+        left, right = split(pdf_content)
+
+        if page_number or page_number is 0:
             output.addPage(left)
         output.addPage(right)
 
-    output.write(outputPdf)
-    outputPdf.close()
+    output.write(output_pdf)
+    output_pdf.close()
 
 
-def split(pdfContent):
-    pdfContentLeft = copy.copy(pdfContent)
-    pdfContentRight = copy.copy(pdfContent)
-    (w, h) = pdfContent.mediaBox.upperRight
-    pdfContentLeft.mediaBox.upperRight = (w / 2, h)
-    pdfContentRight.mediaBox.upperLeft = (w / 2, h)
-    return pdfContentLeft, pdfContentRight
+def split(pdf_content):
+    pdf_content_left = copy.copy(pdf_content)
+    pdf_content_right = copy.copy(pdf_content)
+    (w, h) = pdf_content.mediaBox.upperRight
+    pdf_content_left.mediaBox.upperRight = (w / 2, h)
+    pdf_content_right.mediaBox.upperLeft = (w / 2, h)
+    return pdf_content_left, pdf_content_right
 
 #def fastPdfSplitter(path, pageNumber):
 #    with Pool(processes=4) as pool:

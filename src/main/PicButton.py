@@ -10,7 +10,7 @@ class PicButton(QAbstractButton):
     def __init__(self, pixmap, parent=None):
         super(PicButton, self).__init__(parent)
         self.pixmap = pixmap
-        self.clicked.connect(self.on_split_pdf)
+        #self.clicked.connect(self.on_split_pdf)
 
     def paintEvent(self, event):
         painter = QPainter(self)

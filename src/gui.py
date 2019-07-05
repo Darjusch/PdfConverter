@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import *
 from wand.image import Image as wi
 
 from src.main.PicButton import PicButton
-from src.pdfConverter import pdfSplitter
+from src.pdfConverter import pdf_splitter
 
 
 class PdfConverter(QWidget):
@@ -21,15 +21,17 @@ class PdfConverter(QWidget):
     def __init__(self):
         super().__init__()
 
-        self.btnSelectPdfDirectory = self.create_btn_with_event('Select pdf Folder', self.on_select_pdf_directory, 50, 0)
-        self.btnSelectPdfFile = self.create_btn_with_event('Select pdf File', self.on_select_pdf_file, 250, 0)
-        self.btnPdf2Jpeg = self.create_btn_with_event('Pdf2Jpeg', self.pdf2jpeg, 450, 0)
-        self.btnPdfSplit = self.create_btn_with_event('Split Pdf', self.on_split_pdf, 650, 0)
+        self.btn_select_pdf_directory = self.create_btn_with_event('Select pdf Folder', self.on_select_pdf_directory, 50, 0)
+        self.btn_select_pdf_file = self.create_btn_with_event('Select pdf File', self.on_select_pdf_file, 250, 0)
+        self.btn_pdf_2_jpeg = self.create_btn_with_event('Pdf2Jpeg', self.pdf2jpeg, 450, 0)
+        self.btn_pdf_split = self.create_btn_with_event('Split Pdf', self.on_split_pdf, 650, 0)
         self.setGeometry(10, 10, 920, 720)
         self.show()
 
     '''
-    Creates Button 
+    Creates Button with events
+    Input -> str, function(), int, int
+    Output -> button object
     '''
     def create_btn_with_event(self, label, event, x, y):
         btn = QPushButton(label, self)
@@ -37,18 +39,17 @@ class PdfConverter(QWidget):
         btn.move(x, y)
         return btn
 
-    pdfPathList = []
-    directoryPath = []
+    pdf_path_list = []
+    directory_path = []
 
     '''
-    Filters all pdfs out of selected Folder
+    Allows user to select a folder -> filters all Pdf(s) out of the selected Folder
     '''
     def on_select_pdf_directory(self):
         file = str(QFileDialog.getExistingDirectory(self, "Select Directory", directory="."))
-        self.directoryPath.append(file)
-        folderContent = glob.glob(file + '/*.pdf')
-        for pdfPath in folderContent:
-            self.pdfPathList.append(pdfPath)
+        self.directory_path.append(file)
+        folder_content = glob.glob(file + '/*.pdf')
+        [self.pdf_path_list.append(pdf_path) for pdf_path in folder_content]
 
     '''
     Select a pdf File
@@ -56,51 +57,49 @@ class PdfConverter(QWidget):
     def on_select_pdf_file(self):
         dialog = QFileDialog()
         path = QFileDialog.getOpenFileName(dialog, "wählen sie x aus", "/", "pdf(*.pdf)")
-        self.pdfPathList.append(path[0])
+        self.pdf_path_list.append(path[0])
 
     '''
-    Calls the function to split the pdfs.
+    Splits the Pdf(s).
     '''
     def on_split_pdf(self):
         start = time.time()
-        pageNumber = 1
-        for pdf in self.pdfPathList:
-            pdfSplitter(pdf, pageNumber)
-            pageNumber += 1
+        [pdf_splitter(page_number, pdf_path) for page_number, pdf_path in enumerate(self.pdf_path_list)]
         end = time.time()
         runtime = end - start
-        logging.info('Function on_split_pdf(+ pdfSplitter) take(s): ' + str(runtime) + ' seconds!')
+        logging.info('Function on_split_pdf(+ pdfSplitter) take(s): ' + str(runtime) + ' second(s)!')
 
     '''
-    Converts the pdf's to jpeg's.
+    Converts the Pdf(s) to Jpeg(s).
+    Lower resolution -> faster output
     '''
     def pdf2jpeg(self):
         start = time.time()
-        for pdfName in self.pdfPathList:
-            pdf = wi(filename=pdfName, resolution=20)
-            pdfImage = pdf.convert("jpeg")
-            i = 1
-            listImages = []
-            for img in pdfImage.sequence:
+        for pdf_path in self.pdf_path_list:
+            list_of_images = []
+            pdf = wi(filename=pdf_path, resolution=20)
+            pdf_image = pdf.convert("jpeg")
+            for index, img in enumerate(pdf_image.sequence):
                 page = wi(image=img)
-                page.save(filename=str(i) + ".jpeg")
-                listImages.append(str(i) + ".jpeg")
-                i += 1
-                logging.info('Page ' + str(i) + ".jpeg" + ' is being processed.')
-            self.setLayout(self.populate_grid(listImages))
+                page.save(filename=str(index) + ".jpeg")
+                list_of_images.append(str(index) + ".jpeg")
+                logging.info('Page ' + str(index) + ".jpeg" + ' is being processed.')
+            self.setLayout(self.populate_grid(list_of_images))
             end = time.time()
             runtime = end - start
-            logging.info('Function pdf2jpeg(+ populate_grid) take(s): ' + str(runtime) + ' seconds!')
+            logging.info('Function pdf2jpeg(+ populate_grid) take(s): ' + str(runtime) + ' second(s)!')
 
     '''
-    Displays each pdf as an Image
+    Displays each pdf as an Image and takes care of the positioning inside the GridLayout
+    Turns each Image into a button
+    Increase / Decrease the amount of columns by changing the divider of the listOfImages 
+    -> (int(len(listOfImages) / divider))
     '''
-    def populate_grid(self, images):
+    def populate_grid(self, list_of_images):
         grid_layout = QGridLayout()
-        every_four_images = len(images) / 3
-        for img in images:
-            for x in range(int(every_four_images)):
-                grid_layout.setColumnStretch(x, x + 1)
+        amount_of_columns = int(len(list_of_images) / 2)
+        for img in list_of_images:
+            [grid_layout.setColumnStretch(x, x + 1) for x in range(amount_of_columns)]
             button = PicButton(QPixmap(img).scaled(180, 180))
             grid_layout.addWidget(button)
             logging.info('Image turned to button: ' + img + ".")
