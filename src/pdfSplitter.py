@@ -16,11 +16,14 @@ def pdf_splitter(page_number, path):
     output_pdf = open(name_with_path, 'wb')
     output = PdfFileWriter()
 
+    # Todo split into 2 for loops for more readability
+
     for page_number, pdf_content in enumerate([input.getPage(i) for i in range(0, input.getNumPages())]):
 
         logging.info('Pagenumber: ' + str(page_number) + ' is being processed.')
         left, right = split(pdf_content)
 
+        # In python even numbers are True and odd numbers are False
         if page_number or page_number is 0:
             output.addPage(left)
         output.addPage(right)

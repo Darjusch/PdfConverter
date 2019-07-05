@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import *
 from wand.image import Image as wi
 
 from src.main.PicButton import PicButton
-from src.pdfConverter import pdf_splitter
+from src.pdfSplitter import pdf_splitter
 
 
 class PdfConverter(QWidget):
@@ -25,7 +25,7 @@ class PdfConverter(QWidget):
         self.btn_select_pdf_file = self.create_btn_with_event('Select pdf File', self.on_select_pdf_file, 250, 0)
         self.btn_pdf_2_jpeg = self.create_btn_with_event('Pdf2Jpeg', self.pdf2jpeg, 450, 0)
         self.btn_pdf_split = self.create_btn_with_event('Split Pdf', self.on_split_pdf, 650, 0)
-        self.setGeometry(10, 10, 920, 720)
+        self.setGeometry(10, 10, 1920, 1080)
         self.show()
 
     '''
@@ -100,7 +100,9 @@ class PdfConverter(QWidget):
         amount_of_columns = int(len(list_of_images) / 2)
         for img in list_of_images:
             [grid_layout.setColumnStretch(x, x + 1) for x in range(amount_of_columns)]
-            button = PicButton(QPixmap(img).scaled(180, 180))
+            button = PicButton(QPixmap(img))
+            button.setFixedHeight(200)
+            button.setFixedWidth(200)
             grid_layout.addWidget(button)
             logging.info('Image turned to button: ' + img + ".")
         return grid_layout
