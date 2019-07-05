@@ -92,7 +92,7 @@ class PdfConverter(QWidget):
     '''
     Displays each pdf as an Image and takes care of the positioning inside the GridLayout
     Turns each Image into a button
-    Increase / Decrease the amount of columns by changing the divider of the listOfImages 
+    Increase / Decrease the amount of columns by changing the divider of the listOfImages
     -> (int(len(listOfImages) / divider))
     '''
     def populate_grid(self, list_of_images):
