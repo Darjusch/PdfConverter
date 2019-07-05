@@ -1,13 +1,12 @@
+from src.PicButton import *
 import glob
 import sys
 import time
 import logging
-
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from wand.image import Image as wi
 
-from src.main.PicButton import PicButton
 from src.pdfSplitter import pdf_splitter
 
 
@@ -89,6 +88,7 @@ class PdfConverter(QWidget):
             runtime = end - start
             logging.info('Function pdf2jpeg(+ populate_grid) take(s): ' + str(runtime) + ' second(s)!')
 
+
     '''
     Displays each pdf as an Image and takes care of the positioning inside the GridLayout
     Turns each Image into a button
@@ -103,6 +103,7 @@ class PdfConverter(QWidget):
             button = PicButton(QPixmap(img))
             button.setFixedHeight(200)
             button.setFixedWidth(200)
+            button.clicked.connect(self.on_split_pdf)
             grid_layout.addWidget(button)
             logging.info('Image turned to button: ' + img + ".")
         return grid_layout
