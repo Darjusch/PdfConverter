@@ -9,11 +9,6 @@ class PicButton(QAbstractButton):
         self.clicked.connect(self.resize)
         self.rotate = 0
 
-
-    '''
-    If the button is clicked the image changes and the button is marked as checked.
-    -> If clicked again the button is unmarked again.
-    '''
     def paintEvent(self, event):
         pixmap = self.pixmap
         painter = QPainter(self)

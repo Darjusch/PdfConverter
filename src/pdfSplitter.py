@@ -1,6 +1,7 @@
 import copy
 import logging
 import os
+import uuid
 from multiprocessing import Pool
 from PyPDF2 import PdfFileWriter, PdfFileReader
 
@@ -11,7 +12,7 @@ def pdf_splitter(checked_buttons, path, list_of_buttons):
     logging.basicConfig(format='%(asctime)s %(message)s')
     input = PdfFileReader(open(path, 'rb'))
     save_path = "Output"
-    name_with_path = os.path.join(save_path, 'output' + str(page_number) + ".pdf")
+    name_with_path = os.path.join(save_path, 'output' + str(uuid.uuid1()) + ".pdf")
     page_number += 1
     output_pdf = open(name_with_path, 'wb')
     output = PdfFileWriter()
@@ -22,7 +23,6 @@ def pdf_splitter(checked_buttons, path, list_of_buttons):
         logging.info('Pagenumber: ' + str(page_number) + ' is being processed.')
         if list_of_buttons[page_number] in checked_buttons:
             left, right = split(pdf_content)
-
             # In python even numbers are True and odd numbers are False
             if page_number or page_number is 0:
                 output.addPage(left)
