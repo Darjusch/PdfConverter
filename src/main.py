@@ -6,7 +6,6 @@ from PIL import Image
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from wand.image import Image as wi
-from collections import defaultdict
 from src.pdfSplitter import pdf_splitter
 from PyPDF2 import PdfFileWriter, PdfFileReader
 
@@ -19,6 +18,7 @@ class PdfConverter(QWidget):
     directory_path = []
     list_of_buttons = []
     list_of_images = []
+
 
     def __init__(self):
         super().__init__()
@@ -77,8 +77,8 @@ class PdfConverter(QWidget):
             grid_layout.addWidget(self.create_pic_button(image))
         return grid_layout
 
-    def create_pic_button(self, img):
-        button = PicButton(QPixmap(img))
+    def create_pic_button(self, image):
+        button = PicButton(QPixmap(image))
         button.setFixedHeight(200)
         button.setFixedWidth(200)
         button.setCheckable(True)
@@ -90,7 +90,7 @@ class PdfConverter(QWidget):
 
     def split_each_selected_pdf_into_two_pdfs(self):
         for pdf_path in self.pdf_path_list:
-            pdf_splitter(self.checked_buttons(), pdf_path)
+            pdf_splitter(self.checked_buttons(), pdf_path, self.list_of_buttons)
 
     def checked_buttons(self):
         checked_buttons = []
