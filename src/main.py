@@ -123,6 +123,7 @@ class PdfConverter(QWidget):
     # Todo function to change position of elements
     def change_position_of_pic_button(self):
         images_to_be_swaped = []
+        del images_to_be_swaped[:]
         for button in self.checked_buttons():
             image = self.dict_btn_to_image[button]
             images_to_be_swaped.append(image)
@@ -131,6 +132,7 @@ class PdfConverter(QWidget):
         self.list_of_images[index_one], self.list_of_images[index_two] = images_to_be_swaped[0], images_to_be_swaped[1]
         self.delete_old_position()
         self.position_pic_btns_in_grid()
+
 
     def delete_old_position(self):
         for i in reversed(range(self.grid_layout.count())):
