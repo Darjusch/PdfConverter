@@ -2,6 +2,7 @@ from src.PicButton import *
 import glob
 import sys
 import logging
+import os
 from PIL import Image
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
@@ -137,7 +138,6 @@ class PdfConverter(QWidget):
                 output.addPage(page)
                 output.write(open("cropped.pdf", "wb"))
 
-    # Todo function to change position of elements
     def change_position_of_pic_button(self):
         images_to_be_swaped = []
         for button in self.checked_buttons():
@@ -146,6 +146,11 @@ class PdfConverter(QWidget):
         index_one = self.list_of_images.index(images_to_be_swaped[1])
         index_two = self.list_of_images.index(images_to_be_swaped[0])
         self.list_of_images[index_one], self.list_of_images[index_two] = images_to_be_swaped[0], images_to_be_swaped[1]
+        os.rename(self.list_of_images[index_one], "avoid overwriting.jpeg")
+        print(os.listdir(os.getcwd()))
+        os.rename(self.list_of_images[index_two], images_to_be_swaped[1])
+        os.rename("avoid overwriting.jpeg", images_to_be_swaped[0])
+        print(os.listdir(os.getcwd()))
         self.delete_old_position()
         self.position_pic_btns_in_grid()
         del images_to_be_swaped[:]

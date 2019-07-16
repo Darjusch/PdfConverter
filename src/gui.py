@@ -1,0 +1,2 @@
+class PdfConverterFunctionality():
+    pass
