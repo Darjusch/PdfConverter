@@ -1,4 +1,4 @@
-from src.main import *
+from PyQt5.QtGui import QPainter
 from PyQt5.QtWidgets import QAbstractButton
 
 

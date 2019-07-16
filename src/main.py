@@ -1,22 +1,21 @@
-from src.PicButton import *
 import glob
 import sys
 import logging
 import os
-from PIL import Image
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
-from wand.image import Image as wi
+import PyQt5.QtWidgets
+from PyQt5.QtGui import QPixmap
+from wand.image import Image as WI
+from src.PicButton import PicButton
 from src.pdfSplitter import pdf_splitter
 from PyPDF2 import PdfFileWriter, PdfFileReader
+import src.Testing.testing
+from functools import partial
 
-
-class PdfConverter(QWidget):
+class PdfConverter(PyQt5.QtWidgets.QWidget):
     logging.getLogger().setLevel(logging.INFO)
     logging.basicConfig(format='%(asctime)s %(message)s')
 
-    pdf_path_list = ["KW22_Version_A_mOeffnungszeiten_2505-3105 Kopie 2.pdf"]
-    directory_path = []
+    pdf_path_list = []
     list_of_buttons = []
     list_of_images = []
     dict_btn_to_image = {}
@@ -26,11 +25,11 @@ class PdfConverter(QWidget):
 
         self.btn_select_pdf_directory = self.create_btn_with_event('Select pdf Folder',
                                                                    self.pdfs_out_of_selected_directory, 50, 0)
-        self.btn_select_pdf_file = self.create_btn_with_event('Select pdf File', self.select_pdf, 250, 0)
-        self.btn_pdf_split = self.create_btn_with_event('Split Pdf', self.split_each_selected_pdf_into_two_pdfs, 450, 0)
+        self.btn_select_pdf_file = self.create_btn_with_event('Select pdf File', self.select_single_pdf, 250, 0)
+        self.btn_pdf_split = self.create_btn_with_event('Split Pdf', partial(self.split_each_selected_pdf_into_two_pdfs, self.pdf_path_list, self.checked_buttons(), self.list_of_buttons), 450, 0)
         self.btn_cropper = self.create_btn_with_event('Cropp pdf', self.pdf_cropper, 650, 0)
         self.change_position = self.create_btn_with_event('change_position', self.change_position_of_pic_button, 850, 0)
-        self.debug = self.create_btn_with_event('debug', self.pdf_2_jpeg, 1050, 0)
+        self.test = self.create_btn_with_event('test', self.test, 1200, 0)
 
         self.upper_left_new_x_coordinate = self.create_textbox_with_label("upper_left_x_coordinate", 220, 100)
         self.upper_left_new_y_coordinate = self.create_textbox_with_label("upper_left_y_coordinate", 220, 150)
@@ -40,52 +39,56 @@ class PdfConverter(QWidget):
         self.lower_left_new_y_coordinate = self.create_textbox_with_label("lower_left_y_coordinate", 220, 350)
         self.lower_right_new_x_coordinate = self.create_textbox_with_label("lower_right_x_coordinate", 220, 400)
         self.lower_right_new_y_coordinate = self.create_textbox_with_label("lower_right_y_coordinate", 220, 450)
-        self.btn_get_coordinates = self.create_btn_with_event("Set", self.get_coordinates, 220, 500)
         self.setGeometry(10, 10, 1920, 1080)
-        self.grid_layout = QGridLayout()
+        self.grid_layout = PyQt5.QtWidgets.QGridLayout()
 
         self.show()
 
     def create_textbox_with_label(self, label_text, x, y):
-        textbox = QLineEdit(self)
-        label = QLabel(self)
+        textbox = PyQt5.QtWidgets.QLineEdit(self)
+        label = PyQt5.QtWidgets.QLabel(self)
         label.setText(label_text)
         label.move(x - 200, y)
         textbox.move(x, y)
         return textbox
 
-    def get_coordinates(self):
-        pass
-
     def create_btn_with_event(self, label, event, x, y):
-        btn = QPushButton(label, self)
+        btn = PyQt5.QtWidgets.QPushButton(label, self)
         btn.clicked.connect(event)
         btn.move(x, y)
         return btn
 
+    def create_pic_button(self, image):
+        button = PicButton(QPixmap(image))
+        button.setFixedHeight(200)
+        button.setFixedWidth(200)
+        button.setCheckable(True)
+        self.list_of_buttons.append(button)
+        self.dict_btn_to_image[button] = image
+        return button
+
     def pdfs_out_of_selected_directory(self):
-        file = str(QFileDialog.getExistingDirectory(self, "Select Directory", directory="."))
-        self.directory_path.append(file)
+        file = str(PyQt5.QtWidgets.QFileDialog.getExistingDirectory(self, "Select Directory", directory="."))
         pdfs_in_directory = glob.glob(file + '/*.pdf')
         [self.pdf_path_list.append(pdf_path) for pdf_path in pdfs_in_directory]
-        self.pdf_2_jpeg()
+        self.pdf_to_jpeg(self.pdf_path_list)
 
-    def select_pdf(self):
-        dialog = QFileDialog()
-        pdf_path = QFileDialog.getOpenFileName(dialog, "wählen sie x aus", "/", "pdf(*.pdf)")
+    def select_single_pdf(self):
+        dialog = PyQt5.QtWidgets.QFileDialog()
+        pdf_path = PyQt5.QtWidgets.QFileDialog.getOpenFileName(dialog, "wählen sie x aus", "/", "pdf(*.pdf)")
         self.pdf_path_list.append(pdf_path[0])
-        self.pdf_2_jpeg()
+        self.delete_old_position()
+        self.pdf_to_jpeg(self.pdf_path_list)
 
     '''
     If to slow -> lower resolution
     '''
-
-    def pdf_2_jpeg(self):
-        for pdf_path in self.pdf_path_list:
-            wand_image_pdf = wi(filename=pdf_path, resolution=20)
+    def pdf_to_jpeg(self, pdf_path_list):
+        for pdf_path in pdf_path_list:
+            wand_image_pdf = WI(filename=pdf_path, resolution=20)
             wand_image_jpegs = wand_image_pdf.convert("jpeg")
             for page_number, wand_image_jpeg in enumerate(wand_image_jpegs.sequence):
-                jpeg = wi(image=wand_image_jpeg)
+                jpeg = WI(image=wand_image_jpeg)
                 jpeg.save(filename=str(page_number) + ".jpeg")
                 self.list_of_images.append(str(page_number) + ".jpeg")
                 logging.info('Page ' + str(page_number) + ".jpeg" + ' is being converted.')
@@ -99,21 +102,16 @@ class PdfConverter(QWidget):
             self.grid_layout.addWidget(self.create_pic_button(image))
         return self.grid_layout
 
-    def create_pic_button(self, image):
-        button = PicButton(QPixmap(image))
-        button.setFixedHeight(200)
-        button.setFixedWidth(200)
-        button.setCheckable(True)
-        self.list_of_buttons.append(button)
-        self.dict_btn_to_image[button] = image
-        return button
-
-    # Todo multiple pdf input doesnt work yet
-    # Todo diplay in gui
-
-    def split_each_selected_pdf_into_two_pdfs(self):
-        for pdf_path in self.pdf_path_list:
-            pdf_splitter(self.checked_buttons(), pdf_path, self.list_of_buttons)
+    def split_each_selected_pdf_into_two_pdfs(self, pdf_path_list, checked_buttons, list_of_buttons):
+        for pdf_path in pdf_path_list:
+            pdf_splitter(checked_buttons, pdf_path, list_of_buttons)
+            self.pdf_path_list.clear()
+            self.delete_old_position()
+            filename = glob.glob('Output/*.pdf')[0]
+            self.pdf_path_list.append(filename)
+            self.list_of_images.clear()
+            [os.remove(jpeg) for jpeg in os.listdir('/Users/darjusch.schrand/PycharmProjects/PyPdfConverter/src') if jpeg.endswith('.jpeg')]
+            self.pdf_to_jpeg(self.pdf_path_list)
 
     def checked_buttons(self):
         checked_buttons = []
@@ -122,21 +120,19 @@ class PdfConverter(QWidget):
                 checked_buttons.append(button)
         return checked_buttons
 
-    # Todo take user input
-    def pdf_cropper(self, lower_right_new_x_coordinate, lower_right_new_y_coordinate, lower_left_new_x_coordinate,
-                    lower_left_new_y_coordinate, upper_right_new_x_coordinate, upper_right_new_y_coordinate,
-                    upper_left_new_x_coordinate, upper_left_new_y_coordinate):
+    def pdf_cropper(self):
         for button in self.checked_buttons():
             if button.isChecked():
-                file = PdfFileReader(open("KW22_Version_A_mOeffnungszeiten_2505-3105 Kopie 2.pdf", "rb"))
+                file = PdfFileReader(open(self.pdf_path_list[0], "rb"))
                 page = file.getPage(0)
-                page.mediaBox.lowerRight = (lower_right_new_x_coordinate, lower_right_new_y_coordinate)
-                page.mediaBox.lowerLeft = (lower_left_new_x_coordinate, lower_left_new_y_coordinate)
-                page.mediaBox.upperRight = (upper_right_new_x_coordinate, upper_right_new_y_coordinate)
-                page.mediaBox.upperLeft = (upper_left_new_x_coordinate, upper_left_new_y_coordinate)
+                page.mediaBox.lowerRight = (self.upper_right_new_x_coordinate.text(), self.upper_right_new_y_coordinate.text())
+                page.mediaBox.lowerLeft = (self.lower_left_new_x_coordinate.text(), self.lower_left_new_y_coordinate.text())
+                page.mediaBox.upperRight = (self.lower_right_new_x_coordinate.text(), self.lower_right_new_y_coordinate.text())
+                page.mediaBox.upperLeft = (self.upper_left_new_x_coordinate.text(), self.upper_left_new_y_coordinate.text())
                 output = PdfFileWriter()
                 output.addPage(page)
                 output.write(open("cropped.pdf", "wb"))
+                logging.info("Page: is being processed!")
 
     def change_position_of_pic_button(self):
         images_to_be_swaped = []
@@ -147,10 +143,8 @@ class PdfConverter(QWidget):
         index_two = self.list_of_images.index(images_to_be_swaped[0])
         self.list_of_images[index_one], self.list_of_images[index_two] = images_to_be_swaped[0], images_to_be_swaped[1]
         os.rename(self.list_of_images[index_one], "avoid overwriting.jpeg")
-        print(os.listdir(os.getcwd()))
         os.rename(self.list_of_images[index_two], images_to_be_swaped[1])
         os.rename("avoid overwriting.jpeg", images_to_be_swaped[0])
-        print(os.listdir(os.getcwd()))
         self.delete_old_position()
         self.position_pic_btns_in_grid()
         del images_to_be_swaped[:]
@@ -163,9 +157,14 @@ class PdfConverter(QWidget):
             self.list_of_buttons.remove(button_to_remove)
         return self.grid_layout
 
+    def test(self):
+        src.Testing.testing.MyTest.pdf_to_jpeg_test(self)
+        src.Testing.testing.MyTest.split_each_selected_pdf_into_two_pdfs_test(self)
+
+
 
 if __name__ == '__main__':
-    app = QApplication(sys.argv)
+    app = PyQt5.QtWidgets.QApplication(sys.argv)
     ex = PdfConverter()
     sys.exit(app.exec_())
 
