@@ -1,6 +1,6 @@
 from PyQt5.QtGui import QPainter
 from PyQt5.QtWidgets import QAbstractButton
-
+from src.main import PdfConverter
 
 class PicButton(QAbstractButton):
     def __init__(self, pixmap, parent=None):
@@ -12,7 +12,7 @@ class PicButton(QAbstractButton):
     def paintEvent(self, event):
         pixmap = self.pixmap
         painter = QPainter(self)
-        if self.isChecked():
+        if self.isChecked() and PdfConverter.rotate_button(self).isClicked():
             painter.translate(self.width(), 0)
             self.rotate += 90
             self.rotate %= 360
