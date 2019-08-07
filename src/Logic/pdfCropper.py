@@ -2,6 +2,7 @@ from PyPDF2 import PdfFileWriter, PdfFileReader
 from src.main import PdfConverter
 import logging
 
+
 def pdf_cropper(self):
     logging.getLogger().setLevel(logging.INFO)
     logging.basicConfig(format='%(asctime)s %(message)s')
