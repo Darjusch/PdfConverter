@@ -2,15 +2,15 @@ from PyPDF2 import PdfFileReader
 from pdf_converter.main import *
 import os
 import logging
+import logging.config
 
 
 class MyTest():
-
-    logging.getLogger().setLevel(logging.INFO)
-    logging.basicConfig(format='%(asctime)s %(message)s')
+    logging.config.fileConfig(fname='logging.config', disable_existing_loggers=False)
+    logger = logging.getLogger(__name__)
 
     def pdf_to_jpeg_test(self):
-        pdf_path_list = ['/Users/darjusch.schrand/PycharmProjects/PyPdfConverter/tests/test.pdf']
+        pdf_path_list = ['tests/test.pdf']
         PdfConverter.pdf_to_jpeg(self, pdf_path_list)
         total_number_of_jpegs = 0
         list_of_files = os.listdir('/Users/darjusch.schrand/PycharmProjects/PyPdfConverter/output')
@@ -27,7 +27,7 @@ class MyTest():
             return False
 
     def split_each_selected_pdf_into_two_pdfs_test(self):
-        pdf_path_list = ['/Users/darjusch.schrand/PycharmProjects/PyPdfConverter/tests/test.pdf']
+        pdf_path_list = ['tests/test.pdf']
         checked_buttons = ['False', 'True', 'False', 'True']
         list_of_buttons = ['True', 'True', 'False', 'False', 'True', 'True', 'False', 'False']
         pdf_splitter(pdf_path_list, checked_buttons, list_of_buttons)

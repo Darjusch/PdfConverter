@@ -1,5 +1,6 @@
 import glob
 import logging
+import logging.config
 import os
 import sys
 from functools import partial
@@ -7,15 +8,13 @@ from PyQt5 import QtGui, QtCore
 import PyQt5.QtWidgets
 from PyQt5.QtGui import QPixmap
 from wand.image import Image as WI
-
 from pdf_converter.logic.pdf_splitter import pdf_splitter
-from tests import testing
 from pdf_converter.gui.pic_button import PicButton
-
+import tests.testing
 
 class PdfConverter(PyQt5.QtWidgets.QWidget):
-    logging.getLogger().setLevel(logging.INFO)
-    logging.basicConfig(format='%(asctime)s %(message)s')
+    logging.config.fileConfig(fname='logging.config', disable_existing_loggers=False)
+    logger = logging.getLogger(__name__)
 
     def __init__(self):
         super().__init__()
@@ -158,8 +157,8 @@ class PdfConverter(PyQt5.QtWidgets.QWidget):
         return self.grid_layout
 
     def test(self):
-        testing.MyTest.pdf_to_jpeg_test(self)
-        testing.MyTest.split_each_selected_pdf_into_two_pdfs_test(self)
+        tests.testing.MyTest.pdf_to_jpeg_test(self)
+        tests.testing.MyTest.split_each_selected_pdf_into_two_pdfs_test(self)
 
     def clear_memory(self):
         self.delete_old_position()

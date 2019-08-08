@@ -1,13 +1,14 @@
 import copy
 import logging
+import logging.config
 import os
 import uuid
 from PyPDF2 import PdfFileWriter, PdfFileReader
 
 
 def pdf_splitter(path_list ,checked_buttons , list_of_buttons):
-    logging.getLogger().setLevel(logging.INFO)
-    logging.basicConfig(format='%(asctime)s %(message)s')
+    logging.config.fileConfig(fname='logging.config', disable_existing_loggers=False)
+    logger = logging.getLogger(__name__)
 
     for path in path_list:
         input = PdfFileReader(open(path, 'rb'))

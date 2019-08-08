@@ -1,11 +1,13 @@
 from PyPDF2 import PdfFileWriter, PdfFileReader
 from pdf_converter.main import PdfConverter
 import logging
+import logging.config
 
 
 def pdf_cropper(self):
-    logging.getLogger().setLevel(logging.INFO)
-    logging.basicConfig(format='%(asctime)s %(message)s')
+    logging.config.fileConfig(fname='logging.config', disable_existing_loggers=False)
+    logger = logging.getLogger(__name__)
+
     for button in PdfConverter.checked_buttons(self):
         if button.isChecked():
             file = PdfFileReader(open(self.pdf_path_list[0], "rb"))
