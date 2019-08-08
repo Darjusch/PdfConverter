@@ -11,14 +11,14 @@ def pdf_splitter(path_list ,checked_buttons , list_of_buttons):
 
     for path in path_list:
         input = PdfFileReader(open(path, 'rb'))
-        name_with_path = os.path.join("Output", 'output' + str(uuid.uuid1()) + ".pdf")
+        name_with_path = os.path.join("output", 'output' + str(uuid.uuid1()) + ".pdf")
         output_pdf = open(name_with_path, 'wb')
         output = PdfFileWriter()
 
         for page_number, pdf_content in enumerate([input.getPage(page) for page in range(0, input.getNumPages())]):
-            logging.info('Pagenumber: ' + str(page_number) + ' is being processed.')
+            logging.info('Pagenumber: %s is being processed.', str(page_number))
             if list_of_buttons[page_number] in checked_buttons:
-                logging.info('Pagenumber:' + str(page_number) + ' is being split.')
+                logging.info('Pagenumber: %s is being split.', str(page_number))
                 left, right = split(pdf_content)
                 # In python even numbers are True and odd numbers are False
                 if page_number or page_number is 0:

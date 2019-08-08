@@ -1,5 +1,5 @@
 from PyPDF2 import PdfFileWriter, PdfFileReader
-from src.main import PdfConverter
+from pdf_converter.main import PdfConverter
 import logging
 
 
@@ -19,4 +19,4 @@ def pdf_cropper(self):
             output = PdfFileWriter()
             output.addPage(page)
             output.write(open("cropped.pdf", "wb"))
-            logging.info("Page: is being processed!")
+            logging.info("Page: %s is being processed!", page)
