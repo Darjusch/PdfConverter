@@ -12,6 +12,7 @@ from pdf_converter.logic.pdf_splitter import pdf_splitter
 from pdf_converter.gui.pic_button import PicButton
 import tests.testing
 
+
 class PdfConverter(PyQt5.QtWidgets.QWidget):
     logging.config.fileConfig(fname='logging.config', disable_existing_loggers=False)
     logger = logging.getLogger(__name__)
@@ -46,6 +47,7 @@ class PdfConverter(PyQt5.QtWidgets.QWidget):
         self.lower_right_new_y_coordinate = self.create_textbox_with_label("lower_right_y_coordinate", 220, 450)
         self.setGeometry(10, 10, 1920, 1080)
         self.grid_layout = PyQt5.QtWidgets.QGridLayout()
+
         self.show()
 
     def create_textbox_with_label(self, label_text, x, y):
@@ -166,7 +168,7 @@ class PdfConverter(PyQt5.QtWidgets.QWidget):
         self.pdf_path_list.clear()
         self.list_of_images.clear()
         self.list_of_buttons.clear()
-        #files = glob.glob('src/output/*')
+        #files = glob.glob('output/*')
         #for f in files:
         #    os.remove(f)
 
