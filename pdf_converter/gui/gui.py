@@ -16,7 +16,7 @@ class Ui(QtWidgets.QMainWindow):
         self.left_button = self.findChild(QtWidgets.QToolButton, 'left_button')
         self.test_button = self.findChild(QtWidgets.QToolButton, 'test_button')
         self.trash_button = self.findChild(QtWidgets.QToolButton, 'trash_button')
-        self.test_button.clicked.connect(self.printButtonPressed)
+        #self.test_button.clicked.connect(self.printButtonPressed)
         self.show() # Show the GUI
 
     def printButtonPressed(self):

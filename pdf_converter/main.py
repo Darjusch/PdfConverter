@@ -25,46 +25,46 @@ class PdfConverter(PyQt5.QtWidgets.QWidget):
         self.list_of_images = []
         self.list_of_buttons = []
 
-        self.btn_select_pdf_directory = self.create_btn_with_event('Select pdf Folder',
-                                                                   self.pdfs_out_of_selected_directory, 'icons/folder.png',50, 0)
-        self.btn_select_pdf_file = self.create_btn_with_event('Select pdf File', self.select_single_pdf, 'icons/file.png', 250, 0)
+        #self.btn_select_pdf_directory = self.create_btn_with_event('Select pdf Folder',
+        #                                                            self.pdfs_out_of_selected_directory, 'icons/folder.png',50, 0)
+        # self.btn_select_pdf_file = self.create_btn_with_event('Select pdf File', self.select_single_pdf, 'icons/file.png', 250, 0)
         # Todo can we just call a Dialog return value with out rerunning the dialog? Fix this
-        self.btn_pdf_split = self.create_btn_with_event('Split Pdf', partial(self.split_each_selected_pdf_into_two_pdfs, self.pdf_path_list, self.list_of_buttons), 'icons/pdfsplit.png', 450, 0)
+        #self.btn_pdf_split = self.create_btn_with_event('Split Pdf', partial(self.split_each_selected_pdf_into_two_pdfs, self.pdf_path_list, self.list_of_buttons), 'icons/pdfsplit.png', 450, 0)
         # Todo either give list of buttons or give list of checked buttons
         #self.btn_cropper = self.create_btn_with_event('Cropp pdf', pdf_cropper(self), 650, 0)
-        self.change_position = self.create_btn_with_event('change_position', self.change_position_of_pic_button, 'icons/swap.png', 850, 0)
-        self.rotate_button = self.create_btn_with_event('rotate', self.rotate_pdf, 'icons/rotate.jpeg', 1000, 0)
-        self.test = self.create_btn_with_event('test', self.test, 'icons/test.png', 1200, 0)
-        self.clear = self.create_btn_with_event('clear', self.clear_memory, 'icons/trash.jpeg', 1300, 0)
+        #self.change_position = self.create_btn_with_event('change_position', self.change_position_of_pic_button, 'icons/swap.png', 850, 0)
+        #self.rotate_button = self.create_btn_with_event('rotate', self.rotate_pdf, 'icons/rotate.jpeg', 1000, 0)
+        #self.test = self.create_btn_with_event('test', self.test, 'icons/test.png', 1200, 0)
+        #self.clear = self.create_btn_with_event('clear', self.clear_memory, 'icons/trash.jpeg', 1300, 0)
 
-        self.upper_left_new_x_coordinate = self.create_textbox_with_label("upper_left_x_coordinate", 220, 100)
-        self.upper_left_new_y_coordinate = self.create_textbox_with_label("upper_left_y_coordinate", 220, 150)
-        self.upper_right_new_x_coordinate = self.create_textbox_with_label("upper_right_x_coordinate", 220, 200)
-        self.upper_right_new_y_coordinate = self.create_textbox_with_label("upper_right_y_coordinate", 220, 250)
-        self.lower_left_new_x_coordinate = self.create_textbox_with_label("lower_left_x_coordinate", 220, 300)
-        self.lower_left_new_y_coordinate = self.create_textbox_with_label("lower_left_y_coordinate", 220, 350)
-        self.lower_right_new_x_coordinate = self.create_textbox_with_label("lower_right_x_coordinate", 220, 400)
-        self.lower_right_new_y_coordinate = self.create_textbox_with_label("lower_right_y_coordinate", 220, 450)
-        self.setGeometry(10, 10, 1920, 1080)
-        self.grid_layout = PyQt5.QtWidgets.QGridLayout()
+        #self.upper_left_new_x_coordinate = self.create_textbox_with_label("upper_left_x_coordinate", 220, 100)
+        #self.upper_left_new_y_coordinate = self.create_textbox_with_label("upper_left_y_coordinate", 220, 150)
+        #self.upper_right_new_x_coordinate = self.create_textbox_with_label("upper_right_x_coordinate", 220, 200)
+        #self.upper_right_new_y_coordinate = self.create_textbox_with_label("upper_right_y_coordinate", 220, 250)
+        #self.lower_left_new_x_coordinate = self.create_textbox_with_label("lower_left_x_coordinate", 220, 300)
+        #self.lower_left_new_y_coordinate = self.create_textbox_with_label("lower_left_y_coordinate", 220, 350)
+        #self.lower_right_new_x_coordinate = self.create_textbox_with_label("lower_right_x_coordinate", 220, 400)
+        #self.lower_right_new_y_coordinate = self.create_textbox_with_label("lower_right_y_coordinate", 220, 450)
+        #self.setGeometry(10, 10, 1920, 1080)
+        #self.grid_layout = PyQt5.QtWidgets.QGridLayout()
 
-        self.show()
+        #self.show()
 
-    def create_textbox_with_label(self, label_text, x, y):
-        textbox = PyQt5.QtWidgets.QLineEdit(self)
-        label = PyQt5.QtWidgets.QLabel(self)
-        label.setText(label_text)
-        label.move(x - 200, y)
-        textbox.move(x, y)
-        return textbox
+    #def create_textbox_with_label(self, label_text, x, y):
+    #    textbox = PyQt5.QtWidgets.QLineEdit(self)
+    #    label = PyQt5.QtWidgets.QLabel(self)
+    #    label.setText(label_text)
+    #    label.move(x - 200, y)
+    #    textbox.move(x, y)
+    #    return textbox
 
-    def create_btn_with_event(self, label, event, icon, x, y):
-        event_button = PyQt5.QtWidgets.QPushButton(label, self)
-        event_button.setIcon(QtGui.QIcon(icon))
-        event_button.setIconSize(QtCore.QSize(24,24))
-        event_button.clicked.connect(event)
-        event_button.move(x, y)
-        return event_button
+    #def create_btn_with_event(self, label, event, icon, x, y):
+    #    event_button = PyQt5.QtWidgets.QPushButton(label, self)
+    #    event_button.setIcon(QtGui.QIcon(icon))
+    #    event_button.setIconSize(QtCore.QSize(24,24))
+    #    event_button.clicked.connect(event)
+    #    event_button.move(x, y)
+    #    return event_button
 
     def create_pic_button(self, list_of_images):
         list_of_pic_buttons = []
@@ -84,17 +84,18 @@ class PdfConverter(PyQt5.QtWidgets.QWidget):
         file = str(PyQt5.QtWidgets.QFileDialog.getExistingDirectory(self, "Select Directory", directory="."))
         pdfs_in_directory = glob.glob(file + '/*.pdf')
         self.pdf_path_list.append(pdfs_in_directory)
-        self.pdf_to_jpeg(pdfs_in_directory)
+        self.pdf_to_jpeg_to_pic_button_caller(pdfs_in_directory)
 
     def select_single_pdf(self):
         dialog = PyQt5.QtWidgets.QFileDialog()
         pdf_path = PyQt5.QtWidgets.QFileDialog.getOpenFileName(dialog, "wählen sie x aus", "/", "pdf(*.pdf)")
         self.pdf_path_list.append(pdf_path[0])
-        self.pdf_to_jpeg([pdf_path[0]])
+        self.pdf_to_jpeg_to_pic_button_caller([pdf_path[0]])
 
     '''
     If to slow -> lower resolution
     '''
+    # Todo split into two functions one that calls pdf_to_jpeg and then calls create_pic_button with the return value
     def pdf_to_jpeg(self, pdf_path_list):
         list_of_images = []
         for pdf_path in pdf_path_list:
@@ -107,8 +108,12 @@ class PdfConverter(PyQt5.QtWidgets.QWidget):
                 # Todo delete duplicated code
                 self.list_of_images.append("output/{0}.jpeg".format(str(page_number)))
                 logging.info("Page %s.jpeg is being converted.", str(page_number))
-        self.create_pic_button(list_of_images)
         return list_of_images
+
+    def pdf_to_jpeg_to_pic_button_caller(self, pdf_path_list):
+        list_of_images = self.pdf_to_jpeg(pdf_path_list)
+        self.create_pic_button(list_of_images)
+
 
     def position_pic_buttons_in_grid(self, list_of_pic_buttons):
         # Todo find a better way to define the ammount of columns
@@ -124,7 +129,7 @@ class PdfConverter(PyQt5.QtWidgets.QWidget):
         self.clear_memory()
         filename = glob.glob('output/*.pdf')[0]
         pdf_path_list.append(filename)
-        self.pdf_to_jpeg(pdf_path_list)
+        self.pdf_to_jpeg_to_pic_button_caller(pdf_path_list)
 
     def checked_buttons(self):
         checked_buttons = []
