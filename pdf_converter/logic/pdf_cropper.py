@@ -1,5 +1,5 @@
 from PyPDF2 import PdfFileWriter, PdfFileReader
-from pdf_converter.main import PdfConverter
+from pdf_converter.main import MainWindow
 import logging
 import logging.config
 
@@ -8,7 +8,7 @@ def pdf_cropper(self):
     logging.config.fileConfig(fname='logging.config', disable_existing_loggers=False)
     logger = logging.getLogger(__name__)
 
-    for button in PdfConverter.checked_buttons(self):
+    for button in MainWindow.checked_buttons(self):
         if button.isChecked():
             file = PdfFileReader(open(self.pdf_path_list[0], "rb"))
             page = file.getPage(0)
