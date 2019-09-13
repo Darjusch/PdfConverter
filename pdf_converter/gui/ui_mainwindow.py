@@ -10,6 +10,7 @@
 
 from PySide2 import QtCore, QtGui, QtWidgets
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -129,7 +130,6 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "MainWindow", None, -1))
         self.openFolderButton.setText(QtWidgets.QApplication.translate("MainWindow", "Open Folder", None, -1))
         self.openFileButton.setText(QtWidgets.QApplication.translate("MainWindow", "Open File", None, -1))
-        self.testButton.setText(QtWidgets.QApplication.translate("MainWindow", "test", None, -1))
         self.splitButton.setText(QtWidgets.QApplication.translate("MainWindow", "Split", None, -1))
         self.swapButton.setText(QtWidgets.QApplication.translate("MainWindow", "swap", None, -1))
         self.rotateButton.setText(QtWidgets.QApplication.translate("MainWindow", "rotate", None, -1))
@@ -140,4 +140,3 @@ class Ui_MainWindow(object):
         self.menuFile.setTitle(QtWidgets.QApplication.translate("MainWindow", "File", None, -1))
         self.actionOpen_Folder.setText(QtWidgets.QApplication.translate("MainWindow", "Open Folder", None, -1))
         self.actionOpen_File.setText(QtWidgets.QApplication.translate("MainWindow", "Open File", None, -1))
-
