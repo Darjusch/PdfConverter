@@ -2,6 +2,10 @@ import copy
 import sys
 import glob
 import os
+from functools import partial
+
+from pdf_converter.gui.ui_mainwindow import Ui_MainWindow
+
 sys.path.append('..')
 
 from PySide2.QtWidgets import QApplication, QMainWindow

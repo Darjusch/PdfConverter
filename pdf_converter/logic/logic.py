@@ -1,20 +1,8 @@
-import PySide2
-import os
-
 from PySide2.QtCore import QSize
 from PySide2.QtGui import QPixmap, QIcon
 from PySide2.QtWidgets import QPushButton
-from functools import partial
-
-from pdf_converter.gui.pic_button import PicButton
-import glob
 from wand.image import Image as WI
-import logging
-import tests.testing
-from pdf_converter.gui.ui_mainwindow import Ui_MainWindow
-
 from pdf_converter.logic.pdf_splitter import pdf_splitter
-from pdf_converter.main import MainWindow
 
 
 class Logic:
