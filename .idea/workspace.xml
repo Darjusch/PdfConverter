@@ -235,18 +235,18 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
+      <recent name="$PROJECT_DIR$/output" />
+      <recent name="$PROJECT_DIR$/pdf_converter" />
+      <recent name="$PROJECT_DIR$/pdf_converter/gui" />
+      <recent name="$PROJECT_DIR$/pdf_converter/logic" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/icons" />
       <recent name="$PROJECT_DIR$/pdf_converter/logic" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/main" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/output" />
-      <recent name="$PROJECT_DIR$/pdf_converter" />
-      <recent name="$PROJECT_DIR$/tests" />
-      <recent name="$PROJECT_DIR$/pdf_converter/gui" />
-      <recent name="$PROJECT_DIR$/pdf_converter/logic" />
     </key>
   </component>
   <component name="RunDashboard">
