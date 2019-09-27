@@ -1,12 +1,14 @@
 from PyPDF2 import PdfFileWriter, PdfFileReader
-from src.main import PdfConverter
+from pdf_converter.main import MainWindow
 import logging
+import logging.config
 
 
 def pdf_cropper(self):
-    logging.getLogger().setLevel(logging.INFO)
-    logging.basicConfig(format='%(asctime)s %(message)s')
-    for button in PdfConverter.checked_buttons(self):
+    logging.config.fileConfig(fname='logging.config', disable_existing_loggers=False)
+    logger = logging.getLogger(__name__)
+
+    for button in MainWindow.checked_buttons(self):
         if button.isChecked():
             file = PdfFileReader(open(self.pdf_path_list[0], "rb"))
             page = file.getPage(0)
@@ -19,4 +21,4 @@ def pdf_cropper(self):
             output = PdfFileWriter()
             output.addPage(page)
             output.write(open("cropped.pdf", "wb"))
-            logging.info("Page: is being processed!")
+            logging.info("Page: %s is being processed!", page)
