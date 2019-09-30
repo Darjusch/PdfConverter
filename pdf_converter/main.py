@@ -1,14 +1,9 @@
 import sys
 import glob
-import os
 from functools import partial
-
 from pdf_converter.gui.ui_mainwindow import Ui_MainWindow
-
 sys.path.append('..')
-
 from PySide2.QtWidgets import QApplication, QMainWindow
-
 from pdf_converter.logic.logic import *
 
 
@@ -32,6 +27,7 @@ class MainWindow(QMainWindow):
         self.ui.trashButton.clicked.connect(self.delete_old_position)
         self.ui.leftButton.clicked.connect(Logic.swipe_left)
         self.ui.rightButton.clicked.connect(Logic.swipe_right)
+        self.ui.testButton.clicked.connect(Logic.test_jpeg_split)
 
     def setup(self, pdf):
         self.list_of_images = self.logic.pdf_to_jpeg(pdf[0])
@@ -46,6 +42,7 @@ class MainWindow(QMainWindow):
         self.delete_old_position()
         self.pdf_path_list.clear()
         self.list_of_images.clear()
+        self.list_of_push_buttons.clear()
         list_of_pushbuttons = self.logic.create_push_button(self.logic.pdf_to_jpeg(filename))
         for button in list_of_pushbuttons:
             self.list_of_push_buttons.append(button)
@@ -58,7 +55,7 @@ class MainWindow(QMainWindow):
         for push_button in list_of_push_buttons:
             self.ui.pushButtonGrid.addWidget(push_button, row, column)
             column += 1
-            if int(len(list_of_push_buttons) / 2) is column:
+            if int(len(list_of_push_buttons) / 3) is column:
                 row += 1
                 column = 0
         self.ui.widgetLayout.setLayout(self.ui.pushButtonGrid)
@@ -70,7 +67,6 @@ class MainWindow(QMainWindow):
             button_to_remove.setParent(None)
         return self.ui.pushButtonGrid
 
-    # Todo split into two functions one which sends a list of the buttons that has to be swaped and one which does that
     def change_position_of_pic_button(self, list_of_push_buttons):
         list_of_indexes = []
         for button in list_of_push_buttons:
