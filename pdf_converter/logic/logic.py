@@ -85,7 +85,7 @@ class Logic:
     def swipe_left(self):
         pass
 
-    def test_jpeg_split(self):
+    def test_jpeg_split(self, list_of_images):
         img = Image.open("../output/0.jpeg")
         imgwidth, imgheight = img.size
         box = (0, 0, imgwidth/2, imgheight)

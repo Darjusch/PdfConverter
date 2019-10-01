@@ -73,7 +73,8 @@ class MainWindow(QMainWindow):
             if button.isChecked():
                 list_of_indexes.append(list_of_push_buttons.index(button))
         self.delete_old_position()
-        list_of_push_buttons[list_of_indexes[0]], list_of_push_buttons[list_of_indexes[1]] = list_of_push_buttons[list_of_indexes[1]], list_of_push_buttons[list_of_indexes[0]]
+        list_of_push_buttons[list_of_indexes[0]], list_of_push_buttons[list_of_indexes[1]] = \
+            list_of_push_buttons[list_of_indexes[1]], list_of_push_buttons[list_of_indexes[0]]
         self.position_push_buttons_in_grid(list_of_push_buttons)
         del list_of_indexes[:]
 
