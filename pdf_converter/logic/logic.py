@@ -13,7 +13,7 @@ from wand.image import Image as WI
 class Logic:
 
     def create_push_button(self, list_of_pics):
-        list_of_push_button = []
+        push_button_to_image = {}
         for pic in list_of_pics:
             push_button = QPushButton()
             pixmap = QPixmap(pic)
@@ -21,8 +21,8 @@ class Logic:
             push_button.setIcon(button_icon)
             push_button.setIconSize(QSize(100, 100))
             push_button.setCheckable(True)
-            list_of_push_button.append(push_button)
-        return list_of_push_button
+            push_button_to_image[push_button] = pic
+        return push_button_to_image
 
     def pdf_to_jpeg(self, pdf_path):
         list_of_images = []
@@ -85,9 +85,21 @@ class Logic:
     def swipe_left(self):
         pass
 
-    def test_jpeg_split(self, list_of_images):
-        img = Image.open("../output/0.jpeg")
-        imgwidth, imgheight = img.size
-        box = (0, 0, imgwidth/2, imgheight)
-        image = img.crop(box)
-        image.save("../output/crop.jpeg")
+    def ui_jpeg_split(self, push_button_to_images):
+        list_of_images = []
+        list_of_split_images = []
+        checked_button = self.checked_buttons(push_button_to_images)
+        for button in checked_button:
+            if push_button_to_images[button]:
+                list_of_images.append(push_button_to_images[button])
+        for image_nr, image in enumerate(list_of_images):
+            img = Image.open(image)
+            img_width, img_height = img.size
+            box = (0, 0, img_width/2, img_height)
+            image = img.crop(box)
+            image.save("../output/" + str(image_nr) + ".jpeg")
+            box = (img_width/2, 0, img_width, img_height)
+            image2 = img.crop(box)
+            image2.save("../output/" + "random" + ".jpeg")
+            list_of_split_images.append(image)
+            return list_of_images

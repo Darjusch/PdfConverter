@@ -16,37 +16,40 @@ class MainWindow(QMainWindow):
         self.dict_btn_to_image = {}
         self.pdf_path_list = ["../tests/test2.pdf"]
         self.list_of_images = []
-        self.list_of_push_buttons = []
+        self.push_button_to_image = {}
         self.logic = Logic()
         self.ui.openFileButton.clicked.connect(partial(self.setup, self.pdf_path_list))
-        self.ui.splitButton.clicked.connect(self.split_pdfs)
+        self.ui.splitButton.clicked.connect(self.split_pdfs_ui)
         self.ui.changePositionOfPicButton.clicked.connect(partial(self.change_position_of_pic_button,
-                                                                  self.list_of_push_buttons))
+                                                                  self.push_button_to_image.keys()))
         self.ui.rotateButton.clicked.connect(Logic.rotate_pdf)
         self.ui.cropButton.clicked.connect(Logic.cropp_pdf)
         self.ui.trashButton.clicked.connect(self.delete_old_position)
         self.ui.leftButton.clicked.connect(Logic.swipe_left)
         self.ui.rightButton.clicked.connect(Logic.swipe_right)
-        self.ui.testButton.clicked.connect(Logic.test_jpeg_split)
+        self.ui.testButton.clicked.connect(Logic.ui_jpeg_split)
 
     def setup(self, pdf):
         self.list_of_images = self.logic.pdf_to_jpeg(pdf[0])
-        list_of_push_buttons = self.logic.create_push_button(self.list_of_images)
-        for button in list_of_push_buttons:
-            self.list_of_push_buttons.append(button)
-        self.position_push_buttons_in_grid(list_of_push_buttons)
+        self.push_button_to_image.clear()
+        self.push_button_to_image = self.logic.create_push_button(self.list_of_images)
+        self.position_push_buttons_in_grid(self.push_button_to_image.keys())
+
+    def split_pdfs_ui(self):
+        list_of_images = self.logic.ui_jpeg_split(self.push_button_to_image)
+        self.push_button_to_image = self.logic.create_push_button(list_of_images)
+        self.position_push_buttons_in_grid(self.push_button_to_image.keys())
+
 
     def split_pdfs(self):
-        self.logic.pdf_splitter(self.pdf_path_list[0], self.list_of_push_buttons)
+        self.logic.pdf_splitter(self.pdf_path_list[0], self.push_button_to_image.keys())
         filename = glob.glob('../output/*.pdf')[0]
         self.delete_old_position()
         self.pdf_path_list.clear()
         self.list_of_images.clear()
-        self.list_of_push_buttons.clear()
-        list_of_pushbuttons = self.logic.create_push_button(self.logic.pdf_to_jpeg(filename))
-        for button in list_of_pushbuttons:
-            self.list_of_push_buttons.append(button)
-        self.position_push_buttons_in_grid(list_of_pushbuttons)
+        self.push_button_to_image.clear()
+        self.push_button_to_image = self.logic.create_push_button(self.logic.pdf_to_jpeg(filename))
+        self.position_push_buttons_in_grid(self.push_button_to_image.keys())
         self.pdf_path_list.append(filename)
 
     def position_push_buttons_in_grid(self, list_of_push_buttons):
