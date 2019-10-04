@@ -13,7 +13,6 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.dict_btn_to_image = {}
         self.pdf_path_list = ["../tests/test2.pdf"]
         self.list_of_images = []
         self.push_button_to_image = {}
@@ -21,7 +20,7 @@ class MainWindow(QMainWindow):
         self.ui.openFileButton.clicked.connect(partial(self.setup, self.pdf_path_list))
         self.ui.splitButton.clicked.connect(self.split_pdfs_ui)
         self.ui.changePositionOfPicButton.clicked.connect(partial(self.change_position_of_pic_button,
-                                                                  self.push_button_to_image.keys()))
+                                                                  self.push_button_to_image))
         self.ui.rotateButton.clicked.connect(Logic.rotate_pdf)
         self.ui.cropButton.clicked.connect(Logic.cropp_pdf)
         self.ui.trashButton.clicked.connect(self.delete_old_position)
@@ -36,8 +35,15 @@ class MainWindow(QMainWindow):
         self.position_push_buttons_in_grid(self.push_button_to_image.keys())
 
     def split_pdfs_ui(self):
-        list_of_images = self.logic.ui_jpeg_split(self.push_button_to_image)
-        self.push_button_to_image = self.logic.create_push_button(list_of_images)
+        images_to_split = []
+        checked_buttons = self.logic.checked_buttons(self.push_button_to_image)
+        for button in checked_buttons:
+            images_to_split.append(self.push_button_to_image[button])
+            del self.push_button_to_image[button]
+        split_images = self.logic.ui_jpeg_split(images_to_split)
+        new_push_buttons_to_images = self.logic.create_push_button(split_images)
+        self.push_button_to_image.update(new_push_buttons_to_images)
+        self.delete_old_position()
         self.position_push_buttons_in_grid(self.push_button_to_image.keys())
 
 
@@ -58,7 +64,7 @@ class MainWindow(QMainWindow):
         for push_button in list_of_push_buttons:
             self.ui.pushButtonGrid.addWidget(push_button, row, column)
             column += 1
-            if int(len(list_of_push_buttons) / 3) is column:
+            if int(len(list_of_push_buttons) / 4) is column:
                 row += 1
                 column = 0
         self.ui.widgetLayout.setLayout(self.ui.pushButtonGrid)
@@ -70,16 +76,16 @@ class MainWindow(QMainWindow):
             button_to_remove.setParent(None)
         return self.ui.pushButtonGrid
 
-    def change_position_of_pic_button(self, list_of_push_buttons):
-        list_of_indexes = []
-        for button in list_of_push_buttons:
+    def change_position_of_pic_button(self, list_of_push_buttons1):
+        button_to_switch = []
+        for button in self.push_button_to_image.keys():
             if button.isChecked():
-                list_of_indexes.append(list_of_push_buttons.index(button))
+                button_to_switch.append(button)
+        self.push_button_to_image[button_to_switch[0]], self.push_button_to_image[button_to_switch[1]] = \
+            self.push_button_to_image[button_to_switch[1]], self.push_button_to_image[button_to_switch[0]]
         self.delete_old_position()
-        list_of_push_buttons[list_of_indexes[0]], list_of_push_buttons[list_of_indexes[1]] = \
-            list_of_push_buttons[list_of_indexes[1]], list_of_push_buttons[list_of_indexes[0]]
-        self.position_push_buttons_in_grid(list_of_push_buttons)
-        del list_of_indexes[:]
+        self.position_push_buttons_in_grid(self.push_button_to_image.keys())
+        del button_to_switch[:]
 
 
 if __name__ == '__main__':

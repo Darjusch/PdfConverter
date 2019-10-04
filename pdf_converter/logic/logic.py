@@ -85,21 +85,18 @@ class Logic:
     def swipe_left(self):
         pass
 
-    def ui_jpeg_split(self, push_button_to_images):
-        list_of_images = []
-        list_of_split_images = []
-        checked_button = self.checked_buttons(push_button_to_images)
-        for button in checked_button:
-            if push_button_to_images[button]:
-                list_of_images.append(push_button_to_images[button])
-        for image_nr, image in enumerate(list_of_images):
+    def ui_jpeg_split(self, images_to_split):
+        split_images = []
+        for image_nr, image in enumerate(images_to_split):
             img = Image.open(image)
             img_width, img_height = img.size
             box = (0, 0, img_width/2, img_height)
-            image = img.crop(box)
-            image.save("../output/" + str(image_nr) + ".jpeg")
+            image1 = img.crop(box)
+            image1.save("../output/split1" + str(image_nr) + ".jpeg")
             box = (img_width/2, 0, img_width, img_height)
             image2 = img.crop(box)
-            image2.save("../output/" + "random" + ".jpeg")
-            list_of_split_images.append(image)
-            return list_of_images
+            image2.save("../output/split2" + str(image_nr) + ".jpeg")
+            split_images.append("../output/split1" + str(image_nr) +".jpeg")
+            split_images.append("../output/split2" + str(image_nr) + ".jpeg")
+        return split_images
+
