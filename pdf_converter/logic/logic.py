@@ -73,8 +73,6 @@ class Logic:
                 checked_buttons.append(button)
         return checked_buttons
 
-    def rotate_pdf(self):
-        pass
 
     def cropp_pdf(self):
         pass
