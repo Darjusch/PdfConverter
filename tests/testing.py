@@ -1,17 +1,13 @@
-from PyPDF2 import PdfFileReader
-from pdf_converter.main import *
-import os
-import logging
+import unittest
 import logging.config
+from pdf_converter.logic.logic import *
 
+class MyTest(unittest.TestCase):
 
-class MyTest():
-    logging.config.fileConfig(fname='logging.config', disable_existing_loggers=False)
-    logger = logging.getLogger(__name__)
 
     def pdf_to_jpeg_test(self):
         pdf_path_list = ['tests/test.pdf']
-        PdfConverter.pdf_to_jpeg(self, pdf_path_list)
+        #self.assertEquals(Logic.pdf_to_jpeg(pdf_path_list), list_of_images)
         total_number_of_jpegs = 0
         list_of_files = os.listdir('output')
         for file in list_of_files:
