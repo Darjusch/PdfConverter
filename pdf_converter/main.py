@@ -1,15 +1,9 @@
-import copy
 import sys
 import glob
-import os
 from functools import partial
-
 from pdf_converter.gui.ui_mainwindow import Ui_MainWindow
-
 sys.path.append('..')
-
 from PySide2.QtWidgets import QApplication, QMainWindow
-
 from pdf_converter.logic.logic import *
 
 
@@ -19,87 +13,114 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.dict_btn_to_image = {}
         self.pdf_path_list = ["../tests/test2.pdf"]
         self.list_of_images = []
-        self.list_of_push_buttons = []
+        self.push_button_to_image = {} #image object instead of image
         self.logic = Logic()
-        self.ui.openFileButton.clicked.connect(self.setup)
-        self.ui.splitButton.clicked.connect(self.split_pdfs)
-        self.ui.changePositionOfPicButton.clicked.connect(partial(self.change_position_of_pic_button, self.list_of_push_buttons))
-        self.ui.rotateButton.clicked.connect(Logic.rotate_pdf)
+        self.ui.openFileButton.clicked.connect(partial(self.setup, self.pdf_path_list))
+        self.ui.splitButton.clicked.connect(self.split_pdfs_ui)
+        self.ui.changePositionOfPicButton.clicked.connect(self.change_position_of_pic_button)
+        self.ui.rotateButton.clicked.connect(self.rotate_pdf)
         self.ui.cropButton.clicked.connect(Logic.cropp_pdf)
-        # clear memory or delete old position?
         self.ui.trashButton.clicked.connect(self.delete_old_position)
         self.ui.leftButton.clicked.connect(Logic.swipe_left)
         self.ui.rightButton.clicked.connect(Logic.swipe_right)
+        self.ui.testButton.clicked.connect(Logic.ui_jpeg_split)
 
-    # Todo self is from Logic not from main
-    def setup(self):
-        self.list_of_images = self.logic.pdf_to_jpeg(self.pdf_path_list[0])
-        list_of_push_buttons, dict_btn_to_image = self.logic.create_push_button(self.list_of_images)
-        self.dict_btn_to_image = dict_btn_to_image.copy()
-        for button in list_of_push_buttons:
-            self.list_of_push_buttons.append(button)
-        grid = self.position_push_buttons_in_grid(list_of_push_buttons)
-        self.ui.widgetLayout.setLayout(grid)
+    def setup(self, pdf):
+        self.list_of_images = self.logic.pdf_to_jpeg(pdf[0])
+        self.push_button_to_image.clear()
+        self.push_button_to_image = self.logic.create_push_button(self.list_of_images)
+        self.position_push_buttons_in_grid() #self.push_button_to_image.keys()
+
+    def split_pdfs_ui(self):
+        images_to_split = []
+        checked_buttons = self.logic.checked_buttons(self.push_button_to_image)
+        for button in checked_buttons:
+            images_to_split.append(self.push_button_to_image[button])
+            del self.push_button_to_image[button]
+        split_images = self.logic.ui_jpeg_split(images_to_split)
+        new_push_buttons_to_images = self.logic.create_push_button(split_images)
+        self.push_button_to_image.update(new_push_buttons_to_images)
+        self.delete_old_position()
+        self.position_push_buttons_in_grid() #self.push_button_to_image.keys()
 
 
     def split_pdfs(self):
-        self.logic.split_each_selected_pdf_into_two_pdfs(self.pdf_path_list[0], self.list_of_push_buttons)
-        self.clear_memory()
+        self.logic.pdf_splitter(self.pdf_path_list[0], self.push_button_to_image.keys())
         filename = glob.glob('../output/*.pdf')[0]
+        self.delete_old_position()
+        self.pdf_path_list.clear()
+        self.list_of_images.clear()
+        self.push_button_to_image.clear()
+        self.push_button_to_image = self.logic.create_push_button(self.logic.pdf_to_jpeg(filename))
+        self.position_push_buttons_in_grid() #self.push_button_to_image.keys()
         self.pdf_path_list.append(filename)
-        self.setup()
 
-    def position_push_buttons_in_grid(self, list_of_push_buttons):
+    def position_push_buttons_in_grid(self): #list_of_pushbutton
         row = 0
         column = 0
-        for push_button in list_of_push_buttons:
+        for push_button in self.push_button_to_image.keys():
             self.ui.pushButtonGrid.addWidget(push_button, row, column)
             column += 1
-            if int(len(list_of_push_buttons) / 2) is column:
+            if int(len(self.push_button_to_image.keys()) / 4) is column:
                 row += 1
                 column = 0
-        return self.ui.pushButtonGrid
+        self.ui.widgetLayout.setLayout(self.ui.pushButtonGrid)
 
     def delete_old_position(self):
         for push_button in reversed(range(self.ui.pushButtonGrid.count())):
             button_to_remove = self.ui.pushButtonGrid.itemAt(push_button).widget()
             self.ui.pushButtonGrid.removeWidget(button_to_remove)
             button_to_remove.setParent(None)
-            self.list_of_push_buttons.remove(button_to_remove)
         return self.ui.pushButtonGrid
 
-
-    #Todo problem with self -> Is from logic not MainWindow
-    def clear_memory(self):
+    def change_position_of_pic_button(self):
+        button_to_switch = []
+        for button in self.push_button_to_image.keys():
+            if button.isChecked():
+                button_to_switch.append(button)
+        self.push_button_to_image[button_to_switch[0]], self.push_button_to_image[button_to_switch[1]] = \
+            self.push_button_to_image[button_to_switch[1]], self.push_button_to_image[button_to_switch[0]]
         self.delete_old_position()
-        self.dict_btn_to_image.clear()
-        self.pdf_path_list.clear()
-        self.list_of_images.clear()
-        self.list_of_push_buttons.clear()
-        #files = glob.glob('../output/*')
-        #for f in files:
-        #    os.remove(f)
+        self.push_button_to_image = self.logic.create_push_button(self.push_button_to_image.values())
+        self.position_push_buttons_in_grid()
+        del button_to_switch[:]
 
-    # Todo split into two functions one which sends a list of the buttons that has to be swaped and one which does that
-    def change_position_of_pic_button(self, list_of_push_buttons):
-        images_to_be_swaped = []
-        for button in self.logic.checked_buttons(list_of_push_buttons):
-            image = self.dict_btn_to_image[button]
-            images_to_be_swaped.append(image)
-        index_one = self.list_of_images.index(images_to_be_swaped[1])
-        index_two = self.list_of_images.index(images_to_be_swaped[0])
-        self.list_of_images[index_one], self.list_of_images[index_two] = images_to_be_swaped[0], \
-                                                                                     images_to_be_swaped[1]
-        os.rename(self.list_of_images[index_one], "../output/avoid overwriting.jpeg")
-        os.rename(self.list_of_images[index_two], images_to_be_swaped[1])
-        os.rename("../output/avoid overwriting.jpeg", images_to_be_swaped[0])
-        self.clear_memory()
-        grid = self.position_push_buttons_in_grid(list_of_push_buttons)
-        self.ui.widgetLayout.setLayout(grid)
-        del images_to_be_swaped[:]
+    def rotate_pdf(self):
+        checked_buttons = self.logic.checked_buttons(list(self.push_button_to_image.keys()))
+        pdf = open("../tests/test2.pdf", 'rb')
+        pdf_reader = PdfFileReader(pdf)
+        pdf_writer = PdfFileWriter()
+        for page_number in range(pdf_reader.numPages):
+            if list(self.push_button_to_image.keys())[page_number] in checked_buttons:
+                page = pdf_reader.getPage(page_number)
+                page.rotateClockwise(90)
+                pdf_writer.addPage(page)
+            else:
+                pdf_writer.addPage(pdf_reader.getPage(page_number))
+        output = open("../output/rotated_pdf", 'wb')
+        pdf_writer.write(output)
+        pdf.close()
+        output.close()
+        self.push_button_to_image = self.logic.create_push_button(self.logic.pdf_to_jpeg("../output/rotated_pdf"))
+        self.delete_old_position()
+        self.position_push_buttons_in_grid()
+
+
+    # Todo list of images is of type PIL -> Image not normal image.
+    #def rotate_pdf_ui(self):
+    #    checked_buttons = self.logic.checked_buttons(list(self.push_button_to_image.keys()))
+    #    list_of_images = []
+    #    for index, button in enumerate(checked_buttons):
+    #        image = Image.open(self.push_button_to_image[button])
+    #        rotated_image = image.rotate(90)
+    #        list_of_images.append(rotated_image)
+    #        image.save("../output/rotated{}.jpeg".format(index))
+    #    self.push_button_to_image = self.logic.create_push_button(list_of_images)
+    #    self.delete_old_position()
+    #    self.position_push_buttons_in_grid()
+    #    return list_of_images
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

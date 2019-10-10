@@ -2,9 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="286f7b8e-947c-4b11-91b6-1d53b67fa2ab" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PyPdfConverter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PyPdfConverter.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdf_converter/logic/logic.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_converter/logic/logic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/rotateleft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/rotateright.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/run.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/trash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf_converter/gui/pdfConverterDesign3.0.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf_converter/gui/pdfConverterDesign3.1.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf_converter/gui/pdfConverterDesign3.2.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf_converter/gui/pdfConverterDesign3.3.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf_converter/gui/pic_button.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf_converter/gui/ui_mainwindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_converter/gui/ui_mainwindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf_converter/logic/pdf_cropper.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pdf_converter/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_converter/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/testing.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,15 +31,16 @@
     <SUITE FILE_PATH="coverage/PyPdfConverter$testing.coverage" NAME="testing Coverage Results" MODIFIED="1565272410762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tests" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$gui.coverage" NAME="main Coverage Results" MODIFIED="1565701347747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$info.coverage" NAME="info Coverage Results" MODIFIED="1561463617082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/src" />
-    <SUITE FILE_PATH="coverage/PyPdfConverter$testingSplit.coverage" NAME="testingSplit Coverage Results" MODIFIED="1561464547726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/src" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$gui__1_.coverage" NAME="gui (1) Coverage Results" MODIFIED="1565779622442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter/gui" />
-    <SUITE FILE_PATH="coverage/PyPdfConverter$main.coverage" NAME="main Coverage Results" MODIFIED="1569393740913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$testing__1_.coverage" NAME="testing (1) Coverage Results" MODIFIED="1565269832932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$logic.coverage" NAME="logic Coverage Results" MODIFIED="1565768010996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter/logic" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$testingSplit__1_.coverage" NAME="pdfSplitter Coverage Results" MODIFIED="1561712497705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/PyPdfConverter$pdfMain.coverage" NAME="pdfMain Coverage Results" MODIFIED="1561455022747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/src" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$eeffe.coverage" NAME="eeffe Coverage Results" MODIFIED="1561559577735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/main" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$pic_button.coverage" NAME="pic_button Coverage Results" MODIFIED="1566208307426" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter/gui" />
+    <SUITE FILE_PATH="coverage/PyPdfConverter$testingSplit.coverage" NAME="testingSplit Coverage Results" MODIFIED="1561464547726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/src" />
+    <SUITE FILE_PATH="coverage/PyPdfConverter$main.coverage" NAME="main Coverage Results" MODIFIED="1569504655504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter" />
+    <SUITE FILE_PATH="coverage/PdfConverter$main.coverage" NAME="main Coverage Results" MODIFIED="1570698454597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter" />
+    <SUITE FILE_PATH="coverage/PyPdfConverter$pdfMain.coverage" NAME="pdfMain Coverage Results" MODIFIED="1561455022747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/src" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="PyPdfConverter" />
@@ -34,20 +50,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pdf_converter/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="152">
+              <caret line="17" column="69" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#0#10#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pdf_converter/gui/ui_mainwindow.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
-              <caret line="102" column="6" selection-start-line="102" selection-start-column="6" selection-end-line="102" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -55,22 +62,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pdf_converter/logic/logic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-290">
-              <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+            <state relative-caret-position="96">
+              <caret line="15" column="13" selection-start-line="15" selection-end-line="16" />
               <folding>
-                <element signature="e#1#33#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pdf_converter/logic/pdf_splitter.py">
+        <entry file="file://$PROJECT_DIR$/tests/testing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="105">
+              <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -87,18 +94,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>paint</find>
-      <find>logger</find>
-      <find>create_pic_button</find>
-      <find>clear_memory</find>
-      <find>QPushButton</find>
-      <find>crop</find>
-      <find>left</find>
-      <find>gridLayout</find>
-      <find>PYDEVD_USE_FRAME_EVAL</find>
-      <find>picButtonGrid</find>
-      <find>pic</find>
-      <find>centralwidget</find>
       <find>QGridLayout</find>
       <find>gridLayout_2</find>
       <find>Layout</find>
@@ -117,13 +112,25 @@
       <find>PySide2</find>
       <find>partial</find>
       <find>PicButton</find>
+      <find>pdf_path</find>
+      <find>dict_btn</find>
+      <find>dict</find>
+      <find>create_push_button</find>
+      <find>create</find>
+      <find>list_of_Push_buttons</find>
+      <find>push_button_to_image</find>
+      <find>dict_btn_to_image</find>
+      <find>list_of_push</find>
+      <find>change</find>
+      <find>setup</find>
+      <find>rotate</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
   </component>
@@ -135,7 +142,6 @@
         <option value="$PROJECT_DIR$/venv/src/testingSplit.py" />
         <option value="$PROJECT_DIR$/venv/src/eeffe.py" />
         <option value="$PROJECT_DIR$/venv/src/gui.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/pdfConverter.py" />
         <option value="$PROJECT_DIR$/src/main/PicButton.py" />
         <option value="$PROJECT_DIR$/src/text.txt" />
@@ -160,19 +166,39 @@
         <option value="$PROJECT_DIR$/logging.config" />
         <option value="$PROJECT_DIR$/pdf_converter/logic/gui.py" />
         <option value="$PROJECT_DIR$/pdf_converter/gui/gui.py" />
-        <option value="$PROJECT_DIR$/tests/testing.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/pdf_converter/gui/pic_button.py" />
-        <option value="$PROJECT_DIR$/pdf_converter/gui/ui_mainwindow.py" />
         <option value="$PROJECT_DIR$/pdf_converter/logic/pdf_splitter.py" />
+        <option value="$PROJECT_DIR$/output/.gitignore" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/pdf_converter/gui/ui_mainwindow.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/tests/testing.py" />
         <option value="$PROJECT_DIR$/pdf_converter/logic/logic.py" />
         <option value="$PROJECT_DIR$/pdf_converter/main.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1280" />
-    <option name="height" value="800" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="35" />
+    <option name="width" value="1440" />
+    <option name="height" value="833" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Python</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>PyPackageRequirementsInspection</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -185,29 +211,24 @@
         <subPane>
           <expand>
             <path>
-              <item name="PyPdfConverter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PyPdfConverter" type="462c0819:PsiDirectoryNode" />
+              <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="PyPdfConverter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PyPdfConverter" type="462c0819:PsiDirectoryNode" />
+              <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
               <item name="output" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="PyPdfConverter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PyPdfConverter" type="462c0819:PsiDirectoryNode" />
+              <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
               <item name="pdf_converter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="PyPdfConverter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PyPdfConverter" type="462c0819:PsiDirectoryNode" />
+              <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
               <item name="pdf_converter" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PyPdfConverter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PyPdfConverter" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -220,7 +241,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.python" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -231,10 +252,10 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tests" />
+      <recent name="$PROJECT_DIR$/output" />
+      <recent name="$PROJECT_DIR$/pdf_converter" />
       <recent name="$PROJECT_DIR$/pdf_converter/gui" />
       <recent name="$PROJECT_DIR$/pdf_converter/logic" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/pdf_converter" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -302,9 +323,9 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="PYDEVD_USE_FRAME_EVAL" value="0" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pdf_converter" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -362,11 +383,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.main" />
-      <item itemvalue="Python.testing (1)" />
       <item itemvalue="Python.gui (1)" />
       <item itemvalue="Python.logic" />
+      <item itemvalue="Python.main" />
       <item itemvalue="Python.pic_button" />
+      <item itemvalue="Python.testing (1)" />
     </list>
     <recent_temporary>
       <list>
@@ -405,7 +426,12 @@
       <workItem from="1565701507707" duration="41712000" />
       <workItem from="1567668940333" duration="41432000" />
       <workItem from="1568969562379" duration="6108000" />
-      <workItem from="1569393394928" duration="306000" />
+      <workItem from="1569393394928" duration="3117000" />
+      <workItem from="1569418481537" duration="2086000" />
+      <workItem from="1569489515131" duration="11945000" />
+      <workItem from="1570182470582" duration="8926000" />
+      <workItem from="1570697641280" duration="43000" />
+      <workItem from="1570697692922" duration="2459000" />
     </task>
     <task id="LOCAL-00001" summary="Import fix, structure changes, cleaner code">
       <created>1568972395330</created>
@@ -421,11 +447,32 @@
       <option name="project" value="LOCAL" />
       <updated>1568976205533</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Cleaning imports">
+      <created>1569393858324</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1569393858325</updated>
+    </task>
+    <task id="LOCAL-00004" summary="output dir">
+      <created>1569571540698</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1569571540698</updated>
+    </task>
+    <task id="LOCAL-00005" summary="-">
+      <created>1569957235638</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1569957235638</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="298537000" />
+    <option name="totallyTimeSpent" value="327521000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -437,24 +484,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="0" y="35" width="1440" height="833" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7883212" visible="true" weight="0.1615509" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7883212" visible="true" weight="0.16094421" />
       <window_info id="Structure" order="1" sideWeight="0.5014881" side_tool="true" weight="0.2768903" />
       <window_info id="Favorites" order="2" sideWeight="0.2119883" side_tool="true" weight="0.17838125" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4888179" weight="0.3237624" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.87318254" visible="true" weight="0.33424658" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8785942" weight="0.3029703" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.48569384" weight="0.32289156" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8462089" visible="true" weight="0.08232119" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8576462" weight="0.36615813" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.5857295" weight="0.32953367" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.5857295" weight="0.3287483" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49946752" weight="0.3284974" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49946752" weight="0.32737276" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.12681745" side_tool="true" visible="true" weight="0.33424658" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.6704362" weight="0.1849315" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.15379113" side_tool="true" visible="true" weight="0.08232119" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.8569385" weight="0.28915662" />
       <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.4978701" weight="0.3284974" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -463,22 +510,22 @@
       <window_info anchor="right" id="Database" order="4" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7883212" visible="true" weight="0.15601704" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7883212" visible="true" weight="0.20930232" />
       <window_info id="Structure" order="1" sideWeight="0.5014881" side_tool="true" weight="0.2768903" />
       <window_info id="Favorites" order="2" sideWeight="0.2119883" side_tool="true" weight="0.17838125" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4914803" weight="0.32511738" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.93077743" visible="true" weight="0.3028169" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49041533" weight="0.2382629" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4877529" weight="0.3237624" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8611698" weight="0.23108666" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.86751235" visible="true" weight="0.42916092" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.5857295" weight="0.32953367" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.5857295" weight="0.32891566" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49946752" weight="0.3284974" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49946752" weight="0.32771084" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.06922258" side_tool="true" weight="0.19600938" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.68370605" weight="0.34037557" />
-      <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.49840257" weight="0.3286385" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.13248767" side_tool="true" visible="true" weight="0.42916092" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.82875264" weight="0.18431912" />
+      <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.4978701" weight="0.3284974" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -492,42 +539,67 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Import fix, structure changes, cleaner code" />
     <MESSAGE value="&quot;Splitting pdfs works again in ui and logic, changing position has to be fixed&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Splitting pdfs works again in ui and logic, changing position has to be fixed&quot;" />
+    <MESSAGE value="Cleaning imports" />
+    <MESSAGE value="output dir" />
+    <MESSAGE value="-" />
+    <option name="LAST_COMMIT_MESSAGE" value="-" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pdf_converter/logic/pdf_splitter.py</url>
-          <line>18</line>
-          <option name="timeStamp" value="27" />
+          <url>file://$PROJECT_DIR$/pdf_converter/logic/logic.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="120" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pdf_converter/logic/pdf_splitter.py</url>
-          <line>17</line>
-          <option name="timeStamp" value="65" />
+          <url>file://$PROJECT_DIR$/pdf_converter/logic/logic.py</url>
+          <line>43</line>
+          <option name="timeStamp" value="121" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pdf_converter/logic/pdf_splitter.py</url>
-          <line>30</line>
-          <option name="timeStamp" value="66" />
+          <url>file://$PROJECT_DIR$/pdf_converter/logic/logic.py</url>
+          <line>92</line>
+          <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pdf_converter/main.py</url>
-          <line>50</line>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pdf_converter/main.py</url>
-          <line>47</line>
-          <option name="timeStamp" value="68" />
+          <url>file://$PROJECT_DIR$/pdf_converter/logic/logic.py</url>
+          <line>88</line>
+          <option name="timeStamp" value="125" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/pdf_converter/main.py</url>
-          <line>94</line>
-          <option name="timeStamp" value="71" />
+          <line>86</line>
+          <option name="timeStamp" value="134" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pdf_converter/main.py</url>
+          <line>62</line>
+          <option name="timeStamp" value="140" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pdf_converter/main.py</url>
+          <line>122</line>
+          <option name="timeStamp" value="143" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pdf_converter/logic/logic.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="144" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pdf_converter/main.py</url>
+          <line>112</line>
+          <option name="timeStamp" value="145" />
         </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -585,224 +657,152 @@
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
+        <expression-string>list_of_pics</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>main.push_button_to_image</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.push_button_to_image</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>list_of_push_buttons</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.list_of_images[index_one]</expression-string>
+        <expression-string>self.ui.pushButtonGrid.addWidget(push_button, row, column)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>os.rename(self.list_of_images[index_one], &quot;overwriting.jpeg&quot;)</expression-string>
+        <expression-string>push_button.isChecked()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>os.rename(self.list_of_images[index_one], &quot;../output/avoid overwriting.jpeg&quot;)</expression-string>
+        <expression-string>push_button</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>os.rename(self.list_of_images[index_one], &quot;avoid overwriting.jpeg&quot;)</expression-string>
+        <expression-string>self.push_button_to_image.keys()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.list_of_images</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>os.rename(&quot;../output/avoid overwriting.jpeg&quot;, images_to_be_swaped[0])</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>os.rename(self.list_of_images[index_two], images_to_be_swaped[1])</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>os.rename(self.list_of_images[index_one], &quot;../output/0.jpeg&quot;)</expression-string>
+        <expression-string>button_to_switch</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/4.jpeg" />
-    <entry file="file://$PROJECT_DIR$/src/3.jpeg" />
-    <entry file="file://$PROJECT_DIR$/src/2.jpeg" />
-    <entry file="file://$PROJECT_DIR$/src/1.jpeg" />
-    <entry file="file://$PROJECT_DIR$/src/0.jpeg" />
-    <entry file="file://$PROJECT_DIR$/src/text.txt" />
-    <entry file="file:///usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7/lib/python3.7/functools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="233" column="6" selection-start-line="233" selection-start-column="6" selection-end-line="233" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/documentation.txt">
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/1269580573/PySide2/QtGui/QPixmap.py" />
+    <entry file="file://$PROJECT_DIR$/output/4.jpeg" />
+    <entry file="file://$PROJECT_DIR$/output/5.jpeg" />
+    <entry file="file://$PROJECT_DIR$/ui_mainwindow.py" />
+    <entry file="file://$PROJECT_DIR$/../PdfConverterTestingStuff/reproduce.py" />
+    <entry file="file://$PROJECT_DIR$/pdf_converter/1.jpeg" />
+    <entry file="file://$PROJECT_DIR$/output/2.jpeg" />
+    <entry file="file://$PROJECT_DIR$/pdf_converter/0.jpeg" />
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/1269580573/PySide2/QtWidgets/QGridLayout.py" />
+    <entry file="file:///usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7/lib/python3.7/configparser.py" />
+    <entry file="file:///usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7/lib/python3.7/logging/config.py" />
+    <entry file="file://$PROJECT_DIR$/output/avoid overwriting.jpeg" />
+    <entry file="file://$PROJECT_DIR$/pdf_converter/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/1269580573/PyQt5/QtWidgets/QAbstractButton.py">
+    <entry file="file://$PROJECT_DIR$/output/3.jpeg" />
+    <entry file="file://$PROJECT_DIR$/output/first.jpeg" />
+    <entry file="file://$PROJECT_DIR$/output/second.jpeg" />
+    <entry file="file:///usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7/lib/python3.7/os.py" />
+    <entry file="file://$PROJECT_DIR$/output/switch.jpeg" />
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/wand/resource.py" />
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/wand/image.py" />
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/PyPDF2/generic.py" />
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/PyPDF2/pdf.py" />
+    <entry file="file://$PROJECT_DIR$/pdf_converter/logic/pdf_splitter.py" />
+    <entry file="file://$PROJECT_DIR$/output/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-257">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        <state relative-caret-position="45">
+          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pdf_converter/gui/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file:///usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7/lib/python3.7/configparser.py">
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/PyPDF2/pdf.py" />
+    <entry file="file://$PROJECT_DIR$/output/crop.jpeg" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/PIL/_version.py" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/PIL/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/output/random.jpeg" />
+    <entry file="file:///usr/local/lib/python3.7/site-packages/PIL/ImageFile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="957" selection-start-line="957" selection-end-line="957" />
+        <state relative-caret-position="116">
+          <caret line="513" selection-start-line="513" selection-end-line="513" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7/lib/python3.7/logging/config.py">
+    <entry file="file:///usr/local/lib/python3.7/site-packages/PIL/JpegImagePlugin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        <state relative-caret-position="116">
+          <caret line="760" selection-start-line="760" selection-end-line="760" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7/lib/python3.7/xml/etree/ElementTree.py">
+    <entry file="file:///usr/local/lib/python3.7/site-packages/PIL/Image.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="586" selection-start-line="586" selection-end-line="586" />
+        <state relative-caret-position="109">
+          <caret line="1993" selection-start-line="1993" selection-end-line="1993" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/PyQt5/uic/Loader/loader.py">
+    <entry file="file://$PROJECT_DIR$/output/53.jpeg" />
+    <entry file="file://$PROJECT_DIR$/output/1.jpeg" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/PIL/Image.py" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/PIL/JpegImagePlugin.py" />
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        <state relative-caret-position="90">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/PyQt5/uic/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="225" selection-start-line="225" selection-end-line="225" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/icons/trash.jpeg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/PyQt5/uic/Compiler/qtproxies.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-706" />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/icons/swap.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/1269580573/PySide2/QtCore/QCoreApplication.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="207" column="75" selection-start-line="207" selection-start-column="75" selection-end-line="207" selection-end-column="75" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/icons/split.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pdf_converter/gui/gui.py" />
-    <entry file="file://$PROJECT_DIR$/logging.config">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="58" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/icons/run.jpeg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
+    <entry file="file://$PROJECT_DIR$/pdf_converter/gui/ui_mainwindow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state relative-caret-position="347">
+          <caret line="78" column="56" selection-start-line="78" selection-start-column="56" selection-end-line="78" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/testing.py">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/wand/resource.py">
+    <entry file="file://$PROJECT_DIR$/pdf_converter/gui/pic_button.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="239" selection-start-line="239" selection-end-line="239" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/PySide2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/wand/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pdf_converter/logic/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/1269580573/PySide2/QtWidgets/QAbstractButton.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/PyQt5/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/PySide2/QtWidgets.pyi">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/1269580573/PySide2/QtGui/QPixmap.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-508">
-          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/4.jpeg" />
-    <entry file="file://$PROJECT_DIR$/output/5.jpeg" />
-    <entry file="file://$PROJECT_DIR$/ui_mainwindow.py" />
-    <entry file="file://$PROJECT_DIR$/../PdfConverterTestingStuff/reproduce.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/1.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/3.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/2.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/0.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/1269580573/PySide2/QtWidgets/QGridLayout.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="125" column="8" selection-start-line="125" selection-start-column="8" selection-end-line="125" selection-end-column="8" />
+        <state relative-caret-position="405">
+          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -813,66 +813,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/icons/split.png">
+    <entry file="file://$PROJECT_DIR$/tests/testing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/pdflogo.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file:///usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7/lib/python3.7/configparser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14235">
-          <caret line="957" selection-start-line="957" selection-end-line="957" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7/lib/python3.7/logging/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pdf_converter/gui/pic_button.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="21" lean-forward="true" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pdf_converter/logic/pdf_splitter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/output/0.jpeg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/pdf_converter/logic/logic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-290">
-          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        <state relative-caret-position="96">
+          <caret line="15" column="13" selection-start-line="15" selection-end-line="16" />
           <folding>
-            <element signature="e#1#33#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pdf_converter/gui/ui_mainwindow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="102" column="6" selection-start-line="102" selection-start-column="6" selection-end-line="102" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pdf_converter/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="152">
+          <caret line="17" column="69" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

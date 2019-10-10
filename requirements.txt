@@ -4,3 +4,4 @@ PyPDF2==1.26.0
 PyQt5==5.13.0
 python-magic==0.4.15
 Wand==0.5.4
+PILLOW==6.2.0

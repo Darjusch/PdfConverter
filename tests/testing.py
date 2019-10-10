@@ -1,9 +1,4 @@
 import unittest
-
-from PyPDF2 import PdfFileReader
-from pdf_converter.main import *
-import os
-import logging
 import logging.config
 from pdf_converter.logic.logic import *
 
