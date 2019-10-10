@@ -1,4 +1,5 @@
 import copy
+import io
 import logging
 import os
 import uuid
@@ -7,14 +8,15 @@ from PyPDF2 import PdfFileReader, PdfFileWriter
 from PySide2.QtCore import QSize
 from PySide2.QtGui import QPixmap, QIcon
 from PySide2.QtWidgets import QPushButton
+from typing.io import BinaryIO
 from wand.image import Image as WI
 
 
 class Logic:
 
-    def create_push_button(self, list_of_pics):
+    def create_push_button(self, list_of_images):
         push_button_to_image = {}
-        for pic in list_of_pics:
+        for pic in list_of_images:
             push_button = QPushButton()
             pixmap = QPixmap(pic)
             button_icon = QIcon(pixmap)
@@ -30,9 +32,9 @@ class Logic:
         wand_image_jpegs = wand_image_pdf.convert("jpeg")
         for page_number, wand_image_jpeg in enumerate(wand_image_jpegs.sequence):
             jpeg = WI(image=wand_image_jpeg)
-            jpeg.save(filename="../output/{0}.jpeg".format(str(page_number)))
-            list_of_images.append("../output/{0}.jpeg".format(str(page_number)))
+            list_of_images.append(jpeg)
         return list_of_images
+
 
     # Todo: Problem with file saving / replacing.
     def pdf_splitter(self, path, list_of_push_buttons):
