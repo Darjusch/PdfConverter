@@ -15,7 +15,7 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.pdf_path_list = ["../tests/test2.pdf"]
         self.list_of_images = []
-        self.push_button_to_image = {}
+        self.push_button_to_image = {} #image object instead of image
         self.logic = Logic()
         self.ui.openFileButton.clicked.connect(partial(self.setup, self.pdf_path_list))
         self.ui.splitButton.clicked.connect(self.split_pdfs_ui)
