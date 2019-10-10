@@ -19,8 +19,7 @@ class MainWindow(QMainWindow):
         self.logic = Logic()
         self.ui.openFileButton.clicked.connect(partial(self.setup, self.pdf_path_list))
         self.ui.splitButton.clicked.connect(self.split_pdfs_ui)
-        self.ui.changePositionOfPicButton.clicked.connect(partial(self.change_position_of_pic_button,
-                                                                  self.push_button_to_image))
+        self.ui.changePositionOfPicButton.clicked.connect(self.change_position_of_pic_button)
         self.ui.rotateButton.clicked.connect(self.rotate_pdf)
         self.ui.cropButton.clicked.connect(Logic.cropp_pdf)
         self.ui.trashButton.clicked.connect(self.delete_old_position)
@@ -76,7 +75,7 @@ class MainWindow(QMainWindow):
             button_to_remove.setParent(None)
         return self.ui.pushButtonGrid
 
-    def change_position_of_pic_button(self, list_of_push_buttons1):
+    def change_position_of_pic_button(self):
         button_to_switch = []
         for button in self.push_button_to_image.keys():
             if button.isChecked():
