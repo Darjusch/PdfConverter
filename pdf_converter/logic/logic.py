@@ -10,31 +10,18 @@ from PySide2.QtWidgets import QPushButton
 
 from wand.image import Image as WI
 
+from pdf_converter.page_object import PageObject
+
 
 class Logic:
 
-    def create_push_button(self, qimages):
-        push_button_to_image = {}
-        for pic in qimages:
-            push_button = QPushButton()
-            pixmap = QPixmap(pic)
-            button_icon = QIcon(pixmap)
-            push_button.setIcon(button_icon)
-            push_button.setIconSize(QSize(100, 100))
-            push_button.setCheckable(True)
-            push_button_to_image[push_button] = pic
-        return push_button_to_image
-
-    def pdf_to_qimages(self, pdf_path, resolution=50, fmt="png"):
-        qimages = []
+    def pdf_to_push_button(self, pdf_path, resolution=50):
+        page_objects = []
         with WI(filename=pdf_path, resolution=resolution) as pdf_img:
             for page in pdf_img.sequence:
-                with WI(page) as page_image:
-                    qimage = QtGui.QImage()
-                    data = page_image.make_blob(format=fmt)
-                    qimage.loadFromData(data)
-                    qimages.append(qimage)
-        return qimages
+                obj = PageObject(page)
+                page_objects.append(obj)
+        return page_objects
 
 
     # Todo: Problem with file saving / replacing.
