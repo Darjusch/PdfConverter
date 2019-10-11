@@ -1,22 +1,21 @@
 import copy
-import io
 import logging
 import os
 import uuid
-from PIL import Image
 from PyPDF2 import PdfFileReader, PdfFileWriter
+from PySide2 import QtGui
 from PySide2.QtCore import QSize
 from PySide2.QtGui import QPixmap, QIcon
 from PySide2.QtWidgets import QPushButton
-from typing.io import BinaryIO
+
 from wand.image import Image as WI
 
 
 class Logic:
 
-    def create_push_button(self, list_of_images):
+    def create_push_button(self, qimages):
         push_button_to_image = {}
-        for pic in list_of_images:
+        for pic in qimages:
             push_button = QPushButton()
             pixmap = QPixmap(pic)
             button_icon = QIcon(pixmap)
@@ -26,14 +25,16 @@ class Logic:
             push_button_to_image[push_button] = pic
         return push_button_to_image
 
-    def pdf_to_jpeg(self, pdf_path):
-        list_of_images = []
-        wand_image_pdf = WI(filename=pdf_path, resolution=20)
-        wand_image_jpegs = wand_image_pdf.convert("jpeg")
-        for page_number, wand_image_jpeg in enumerate(wand_image_jpegs.sequence):
-            jpeg = WI(image=wand_image_jpeg)
-            list_of_images.append(jpeg)
-        return list_of_images
+    def pdf_to_qimages(self, pdf_path, resolution=50, fmt="png"):
+        qimages = []
+        with WI(filename=pdf_path, resolution=resolution) as pdf_img:
+            for page in pdf_img.sequence:
+                with WI(page) as page_image:
+                    qimage = QtGui.QImage()
+                    data = page_image.make_blob(format=fmt)
+                    qimage.loadFromData(data)
+                    qimages.append(qimage)
+        return qimages
 
 
     # Todo: Problem with file saving / replacing.
@@ -85,18 +86,14 @@ class Logic:
     def swipe_left(self):
         pass
 
-    def ui_jpeg_split(self, images_to_split):
+    def ui_jpeg_split(self, qimages_to_split):
         split_images = []
-        for image_nr, image in enumerate(images_to_split):
-            img = Image.open(image)
-            img_width, img_height = img.size
-            box = (0, 0, img_width/2, img_height)
-            image1 = img.crop(box)
-            image1.save("../output/split1" + str(image_nr) + ".jpeg")
-            box = (img_width/2, 0, img_width, img_height)
-            image2 = img.crop(box)
-            image2.save("../output/split2" + str(image_nr) + ".jpeg")
-            split_images.append("../output/split1" + str(image_nr) +".jpeg")
-            split_images.append("../output/split2" + str(image_nr) + ".jpeg")
+        for image_nr, qimg in enumerate(qimages_to_split):
+            w, h = qimg.width(), qimg.height()
+            qimg_copy = qimg.copy(0, 0, w/2, h)
+            split_images.append(qimg_copy)
+            qimg_copy2 = qimg.copy(w/2, 0, w/2, h)
+            split_images.append(qimg_copy2)
         return split_images
+
 

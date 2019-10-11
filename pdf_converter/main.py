@@ -14,7 +14,7 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.pdf_path_list = ["../tests/test2.pdf"]
-        self.list_of_images = []
+        self.qimages = []
         self.push_button_to_image = {} #image object instead of image
         self.logic = Logic()
         self.ui.openFileButton.clicked.connect(partial(self.setup, self.pdf_path_list))
@@ -28,9 +28,9 @@ class MainWindow(QMainWindow):
         self.ui.testButton.clicked.connect(Logic.ui_jpeg_split)
 
     def setup(self, pdf):
-        self.list_of_images = self.logic.pdf_to_jpeg(pdf[0])
+        self.qimages = self.logic.pdf_to_qimages(pdf[0])
         self.push_button_to_image.clear()
-        self.push_button_to_image = self.logic.create_push_button(self.list_of_images)
+        self.push_button_to_image = self.logic.create_push_button(self.qimages)
         self.position_push_buttons_in_grid() #self.push_button_to_image.keys()
 
     def split_pdfs_ui(self):
@@ -51,9 +51,9 @@ class MainWindow(QMainWindow):
         filename = glob.glob('../output/*.pdf')[0]
         self.delete_old_position()
         self.pdf_path_list.clear()
-        self.list_of_images.clear()
+        self.qimages.clear()
         self.push_button_to_image.clear()
-        self.push_button_to_image = self.logic.create_push_button(self.logic.pdf_to_jpeg(filename))
+        self.push_button_to_image = self.logic.create_push_button(self.logic.pdf_to_qimages(filename))
         self.position_push_buttons_in_grid() #self.push_button_to_image.keys()
         self.pdf_path_list.append(filename)
 
@@ -103,7 +103,7 @@ class MainWindow(QMainWindow):
         pdf_writer.write(output)
         pdf.close()
         output.close()
-        self.push_button_to_image = self.logic.create_push_button(self.logic.pdf_to_jpeg("../output/rotated_pdf"))
+        self.push_button_to_image = self.logic.create_push_button(self.logic.pdf_to_qimages("../output/rotated_pdf"))
         self.delete_old_position()
         self.position_push_buttons_in_grid()
 

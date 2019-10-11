@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="286f7b8e-947c-4b11-91b6-1d53b67fa2ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pdf_converter/page_object.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pdf_converter/logic/logic.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_converter/logic/logic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf_converter/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_converter/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +24,7 @@
     <SUITE FILE_PATH="coverage/PyPdfConverter$pic_button.coverage" NAME="pic_button Coverage Results" MODIFIED="1566208307426" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter/gui" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$testingSplit.coverage" NAME="testingSplit Coverage Results" MODIFIED="1561464547726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/src" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$main.coverage" NAME="main Coverage Results" MODIFIED="1569504655504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter" />
-    <SUITE FILE_PATH="coverage/PdfConverter$main.coverage" NAME="main Coverage Results" MODIFIED="1570718975840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter" />
+    <SUITE FILE_PATH="coverage/PdfConverter$main.coverage" NAME="main Coverage Results" MODIFIED="1570797135905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$pdfMain.coverage" NAME="pdfMain Coverage Results" MODIFIED="1561455022747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/src" />
   </component>
   <component name="FavoritesManager">
@@ -36,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pdf_converter/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1518">
-              <caret line="128" selection-start-line="128" selection-end-line="128" />
+            <state relative-caret-position="145">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -48,44 +47,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pdf_converter/logic/logic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/-674766156/PySide2/QtGui/QPixmap.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="215" column="8" selection-start-line="215" selection-start-column="8" selection-end-line="215" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/-674766156/PySide2/QtGui/QIcon.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="129" column="8" selection-start-line="129" selection-start-column="8" selection-end-line="129" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pdf_converter/page_object.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+            <state relative-caret-position="302">
+              <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,8 +67,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>QGridLayout</find>
-      <find>gridLayout_2</find>
       <find>Layout</find>
       <find>pushButtonLayout</find>
       <find>pushButton</find>
@@ -131,6 +95,8 @@
       <find>change</find>
       <find>setup</find>
       <find>rotate</find>
+      <find>Image</find>
+      <find>list_of_images</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -179,15 +145,16 @@
         <option value="$PROJECT_DIR$/pdf_converter/gui/ui_mainwindow.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/tests/testing.py" />
-        <option value="$PROJECT_DIR$/pdf_converter/main.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/pdf_converter/page_object.py" />
+        <option value="$PROJECT_DIR$/pdf_converter/main.py" />
         <option value="$PROJECT_DIR$/pdf_converter/logic/logic.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="43" />
+    <option name="x" value="13" />
+    <option name="y" value="78" />
     <option name="width" value="1440" />
     <option name="height" value="833" />
   </component>
@@ -214,7 +181,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -227,10 +193,17 @@
               <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
               <item name="pdf_converter" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
+              <item name="pdf_converter" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -428,7 +401,8 @@
       <workItem from="1569489515131" duration="11945000" />
       <workItem from="1570182470582" duration="8926000" />
       <workItem from="1570697641280" duration="43000" />
-      <workItem from="1570697692922" duration="13221000" />
+      <workItem from="1570697692922" duration="13431000" />
+      <workItem from="1570782686187" duration="7599000" />
     </task>
     <task id="LOCAL-00001" summary="Import fix, structure changes, cleaner code">
       <created>1568972395330</created>
@@ -469,7 +443,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="338283000" />
+    <option name="totallyTimeSpent" value="346092000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -481,23 +455,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="43" width="1440" height="833" extended-state="0" />
+    <frame x="13" y="78" width="1440" height="833" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7883212" visible="true" weight="0.16094421" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7883212" visible="true" weight="0.16309012" />
       <window_info id="Structure" order="1" sideWeight="0.5014881" side_tool="true" weight="0.2768903" />
       <window_info id="Favorites" order="2" sideWeight="0.2119883" side_tool="true" weight="0.17838125" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.48569384" weight="0.32289156" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.84334767" visible="true" weight="0.36437246" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.85550785" weight="0.3468286" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.48497853" weight="0.32253712" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8390558" visible="true" weight="0.3994602" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.85193133" weight="0.3468286" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.5857295" weight="0.3287483" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49946752" weight="0.32737276" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.15665236" side_tool="true" visible="true" weight="0.36437246" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.85622317" weight="0.28879893" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.16094421" side_tool="true" visible="true" weight="0.3994602" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.85479254" weight="0.28879893" />
       <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.4978701" weight="0.3284974" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -545,33 +520,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/pdf_converter/logic/logic.py</url>
-          <line>60</line>
+          <line>61</line>
           <option name="timeStamp" value="120" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/pdf_converter/logic/logic.py</url>
-          <line>45</line>
+          <line>46</line>
           <option name="timeStamp" value="121" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pdf_converter/logic/logic.py</url>
-          <line>94</line>
-          <option name="timeStamp" value="123" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pdf_converter/logic/logic.py</url>
-          <line>90</line>
-          <option name="timeStamp" value="125" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/pdf_converter/main.py</url>
           <line>86</line>
           <option name="timeStamp" value="134" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pdf_converter/main.py</url>
-          <line>62</line>
-          <option name="timeStamp" value="140" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/pdf_converter/main.py</url>
@@ -585,13 +545,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/pdf_converter/logic/logic.py</url>
-          <line>20</line>
-          <option name="timeStamp" value="149" />
+          <line>92</line>
+          <option name="timeStamp" value="154" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/pdf_converter/logic/logic.py</url>
-          <line>35</line>
-          <option name="timeStamp" value="151" />
+          <line>91</line>
+          <option name="timeStamp" value="155" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -606,59 +566,47 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
-        <expression-string>pic.g</expression-string>
+        <expression-string>w, h = qimg.width(), qimg.height()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>QPixmap(pic)</expression-string>
+        <expression-string>qimg.width(), qimg.height()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>wand_image_pdf = WI(filename=pdf_path, resolution=20)
-for page_number, wand_image_pdf in enumerate(wand_image_pdf.sequence):
-    list_of_images.append(wand_image_pdf)
-list_of_images</expression-string>
+        <expression-string>qimg.width()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>wand_image_pdf</expression-string>
+        <expression-string>qimg.size()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>wand_image_pdf = WI(filename=pdf_path, resolution=20)</expression-string>
+        <expression-string>w, h = qimg.size()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>from PIL.ImageQt import ImageQt
-qim = ImageQt(pic)</expression-string>
+        <expression-string>qimg.size()[QSize]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>from PIL.ImageQt import ImageQt
-qim = ImageQt(im)</expression-string>
+        <expression-string>w, h = qimg.size()[0]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>QPixmap.fromImage(pic)</expression-string>
+        <expression-string>w, h = qimg.size().keys()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>from pyside2uic.uiparser import QtGui
-
-QtGui.QPixmap.fromImage(pic)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>self.ui.widgetLayout</expression-string>
+        <expression-string>qimg.size()[0]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
@@ -719,7 +667,6 @@ QtGui.QPixmap.fromImage(pic)</expression-string>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../PdfConverterTestingStuff/reproduce.py" />
     <entry file="file://$PROJECT_DIR$/pdf_converter/1.jpeg" />
     <entry file="file://$PROJECT_DIR$/output/2.jpeg" />
     <entry file="file://$PROJECT_DIR$/pdf_converter/0.jpeg" />
@@ -736,7 +683,6 @@ QtGui.QPixmap.fromImage(pic)</expression-string>
     <entry file="file:///usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7/lib/python3.7/os.py" />
     <entry file="file://$PROJECT_DIR$/output/switch.jpeg" />
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/wand/resource.py" />
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/wand/image.py" />
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/PyPDF2/generic.py" />
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/PyPDF2/pdf.py" />
     <entry file="file://$PROJECT_DIR$/pdf_converter/logic/pdf_splitter.py" />
@@ -803,20 +749,8 @@ QtGui.QPixmap.fromImage(pic)</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pdf_converter/gui/pic_button.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pdf_converter/logic/pdf_cropper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/pdf_converter/gui/pic_button.py" />
+    <entry file="file://$PROJECT_DIR$/pdf_converter/logic/pdf_cropper.py" />
     <entry file="file://$PROJECT_DIR$/tests/testing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -838,9 +772,7 @@ QtGui.QPixmap.fromImage(pic)</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/output/0.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/output/0.jpeg" />
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/diskcache/core.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="97">
@@ -848,17 +780,17 @@ QtGui.QPixmap.fromImage(pic)</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/wand/image.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        <state relative-caret-position="145">
+          <caret line="6794" selection-start-line="6794" selection-end-line="6794" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/-674766156/PySide2/QtGui/QIcon.py">
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/PIL/Image.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="129" column="8" selection-start-line="129" selection-start-column="8" selection-end-line="129" selection-end-column="8" />
+        <state relative-caret-position="148">
+          <caret line="2771" selection-start-line="2771" selection-end-line="2771" />
         </state>
       </provider>
     </entry>
@@ -869,27 +801,44 @@ QtGui.QPixmap.fromImage(pic)</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pdf_converter/main.py">
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/-674766156/PySide2/QtGui/QIcon.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1518">
-          <caret line="128" selection-start-line="128" selection-end-line="128" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="129" column="8" selection-start-line="129" selection-start-column="8" selection-end-line="129" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pdf_converter/page_object.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdf_converter/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pdf_converter/logic/logic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        <state relative-caret-position="302">
+          <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
