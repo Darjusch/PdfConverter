@@ -3,10 +3,7 @@ import logging
 import os
 import uuid
 from PyPDF2 import PdfFileReader, PdfFileWriter
-from PySide2 import QtGui
-from PySide2.QtCore import QSize
-from PySide2.QtGui import QPixmap, QIcon
-from PySide2.QtWidgets import QPushButton
+
 
 from wand.image import Image as WI
 

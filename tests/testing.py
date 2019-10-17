@@ -1,40 +1,33 @@
+import sys
+
+sys.path.append('..')
+from pdf_converter.logic.logic import Logic
+from pyside2uic.properties import QtGui
 import unittest
-import logging.config
-from pdf_converter.logic.logic import *
-
-class MyTest(unittest.TestCase):
 
 
-    def pdf_to_jpeg_test(self):
-        pdf_path_list = ['tests/test.pdf']
-        #self.assertEquals(Logic.pdf_to_jpeg(pdf_path_list), list_of_images)
-        total_number_of_jpegs = 0
-        list_of_files = os.listdir('output')
-        for file in list_of_files:
-            if file.endswith('.jpeg'):
-                total_number_of_jpegs += 1
-        pdf = PdfFileReader(open('tests/test.pdf', 'rb'))
-        if total_number_of_jpegs == pdf.getNumPages():
-            logging.info("pdf_to_jpeg_test True")
-            return True
-        else:
-            logging.info("pdf_to_jpeg_test False")
-            return False
+class PageObjectTest(unittest.TestCase):
 
-    def split_each_selected_pdf_into_two_pdfs_test(self):
-        pdf_path_list = ['tests/test.pdf']
-        checked_buttons = ['False', 'True', 'False', 'True']
-        list_of_buttons = ['True', 'True', 'False', 'False', 'True', 'True', 'False', 'False']
-        pdf_splitter(pdf_path_list, checked_buttons, list_of_buttons)
-        total_number_of_jpegs = 0
-        list_of_files = os.listdir('output')
-        for file in list_of_files:
-            if file.endswith('.jpeg'):
-                total_number_of_jpegs += 1
-        pdf = PdfFileReader(open('tests/test.pdf', 'rb'))
-        if total_number_of_jpegs == pdf.getNumPages():
-            logging.info("split_each_selected_pdf_into_two_pdfs_test True")
-            return True
-        else:
-            logging.info("split_each_selected_pdf_into_two_pdfs_test False")
-            return False
+    def setUp(self):
+        self.logic = Logic()
+        self.page_objects = self.logic.pdf_to_push_button("../tests/test2.pdf")
+        self.page_object = self.page_objects[0]
+        self.img = self.page_object.img
+        self.rotation = self.page_object.rotation
+        self.page = self.page_object.pdf_page
+
+    def test_image_is_QImage(self):
+        self.assertIsInstance(type(QtGui.QImage), type(self.img))
+
+    def test_page_is_wand_sequence(self):
+        self.assertIsInstance(type(self.page), type('wand.sequence.SingleImage'))
+
+    def test_page_converts_to_image(self):
+        self.assertIsInstance(type(self.page_object.pageToimage(self.page_object.pdf_page)), type(QtGui.QImage))
+
+    def test_pdf_to_push_button_len(self):
+        self.assertEqual(len(self.page_objects), 12)
+
+
+if __name__ == '__main__':
+    unittest.main()
