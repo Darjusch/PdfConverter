@@ -18,12 +18,12 @@ class MainWindow(QMainWindow):
         self.page_objects = []
         self.logic = Logic()
         self.ui.openFileButton.clicked.connect(partial(self.setup, self.pdf_path))
-        self.ui.splitButton.clicked.connect(self.split_pdf_ui)
-        self.ui.changePositionOfPicButton.clicked.connect(self.change_position_of_push_button_ui)
-        self.ui.rotateLeftButton.clicked.connect(partial(self.rotate_pdf_ui, -90))
-        self.ui.rotateRightButton.clicked.connect(partial(self.rotate_pdf_ui, 90))
+        self.ui.splitButton.clicked.connect(partial(self.UI_action, 'split'))
+        self.ui.changePositionOfPicButton.clicked.connect(partial(self.UI_action, 'change_position'))
+        self.ui.rotateLeftButton.clicked.connect(partial(self.UI_action, 'rotate_left'))
+        self.ui.rotateRightButton.clicked.connect(partial(self.UI_action, 'rotate_right'))
         self.ui.cropButton.clicked.connect(Logic.cropp_pdf)
-        self.ui.trashButton.clicked.connect(self.delete_pdf_page_ui)
+        self.ui.trashButton.clicked.connect(partial(self.UI_action, 'delete'))
         self.ui.leftButton.clicked.connect(Logic.swipe_left)
         self.ui.rightButton.clicked.connect(Logic.swipe_right)
         self.ui.resetButton.clicked.connect(self.delete_push_button_from_grid)
@@ -33,44 +33,42 @@ class MainWindow(QMainWindow):
         self.page_objects = self.logic.pdf_to_push_button(pdf[0])
         self.position_push_button_in_grid()
 
-    def split_pdf_ui(self):
-        for index, object in enumerate(self.page_objects):
-            if object.push_button.isChecked():
-                second_object = copy.copy(object)
-                object.splitLeft()
-                second_object.splitRight()
-                self.page_objects.insert(index+1, second_object)
+    def split_pdf_ui(self, obj, index):
+        second_obj = copy.copy(obj)
+        obj.splitLeft()
+        second_obj.splitRight()
+        self.page_objects.insert(index+1, second_obj)
+
+    def rotate_pdf_ui(self, obj, degree):
+        obj.rotate(degree)
+        obj.rotation += degree
+
+    def change_position_of_objects_ui(self, checked_objects):
+        index1, index2 = self.page_objects.index(checked_objects[0]), self.page_objects.index(checked_objects[1])
+        self.page_objects[index1], self.page_objects[index2] = checked_objects[1], checked_objects[0]
+
+    def UI_action(self, action):
+        checked_objects = self.is_object_checked()
+        if action == 'change_position' and len(checked_objects) is 2:
+            self.change_position_of_objects_ui(checked_objects)
+        for index, obj in enumerate(checked_objects):
+            if action == 'delete':
+                self.page_objects.remove(obj)
+            elif action == 'rotate_right':
+                self.rotate_pdf_ui(obj, 90)
+            elif action == 'rotate_left':
+                self.rotate_pdf_ui(obj, -90)
+            elif action == 'split':
+                self.split_pdf_ui(obj, index)
         self.delete_push_button_from_grid()
         self.position_push_button_in_grid()
 
-    def rotate_pdf_ui(self, degree):
+    def is_object_checked(self):
+        checked_objects = []
         for index, object in enumerate(self.page_objects):
             if object.push_button.isChecked():
-                object.rotate(degree)
-                object.rotation += degree
-        self.delete_push_button_from_grid()
-        self.position_push_button_in_grid()
-
-    def change_position_of_push_button_ui(self):
-        checked = []
-        for index, object in enumerate(self.page_objects):
-            if object.push_button.isChecked():
-                checked.append(object)
-        if len(checked) is not 2:
-            return
-        index1 = self.page_objects.index(checked[0])
-        index2 = self.page_objects.index(checked[1])
-        self.page_objects[index1] = checked[1]
-        self.page_objects[index2] = checked[0]
-        self.delete_push_button_from_grid()
-        self.position_push_button_in_grid()
-
-    def delete_pdf_page_ui(self):
-        for index, object in enumerate(self.page_objects):
-            if object.push_button.isChecked():
-                self.page_objects.remove(object)
-        self.delete_push_button_from_grid()
-        self.position_push_button_in_grid()
+                checked_objects.append(object)
+        return checked_objects
 
     def position_push_button_in_grid(self):
         row = 0
