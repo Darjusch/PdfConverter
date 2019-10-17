@@ -12,13 +12,11 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.pdf_path = ["../tests/test2.pdf"]
-        self.qimages = []
         self.page_objects = []
         self.logic = Logic()
-        self.ui.openFileButton.clicked.connect(partial(self.setup, self.pdf_path))
+        self.ui.openFileButton.clicked.connect(partial(self.setup, "../tests/test2.pdf"))
         self.ui.splitButton.clicked.connect(partial(self.ui_action_handler, 'split'))
-        self.ui.changePositionOfPicButton.clicked.connect(partial(self.ui_action_handler, 'change_position'))
+        self.ui.changePositionOfObjects.clicked.connect(partial(self.ui_action_handler, 'change_position'))
         self.ui.rotateLeftButton.clicked.connect(partial(self.ui_action_handler, 'rotate_left'))
         self.ui.rotateRightButton.clicked.connect(partial(self.ui_action_handler, 'rotate_right'))
         self.ui.cropButton.clicked.connect(Logic.cropp_pdf)
@@ -29,7 +27,7 @@ class MainWindow(QMainWindow):
 
     def setup(self, pdf):
         self.page_objects.clear()
-        self.page_objects = self.logic.pdf_to_push_button(pdf[0])
+        self.page_objects = self.logic.pdf_to_push_button(pdf)
         self.position_push_button_in_grid()
 
     def ui_action_handler(self, action):

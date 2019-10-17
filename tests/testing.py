@@ -1,9 +1,14 @@
+import PySide2
 import sys
+
+from PySide2.QtGui import QImage
+from PySide2.QtWidgets import QApplication
 
 sys.path.append('..')
 from pdf_converter.logic.logic import Logic
-from pyside2uic.properties import QtGui
 import unittest
+
+app = QApplication(sys.argv)
 
 
 class PageObjectTest(unittest.TestCase):
@@ -17,17 +22,13 @@ class PageObjectTest(unittest.TestCase):
         self.page = self.page_object.pdf_page
 
     def test_image_is_QImage(self):
-        self.assertIsInstance(type(QtGui.QImage), type(self.img))
-
-    def test_page_is_wand_sequence(self):
-        self.assertIsInstance(type(self.page), type('wand.sequence.SingleImage'))
+        self.assertIsInstance(self.img, PySide2.QtGui.QImage)
 
     def test_page_converts_to_image(self):
-        self.assertIsInstance(type(self.page_object.pageToimage(self.page_object.pdf_page)), type(QtGui.QImage))
+        self.assertIsInstance(self.page_object.pageToImage(self.page_object.pdf_page), PySide2.QtGui.QImage)
 
     def test_pdf_to_push_button_len(self):
         self.assertEqual(len(self.page_objects), 12)
-
 
 if __name__ == '__main__':
     unittest.main()
