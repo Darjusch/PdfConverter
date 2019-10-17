@@ -80,4 +80,33 @@ class Logic:
             split_images.append(qimg_copy2)
         return split_images
 
+    #def rotate_pdf(self):
+    #    checked_buttons = self.logic.checked_buttons(list(self.page_objects.keys()))
+    #    pdf = open("../tests/test2.pdf", 'rb')
+    #    pdf_reader = PdfFileReader(pdf)
+    #    pdf_writer = PdfFileWriter()
+    #    for page_number in range(pdf_reader.numPages):
+    #        if list(self.page_objects.keys())[page_number] in checked_buttons:
+    #            page = pdf_reader.getPage(page_number)
+    #            page.rotateClockwise(90)
+    #            pdf_writer.addPage(page)
+    #        else:
+    #            pdf_writer.addPage(pdf_reader.getPage(page_number))
+    #    output = open("../output/rotated_pdf", 'wb')
+    #    pdf_writer.write(output)
+    #    pdf.close()
+    #    output.close()
+    #    self.page_objects = self.logic.pdf_to_push_button("../output/rotated_pdf")
+    #    self.delete_push_button_from_grid()
+    #    self.position_push_button_in_grid()
 
+    #def split_pdf(self):
+    #    self.logic.pdf_splitter(self.pdf_path[0], self.page_objects.keys())
+    #    filename = glob.glob('../output/*.pdf')[0]
+    #    self.delete_push_button_from_grid()
+    #    self.pdf_path.clear()
+    #    self.qimages.clear()
+    #    self.page_objects.clear()
+    #    self.page_objects = self.logic.pdf_to_push_button(filename)
+    #    self.position_push_button_in_grid()
+    #    self.pdf_path.append(filename)

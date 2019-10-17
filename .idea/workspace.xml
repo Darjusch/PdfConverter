@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="286f7b8e-947c-4b11-91b6-1d53b67fa2ab" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/pdf_converter/logic/logic.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_converter/logic/logic.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pdf_converter/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_converter/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,7 +24,7 @@
     <SUITE FILE_PATH="coverage/PyPdfConverter$pic_button.coverage" NAME="pic_button Coverage Results" MODIFIED="1566208307426" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter/gui" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$testingSplit.coverage" NAME="testingSplit Coverage Results" MODIFIED="1561464547726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/src" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$main.coverage" NAME="main Coverage Results" MODIFIED="1569504655504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter" />
-    <SUITE FILE_PATH="coverage/PdfConverter$main.coverage" NAME="main Coverage Results" MODIFIED="1571323513564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter" />
+    <SUITE FILE_PATH="coverage/PdfConverter$main.coverage" NAME="main Coverage Results" MODIFIED="1571324005501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$pdfMain.coverage" NAME="pdfMain Coverage Results" MODIFIED="1561455022747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/src" />
   </component>
   <component name="FavoritesManager">
@@ -34,11 +35,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pdf_converter/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-267">
-              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="15">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -46,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pdf_converter/logic/logic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-422">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="270">
+              <caret line="18" column="33" lean-forward="true" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -187,11 +185,11 @@
         <option value="$PROJECT_DIR$/output/.gitignore" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/pdf_converter/logic/logic.py" />
         <option value="$PROJECT_DIR$/tests/qapplication" />
         <option value="$PROJECT_DIR$/tests/testing.py" />
         <option value="$PROJECT_DIR$/pdf_converter/page_object.py" />
         <option value="$PROJECT_DIR$/pdf_converter/gui/ui_mainwindow.py" />
+        <option value="$PROJECT_DIR$/pdf_converter/logic/logic.py" />
         <option value="$PROJECT_DIR$/pdf_converter/main.py" />
       </list>
     </option>
@@ -464,7 +462,7 @@
       <workItem from="1570697692922" duration="13431000" />
       <workItem from="1570782686187" duration="18433000" />
       <workItem from="1571302109606" duration="3743000" />
-      <workItem from="1571306945420" duration="11137000" />
+      <workItem from="1571306945420" duration="11618000" />
     </task>
     <task id="LOCAL-00001" summary="Import fix, structure changes, cleaner code">
       <created>1568972395330</created>
@@ -505,7 +503,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="371806000" />
+    <option name="totallyTimeSpent" value="372287000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -525,7 +523,7 @@
       <window_info id="Favorites" order="2" sideWeight="0.2119883" side_tool="true" weight="0.17838125" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4802982" weight="0.32178217" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.83013844" visible="true" weight="0.22574258" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.83013844" weight="0.22574258" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8455804" weight="0.34653464" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -589,16 +587,6 @@
           <url>file://$PROJECT_DIR$/pdf_converter/logic/logic.py</url>
           <line>30</line>
           <option name="timeStamp" value="121" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pdf_converter/logic/logic.py</url>
-          <line>76</line>
-          <option name="timeStamp" value="154" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pdf_converter/logic/logic.py</url>
-          <line>75</line>
-          <option name="timeStamp" value="155" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -887,8 +875,8 @@ QtGui.QPixmap.fromImage(pic)</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/pdf_converter/logic/logic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-422">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="270">
+          <caret line="18" column="33" lean-forward="true" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
@@ -897,11 +885,8 @@ QtGui.QPixmap.fromImage(pic)</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/pdf_converter/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-267">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>

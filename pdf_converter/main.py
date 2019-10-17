@@ -1,5 +1,4 @@
 import sys
-import glob
 from functools import partial
 from pdf_converter.gui.ui_mainwindow import Ui_MainWindow
 sys.path.append('..')
@@ -18,12 +17,12 @@ class MainWindow(QMainWindow):
         self.page_objects = []
         self.logic = Logic()
         self.ui.openFileButton.clicked.connect(partial(self.setup, self.pdf_path))
-        self.ui.splitButton.clicked.connect(partial(self.UI_action, 'split'))
-        self.ui.changePositionOfPicButton.clicked.connect(partial(self.UI_action, 'change_position'))
-        self.ui.rotateLeftButton.clicked.connect(partial(self.UI_action, 'rotate_left'))
-        self.ui.rotateRightButton.clicked.connect(partial(self.UI_action, 'rotate_right'))
+        self.ui.splitButton.clicked.connect(partial(self.ui_action_handler, 'split'))
+        self.ui.changePositionOfPicButton.clicked.connect(partial(self.ui_action_handler, 'change_position'))
+        self.ui.rotateLeftButton.clicked.connect(partial(self.ui_action_handler, 'rotate_left'))
+        self.ui.rotateRightButton.clicked.connect(partial(self.ui_action_handler, 'rotate_right'))
         self.ui.cropButton.clicked.connect(Logic.cropp_pdf)
-        self.ui.trashButton.clicked.connect(partial(self.UI_action, 'delete'))
+        self.ui.trashButton.clicked.connect(partial(self.ui_action_handler, 'delete'))
         self.ui.leftButton.clicked.connect(Logic.swipe_left)
         self.ui.rightButton.clicked.connect(Logic.swipe_right)
         self.ui.resetButton.clicked.connect(self.delete_push_button_from_grid)
@@ -33,21 +32,7 @@ class MainWindow(QMainWindow):
         self.page_objects = self.logic.pdf_to_push_button(pdf[0])
         self.position_push_button_in_grid()
 
-    def split_pdf_ui(self, obj, index):
-        second_obj = copy.copy(obj)
-        obj.splitLeft()
-        second_obj.splitRight()
-        self.page_objects.insert(index+1, second_obj)
-
-    def rotate_pdf_ui(self, obj, degree):
-        obj.rotate(degree)
-        obj.rotation += degree
-
-    def change_position_of_objects_ui(self, checked_objects):
-        index1, index2 = self.page_objects.index(checked_objects[0]), self.page_objects.index(checked_objects[1])
-        self.page_objects[index1], self.page_objects[index2] = checked_objects[1], checked_objects[0]
-
-    def UI_action(self, action):
+    def ui_action_handler(self, action):
         checked_objects = self.is_object_checked()
         if action == 'change_position' and len(checked_objects) is 2:
             self.change_position_of_objects_ui(checked_objects)
@@ -70,6 +55,27 @@ class MainWindow(QMainWindow):
                 checked_objects.append(object)
         return checked_objects
 
+    def change_position_of_objects_ui(self, checked_objects):
+        index1, index2 = self.page_objects.index(checked_objects[0]), self.page_objects.index(checked_objects[1])
+        self.page_objects[index1], self.page_objects[index2] = checked_objects[1], checked_objects[0]
+
+    def rotate_pdf_ui(self, obj, degree):
+        obj.rotate(degree)
+        obj.rotation += degree
+
+    def split_pdf_ui(self, obj, index):
+        second_obj = copy.copy(obj)
+        obj.splitLeft()
+        second_obj.splitRight()
+        self.page_objects.insert(index+1, second_obj)
+
+    def delete_push_button_from_grid(self):
+        for push_button in reversed(range(self.ui.pushButtonGrid.count())):
+            button_to_remove = self.ui.pushButtonGrid.itemAt(push_button).widget()
+            self.ui.pushButtonGrid.removeWidget(button_to_remove)
+            button_to_remove.setParent(None)
+        return self.ui.pushButtonGrid
+
     def position_push_button_in_grid(self):
         row = 0
         column = 0
@@ -81,43 +87,6 @@ class MainWindow(QMainWindow):
                 column = 0
         self.ui.widgetLayout.setLayout(self.ui.pushButtonGrid)
 
-    def delete_push_button_from_grid(self):
-        for push_button in reversed(range(self.ui.pushButtonGrid.count())):
-            button_to_remove = self.ui.pushButtonGrid.itemAt(push_button).widget()
-            self.ui.pushButtonGrid.removeWidget(button_to_remove)
-            button_to_remove.setParent(None)
-        return self.ui.pushButtonGrid
-
-    def rotate_pdf(self):
-        checked_buttons = self.logic.checked_buttons(list(self.page_objects.keys()))
-        pdf = open("../tests/test2.pdf", 'rb')
-        pdf_reader = PdfFileReader(pdf)
-        pdf_writer = PdfFileWriter()
-        for page_number in range(pdf_reader.numPages):
-            if list(self.page_objects.keys())[page_number] in checked_buttons:
-                page = pdf_reader.getPage(page_number)
-                page.rotateClockwise(90)
-                pdf_writer.addPage(page)
-            else:
-                pdf_writer.addPage(pdf_reader.getPage(page_number))
-        output = open("../output/rotated_pdf", 'wb')
-        pdf_writer.write(output)
-        pdf.close()
-        output.close()
-        self.page_objects = self.logic.pdf_to_push_button("../output/rotated_pdf")
-        self.delete_push_button_from_grid()
-        self.position_push_button_in_grid()
-
-    def split_pdf(self):
-        self.logic.pdf_splitter(self.pdf_path[0], self.page_objects.keys())
-        filename = glob.glob('../output/*.pdf')[0]
-        self.delete_push_button_from_grid()
-        self.pdf_path.clear()
-        self.qimages.clear()
-        self.page_objects.clear()
-        self.page_objects = self.logic.pdf_to_push_button(filename)
-        self.position_push_button_in_grid()
-        self.pdf_path.append(filename)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
