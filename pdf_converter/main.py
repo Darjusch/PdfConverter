@@ -1,5 +1,8 @@
 import sys
 from functools import partial
+
+from PySide2.QtGui import QPixmap
+
 from pdf_converter.gui.pdf_pagewindow import PdfPageWindow
 from pdf_converter.gui.ui_mainwindow import Ui_MainWindow
 sys.path.append('..')
@@ -27,11 +30,10 @@ class MainWindow(QMainWindow):
         self.ui.resetButton.clicked.connect(self.delete_push_button_from_grid)
 
     def pdf_page_in_new_window(self):
-        self.page_window = PdfPageWindow()
         if len(self.is_push_button_checked()) is 1:
             checked_object = self.is_push_button_checked()[0]
-
-        self.page_window.show()
+            self.page_window = PdfPageWindow(checked_object)
+            self.page_window.show()
 
     def setup(self, pdf):
         self.page_objects.clear()

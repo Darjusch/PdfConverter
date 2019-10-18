@@ -32,6 +32,9 @@ class PageObject:
         push_button.setCheckable(True)
         return push_button
 
+    def updateImage(self):
+        self.resizeImage(self.x1, self.y1, self.x2, self.y2)
+
     def resizeImage(self, x1, y1, x2, y2):
         self.x1, self.y1, self.x2, self.y2 = x1, y1, x2, y2
         img = self.img
@@ -53,3 +56,10 @@ class PageObject:
         self.img = self.img.transformed(my_transform)
         self.rotation += rotation
         self.push_button = self.createPushButton()
+
+    def convert_coordinates(self, x1, y1, width, height):
+        self.x1 = (self.img.width() / x1) / 100
+        self.y1 = (self.img.height() / y1) / 100
+        self.x2 = self.x1 + width
+        self.y2 = self.y1 + height
+

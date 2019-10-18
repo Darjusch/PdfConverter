@@ -2,12 +2,15 @@ from PySide2.QtCore import QSize, QRect
 from PySide2.QtGui import QPixmap
 from PySide2.QtWidgets import QMainWindow, QLabel, QRubberBand
 
+from pdf_converter.page_object import PageObject
+
 
 class PdfPageWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, page_obj):
         super(PdfPageWindow, self).__init__()
         self.resize(1920, 1080)
-        self.pixmap = QPixmap('../tests/pinguin.jpeg')
+        self.page_obj = page_obj
+        self.pixmap = QPixmap(page_obj.img)
         self.label = QLabel(self)
         self.label.setPixmap(self.pixmap)
         self.x1 = int(self.width() / 2) - 400
@@ -33,3 +36,6 @@ class PdfPageWindow(QMainWindow):
         self.pixmap = self.pixmap.copy(current_q_rect)
         crop_q_pixmap = self.pixmap
         crop_q_pixmap.save('output.png')
+        self.page_obj.convert_coordinates(current_q_rect.x(), current_q_rect.y(), current_q_rect.width(), current_q_rect.height())
+        self.page_obj.updateImage()
+
