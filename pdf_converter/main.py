@@ -1,5 +1,6 @@
 import sys
 from functools import partial
+from pdf_converter.gui.pdf_pagewindow import PdfPageWindow
 from pdf_converter.gui.ui_mainwindow import Ui_MainWindow
 sys.path.append('..')
 from PySide2.QtWidgets import QApplication, QMainWindow
@@ -19,11 +20,18 @@ class MainWindow(QMainWindow):
         self.ui.changePositionOfObjects.clicked.connect(partial(self.ui_action_handler, 'change_position'))
         self.ui.rotateLeftButton.clicked.connect(partial(self.ui_action_handler, 'rotate_left'))
         self.ui.rotateRightButton.clicked.connect(partial(self.ui_action_handler, 'rotate_right'))
-        self.ui.cropButton.clicked.connect(Logic.cropp_pdf)
+        self.ui.cropButton.clicked.connect(self.pdf_page_in_new_window)
         self.ui.trashButton.clicked.connect(partial(self.ui_action_handler, 'delete'))
         self.ui.leftButton.clicked.connect(Logic.swipe_left)
         self.ui.rightButton.clicked.connect(Logic.swipe_right)
         self.ui.resetButton.clicked.connect(self.delete_push_button_from_grid)
+
+    def pdf_page_in_new_window(self):
+        self.page_window = PdfPageWindow()
+        if len(self.is_push_button_checked()) is 1:
+            checked_object = self.is_push_button_checked()[0]
+
+        self.page_window.show()
 
     def setup(self, pdf):
         self.page_objects.clear()
@@ -31,7 +39,7 @@ class MainWindow(QMainWindow):
         self.position_push_button_in_grid()
 
     def ui_action_handler(self, action):
-        checked_objects = self.is_object_checked()
+        checked_objects = self.is_push_button_checked()
         if action == 'change_position' and len(checked_objects) is 2:
             self.change_position_of_objects_ui(checked_objects)
         for index, obj in enumerate(checked_objects):
@@ -46,7 +54,7 @@ class MainWindow(QMainWindow):
         self.delete_push_button_from_grid()
         self.position_push_button_in_grid()
 
-    def is_object_checked(self):
+    def is_push_button_checked(self):
         checked_objects = []
         for index, object in enumerate(self.page_objects):
             if object.push_button.isChecked():
