@@ -1,21 +1,17 @@
 import PySide2
 import sys
-
 from PySide2.QtGui import QImage
 from PySide2.QtWidgets import QApplication
-
-sys.path.append('..')
-from pdf_converter.logic.logic import Logic
+from pdf_converter.main import MainWindow
 import unittest
-
 app = QApplication(sys.argv)
 
 
 class PageObjectTest(unittest.TestCase):
 
     def setUp(self):
-        self.logic = Logic()
-        self.page_objects = self.logic.pdf_to_push_button("../tests/test2.pdf")
+        self.main = MainWindow()
+        self.page_objects = self.main.pdf_to_push_button("../tests/test2.pdf")
         self.page_object = self.page_objects[0]
         self.img = self.page_object.img
         self.rotation = self.page_object.rotation
@@ -29,6 +25,31 @@ class PageObjectTest(unittest.TestCase):
 
     def test_pdf_to_push_button_len(self):
         self.assertEqual(len(self.page_objects), 12)
+
+    def test_pdf_roates_left(self):
+        self.page_object.rotate(-90)
+        self.assertEqual(self.page_object.rotation, -90)
+
+    def test_pdf_rotates_right(self):
+        self.page_object.rotate(90)
+        self.assertEqual(self.page_object.rotation, 90)
+
+    def test_split_pdf_left(self):
+        original_page = self.page_object.pdf_page
+        self.page_object.splitLeft()
+        after_split_page = self.page_object.pdf_page
+        self.assertEqual(after_split_page, original_page)
+
+    def test_split_pdf_right(self):
+        original_page = self.page_object.pdf_page
+        self.page_object.splitRight()
+        after_split_page = self.page_object.pdf_page
+        self.assertEqual(after_split_page, original_page)
+
+    def test_convert_coordinates(self):
+        self.page_object.convert_coordinates(50, 50, 100, 100)
+        self.assertAlmostEqual(self.page_object.x1, 0.25)
+
 
 if __name__ == '__main__':
     unittest.main()
