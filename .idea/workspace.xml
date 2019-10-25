@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="286f7b8e-947c-4b11-91b6-1d53b67fa2ab" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/tests/updated.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pdf_converter/gui/pdf_pagewindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_converter/gui/pdf_pagewindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf_converter/logic/logic.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_converter/logic/logic.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pdf_converter/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_converter/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdf_converter/output.png" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_converter/output.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf_converter/output.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pdf_converter/page_object.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_converter/page_object.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/try.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/try.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +19,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/PyPdfConverter$testing.coverage" NAME="testing Coverage Results" MODIFIED="1565272410762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tests" />
-    <SUITE FILE_PATH="coverage/PdfConverter$try.coverage" NAME="try Coverage Results" MODIFIED="1571391686508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter" />
+    <SUITE FILE_PATH="coverage/PdfConverter$try.coverage" NAME="try Coverage Results" MODIFIED="1571920156459" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$gui.coverage" NAME="main Coverage Results" MODIFIED="1565701347747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter" />
     <SUITE FILE_PATH="coverage/PdfConverter$testing__1_.coverage" NAME="testing Coverage Results" MODIFIED="1571327259589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$info.coverage" NAME="info Coverage Results" MODIFIED="1561463617082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/src" />
@@ -27,7 +31,7 @@
     <SUITE FILE_PATH="coverage/PyPdfConverter$pic_button.coverage" NAME="pic_button Coverage Results" MODIFIED="1566208307426" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter/gui" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$testingSplit.coverage" NAME="testingSplit Coverage Results" MODIFIED="1561464547726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/src" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$main.coverage" NAME="main Coverage Results" MODIFIED="1569504655504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter" />
-    <SUITE FILE_PATH="coverage/PdfConverter$main.coverage" NAME="main Coverage Results" MODIFIED="1571410953756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter" />
+    <SUITE FILE_PATH="coverage/PdfConverter$main.coverage" NAME="main Coverage Results" MODIFIED="1572009075535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$pdfMain.coverage" NAME="pdfMain Coverage Results" MODIFIED="1561455022747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/src" />
   </component>
   <component name="FavoritesManager">
@@ -38,20 +42,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pdf_converter/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="34" column="60" lean-forward="true" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
+            <state relative-caret-position="23">
+              <caret line="80" selection-start-line="80" selection-end-line="80" />
               <folding>
-                <element signature="e#0#10#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pdf_converter/gui/pdf_pagewindow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" column="8" lean-forward="true" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+            <state relative-caret-position="398">
+              <caret line="49" selection-start-line="49" selection-end-line="49" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -59,16 +63,31 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pdf_converter/output.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pdf_converter/page_obj.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pdf_converter/page_object.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="32" column="26" lean-forward="true" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+            <state relative-caret-position="413">
+              <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pdf_converter/after_update.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -82,9 +101,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>spacer</find>
-      <find>test</find>
-      <find>splitButton</find>
       <find>list_of_buttons</find>
       <find>checked</find>
       <find>split</find>
@@ -112,6 +128,9 @@
       <find>qimages</find>
       <find>pdf_path</find>
       <find>cropButton</find>
+      <find>logic</find>
+      <find>pdf_to</find>
+      <find>resizeImage</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -161,23 +180,23 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/tests/qapplication" />
         <option value="$PROJECT_DIR$/pdf_converter/gui/ui_mainwindow.py" />
-        <option value="$PROJECT_DIR$/pdf_converter/logic/logic.py" />
         <option value="$PROJECT_DIR$/tests/testing.py" />
-        <option value="$PROJECT_DIR$/tests/try.py" />
         <option value="$PROJECT_DIR$/pdf_converter/gui/ui_crop.py" />
         <option value="$PROJECT_DIR$/pdf_converter/try.py" />
         <option value="$PROJECT_DIR$/pdf_converter/gui/pdf_page_window.py" />
+        <option value="$PROJECT_DIR$/pdf_converter/logic/logic.py" />
+        <option value="$PROJECT_DIR$/tests/try.py" />
         <option value="$PROJECT_DIR$/pdf_converter/main.py" />
-        <option value="$PROJECT_DIR$/pdf_converter/page_object.py" />
         <option value="$PROJECT_DIR$/pdf_converter/gui/pdf_pagewindow.py" />
+        <option value="$PROJECT_DIR$/pdf_converter/page_object.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="1940" />
-    <option name="y" value="159" />
-    <option name="width" value="1280" />
-    <option name="height" value="464" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1561" />
+    <option name="y" value="-46" />
+    <option name="width" value="1920" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -213,6 +232,11 @@
             <path>
               <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
               <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
+              <item name="output" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
               <item name="pdf_converter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -220,6 +244,17 @@
               <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
               <item name="pdf_converter" type="462c0819:PsiDirectoryNode" />
               <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
+              <item name="pdf_converter" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -235,18 +270,18 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/icons" />
+      <recent name="$PROJECT_DIR$/pdf_converter/logic" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/main" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/output" />
       <recent name="$PROJECT_DIR$/pdf_converter" />
       <recent name="$PROJECT_DIR$/pdf_converter/gui" />
       <recent name="$PROJECT_DIR$/pdf_converter/logic" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/icons" />
-      <recent name="$PROJECT_DIR$/pdf_converter/logic" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -377,7 +412,9 @@
       <workItem from="1570697692922" duration="13431000" />
       <workItem from="1570782686187" duration="18433000" />
       <workItem from="1571302109606" duration="3743000" />
-      <workItem from="1571306945420" duration="32225000" />
+      <workItem from="1571306945420" duration="38618000" />
+      <workItem from="1571915516823" duration="8486000" />
+      <workItem from="1571993828161" duration="12619000" />
     </task>
     <task id="LOCAL-00001" summary="Import fix, structure changes, cleaner code">
       <created>1568972395330</created>
@@ -418,7 +455,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="392894000" />
+    <option name="totallyTimeSpent" value="420392000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -430,16 +467,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="-69" width="1920" height="1080" extended-state="0" />
+    <frame x="1440" y="-46" width="1920" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7883212" visible="true" weight="0.2257721" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7883212" visible="true" weight="0.23269436" />
       <window_info id="Structure" order="1" sideWeight="0.5014881" side_tool="true" weight="0.2768903" />
       <window_info id="Favorites" order="2" sideWeight="0.2119883" side_tool="true" weight="0.17838125" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4802982" weight="0.32178217" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.83013844" visible="true" weight="0.22574258" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8455804" weight="0.43069306" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4802982" weight="0.32124352" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.83013844" weight="0.16891192" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8455804" visible="true" weight="0.4300518" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.5857295" weight="0.3287483" />
@@ -456,20 +493,20 @@
       <window_info anchor="right" id="Database" order="4" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7883212" visible="true" weight="0.11075612" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7883212" visible="true" weight="0.22790202" />
       <window_info id="Structure" order="1" sideWeight="0.5014881" side_tool="true" weight="0.2768903" />
       <window_info id="Favorites" order="2" sideWeight="0.2119883" side_tool="true" weight="0.17838125" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4802982" weight="0.32178217" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.83013844" weight="0.22574258" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8455804" weight="0.34653464" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.83013844" visible="true" weight="0.22487047" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8455804" weight="0.4300518" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.5857295" weight="0.3287483" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49946752" weight="0.32737276" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51970184" side_tool="true" visible="true" weight="0.22574258" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51970184" side_tool="true" weight="0.22574258" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.8514377" weight="0.2881188" />
       <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.4978701" weight="0.3284974" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -495,28 +532,77 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/pdf_converter/logic/logic.py</url>
-          <line>45</line>
+          <line>31</line>
           <option name="timeStamp" value="120" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/pdf_converter/logic/logic.py</url>
-          <line>30</line>
+          <line>16</line>
           <option name="timeStamp" value="121" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/pdf_converter/main.py</url>
-          <line>33</line>
-          <option name="timeStamp" value="164" />
+          <line>80</line>
+          <option name="timeStamp" value="171" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/pdf_converter/main.py</url>
-          <line>32</line>
-          <option name="timeStamp" value="165" />
+          <line>57</line>
+          <option name="timeStamp" value="172" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pdf_converter/page_object.py</url>
+          <line>35</line>
+          <option name="timeStamp" value="173" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pdf_converter/page_object.py</url>
+          <line>42</line>
+          <option name="timeStamp" value="178" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/pdf_converter/gui/pdf_pagewindow.py</url>
-          <line>35</line>
-          <option name="timeStamp" value="167" />
+          <line>48</line>
+          <option name="timeStamp" value="185" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pdf_converter/gui/pdf_pagewindow.py</url>
+          <line>49</line>
+          <option name="timeStamp" value="186" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/try.py</url>
+          <option name="timeStamp" value="187" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pdf_converter/page_object.py</url>
+          <line>69</line>
+          <option name="timeStamp" value="199" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pdf_converter/page_object.py</url>
+          <line>46</line>
+          <option name="timeStamp" value="200" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pdf_converter/page_object.py</url>
+          <line>50</line>
+          <option name="timeStamp" value="201" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pdf_converter/page_object.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="202" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pdf_converter/page_object.py</url>
+          <line>62</line>
+          <option name="timeStamp" value="204" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pdf_converter/page_object.py</url>
+          <line>60</line>
+          <option name="timeStamp" value="206" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -531,48 +617,47 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
-        <expression-string>QRect(self.origin_mouse_pos, mouse_click_event.pos()).normalized()</expression-string>
+        <expression-string>20 / 276</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>QRect(self.origin_mouse_pos, mouse_click_event.pos())</expression-string>
+        <expression-string>y1 / 276</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>mouse_click_event.pos().normalized()</expression-string>
+        <expression-string>276 / y1</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>mouse_click_event.pos()</expression-string>
+        <expression-string>y1 / 197</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>current_q_rect.normalized()</expression-string>
+        <expression-string>x1 / 197</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>rubber_band_rect = self.current_rubber_band.geometry()
-QRect(rubber_band_rect.x()-self.x1, rubber_band_rect.y()-self.y1, rubber_band_rect.width(), rubber_band_rect.height())</expression-string>
+        <expression-string>197 / x1</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>QRect(rubber_band_rect.x()-self.x1, rubber_band_rect.y()-self.y1, rubber_band_rect.width(), rubber_band_rect.height())</expression-string>
+        <expression-string>width</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>-self.x1</expression-string>
+        <expression-string>self.pixmap.width()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.x1</expression-string>
+        <expression-string>self.page_obj&lt;</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
@@ -628,9 +713,6 @@ QPoint()</expression-string>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/PyPDF2/pdf.py" />
-    <entry file="file://$PROJECT_DIR$/output/crop.jpeg" />
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/PIL/_version.py" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/PIL/__init__.py" />
     <entry file="file://$PROJECT_DIR$/output/random.jpeg" />
     <entry file="file:///usr/local/lib/python3.7/site-packages/PIL/ImageFile.py">
@@ -742,13 +824,8 @@ QPoint()</expression-string>
     <entry file="file://$PROJECT_DIR$/icons/rotateleft.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/qapplication">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/qapplication" />
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/wand/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pdf_converter/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/pdflogo.png">
@@ -761,30 +838,7 @@ QPoint()</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/try.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pdf_converter/gui/ui_crop.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="35" lean-forward="true" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/testing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" lean-forward="true" selection-start-column="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/pdf_converter/gui/ui_crop.py" />
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/-674766156/PySide2/QtWidgets/QGridLayout.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -816,62 +870,87 @@ QPoint()</expression-string>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pdf_converter/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/pdf_converter/logic/logic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="27" lean-forward="true" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+        <state relative-caret-position="-85">
+          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pdf_converter/gui/ui_mainwindow.py">
+    <entry file="file://$PROJECT_DIR$/tests/testing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="36" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="36" />
+        <state relative-caret-position="510">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdf_converter/gui/ui_mainwindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-928">
+          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/initial.jpeg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/updated.jpeg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/try.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="555">
+          <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pdf_converter/output.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/pdf_converter/gui/pdf_pagewindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pdf_converter/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="34" column="60" lean-forward="true" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
+        <state relative-caret-position="23">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pdf_converter/page_object.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="32" column="26" lean-forward="true" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+        <state relative-caret-position="413">
+          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pdf_converter/gui/pdf_pagewindow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="8" lean-forward="true" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/pdf_converter/after_update.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdf_converter/page_obj.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdf_converter/output.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
   </component>
 </project>

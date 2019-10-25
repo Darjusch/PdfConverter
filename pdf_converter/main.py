@@ -1,13 +1,11 @@
+import copy
 import sys
 from functools import partial
-
-from PySide2.QtGui import QPixmap
-
 from pdf_converter.gui.pdf_pagewindow import PdfPageWindow
 from pdf_converter.gui.ui_mainwindow import Ui_MainWindow
-sys.path.append('..')
 from PySide2.QtWidgets import QApplication, QMainWindow
-from pdf_converter.logic.logic import *
+from wand.image import Image as WI
+from pdf_converter.page_object import PageObject
 
 
 class MainWindow(QMainWindow):
@@ -17,7 +15,6 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.page_objects = []
-        self.logic = Logic()
         self.ui.openFileButton.clicked.connect(partial(self.setup, "../tests/test2.pdf"))
         self.ui.splitButton.clicked.connect(partial(self.ui_action_handler, 'split'))
         self.ui.changePositionOfObjects.clicked.connect(partial(self.ui_action_handler, 'change_position'))
@@ -25,26 +22,32 @@ class MainWindow(QMainWindow):
         self.ui.rotateRightButton.clicked.connect(partial(self.ui_action_handler, 'rotate_right'))
         self.ui.cropButton.clicked.connect(self.pdf_page_in_new_window)
         self.ui.trashButton.clicked.connect(partial(self.ui_action_handler, 'delete'))
-        self.ui.leftButton.clicked.connect(Logic.swipe_left)
-        self.ui.rightButton.clicked.connect(Logic.swipe_right)
         self.ui.resetButton.clicked.connect(self.delete_push_button_from_grid)
 
     def pdf_page_in_new_window(self):
         if len(self.is_push_button_checked()) is 1:
             checked_object = self.is_push_button_checked()[0]
-            self.page_window = PdfPageWindow(checked_object)
+            self.page_window = PdfPageWindow(checked_object, parent=self)
             self.page_window.show()
 
     def setup(self, pdf):
         self.page_objects.clear()
-        self.page_objects = self.logic.pdf_to_push_button(pdf)
+        self.page_objects = self.pdf_to_push_button(pdf)
         self.position_push_button_in_grid()
+
+    def pdf_to_push_button(self, pdf_path, resolution=25):
+        page_objects = []
+        with WI(filename=pdf_path, resolution=resolution) as pdf_img:
+            for page in pdf_img.sequence:
+                obj = PageObject(page)
+                page_objects.append(obj)
+        return page_objects
 
     def ui_action_handler(self, action):
         checked_objects = self.is_push_button_checked()
         if action == 'change_position' and len(checked_objects) is 2:
             self.change_position_of_objects_ui(checked_objects)
-        for index, obj in enumerate(checked_objects):
+        for obj in checked_objects:
             if action == 'delete':
                 self.page_objects.remove(obj)
             elif action == 'rotate_right':
@@ -52,7 +55,7 @@ class MainWindow(QMainWindow):
             elif action == 'rotate_left':
                 self.rotate_pdf_ui(obj, -90)
             elif action == 'split':
-                self.split_pdf_ui(obj, index)
+                self.split_pdf_ui(obj)
         self.delete_push_button_from_grid()
         self.position_push_button_in_grid()
 
@@ -71,11 +74,11 @@ class MainWindow(QMainWindow):
         obj.rotate(degree)
         obj.rotation += degree
 
-    def split_pdf_ui(self, obj, index):
+    def split_pdf_ui(self, obj):
         second_obj = copy.copy(obj)
         obj.splitLeft()
         second_obj.splitRight()
-        self.page_objects.insert(index+1, second_obj)
+        self.page_objects.insert(self.page_objects.index(obj)+1, second_obj)
 
     def delete_push_button_from_grid(self):
         for push_button in reversed(range(self.ui.pushButtonGrid.count())):

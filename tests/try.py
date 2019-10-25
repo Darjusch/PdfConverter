@@ -1,36 +1,34 @@
 from PySide2.QtWidgets import QMainWindow, QPushButton, QApplication, QLabel
 
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-
+        self.button = ''
         btn = QPushButton('Open Second', self)
         btn.move(10, 10)
         btn.clicked.connect(self.openSecond)
 
-        btn2 = QPushButton('Open Third', self)
-        btn2.move(110, 10)
-        btn2.clicked.connect(self.openThird)
+        self.resize(420, 450)
 
-        self.resize(220, 50)
+        button = QPushButton(self)
+        button.move(100,100)
+        button.setText("current text")
+        self.button = button
 
     def openSecond(self):
-        self.SW = SecondWindow()
+        self.SW = SecondWindow(self.button, parent=self)
         self.SW.show()
 
-    def openThird(self):
-        self.TW = ThirdWindow()
-        self.TW.show()
 
 class SecondWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, button, parent=None):
         super(SecondWindow, self).__init__()
+        self.parent = parent
         lbl = QLabel('Second Window', self)
+        button.setText("updated text")
+        self.parent.buttons = button
 
-class ThirdWindow(QMainWindow):
-    def __init__(self):
-        super(ThirdWindow, self).__init__()
-        lbl = QLabel('Third Window', self)
 
 if __name__ == '__main__':
     import sys

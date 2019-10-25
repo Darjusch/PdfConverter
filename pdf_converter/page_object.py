@@ -58,8 +58,15 @@ class PageObject:
         self.push_button = self.createPushButton()
 
     def convert_coordinates(self, x1, y1, width, height):
-        self.x1 = (self.img.width() / x1) / 100
-        self.y1 = (self.img.height() / y1) / 100
-        self.x2 = self.x1 + width
-        self.y2 = self.y1 + height
+        if x1 is not 0:
+            self.x1 = x1 / 197
+        else:
+            self.x1 = x1
+        if y1 is not 0:
+            self.y1 = y1 / 276
+        else:
+            self.y1 = y1
+        self.x2 = (self.x1 + width) / 197
+        self.y2 = (self.y1 + height) / 276
+
 
