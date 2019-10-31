@@ -40,11 +40,11 @@ class PdfPageWindow(QMainWindow):
         self.page_obj.convert_coordinates(current_q_rect.x(), current_q_rect.y(),
                                           current_q_rect.width(), current_q_rect.height())
         self.page_obj.img.save('page_obj.png')
-        self.page_obj.updateImage()
+        self.page_obj.update_image()
         self.page_obj.img.save('after_update.png')
         self.parent.page_objects.remove(self.parent.page_objects[self.index])
         #self.page_obj(self.page_obj.page)
-        self.page_obj.createPushButton()
+        self.page_obj.create_push_button()
         self.parent.page_objects.insert(self.index, self.page_obj)
         self.parent.delete_push_button_from_grid()
         self.parent.position_push_button_in_grid()

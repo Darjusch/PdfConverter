@@ -13,17 +13,17 @@ class PageObject:
         self.y1 = 0
         self.y2 = 1
         self.rotation = 0
-        self.img = self.pageToImage(page)
-        self.push_button = self.createPushButton()
+        self.img = self.page_to_qimage(page)
+        self.push_button = self.create_push_button()
 
-    def pageToImage(self, page, fmt='png'):
+    def page_to_qimage(self, page, fmt='png'):
         with WI(page) as page_image:
             qimage = QtGui.QImage()
             data = page_image.make_blob(format=fmt)
             qimage.loadFromData(data)
             return qimage
 
-    def createPushButton(self):
+    def create_push_button(self):
         push_button = QPushButton()
         pixmap = QPixmap(self.img)
         icon = QIcon(pixmap)
@@ -32,30 +32,30 @@ class PageObject:
         push_button.setCheckable(True)
         return push_button
 
-    def updateImage(self):
-        self.resizeImage(self.x1, self.y1, self.x2, self.y2)
+    def update_image(self):
+        self.resize_image(self.x1, self.y1, self.x2, self.y2)
 
-    def resizeImage(self, x1, y1, x2, y2):
+    def resize_image(self, x1, y1, x2, y2):
         self.x1, self.y1, self.x2, self.y2 = x1, y1, x2, y2
         img = self.img
         w, h = img.width(), img.height()
         self.img = img.copy(w * x1, h * y1, w * (x2 - x1), h * y2)
-        self.push_button = self.createPushButton()
+        self.push_button = self.create_push_button()
 
-    def splitLeft(self):
+    def split_left(self):
         w = (self.x2 - self.x1) / 2
-        self.resizeImage(self.x1, self.y1, self.x1 + w, self.y2)
+        self.resize_image(self.x1, self.y1, self.x1 + w, self.y2)
 
-    def splitRight(self):
+    def split_right(self):
         w = (self.x2 - self.x1) / 2
-        self.resizeImage(self.x1 + w, self.y1, self.x2, self.y2)
+        self.resize_image(self.x1 + w, self.y1, self.x2, self.y2)
 
     def rotate(self, rotation):
         my_transform = QTransform()
         my_transform.rotate(rotation)
         self.img = self.img.transformed(my_transform)
         self.rotation += rotation
-        self.push_button = self.createPushButton()
+        self.push_button = self.create_push_button()
 
     def convert_coordinates(self, x1, y1, width, height):
         if x1 is not 0:
