@@ -1,10 +1,11 @@
+import copy
 import sys
-import glob
 from functools import partial
+from pdf_converter.gui.pdf_pagewindow import PdfPageWindow
 from pdf_converter.gui.ui_mainwindow import Ui_MainWindow
-sys.path.append('..')
-from PySide2.QtWidgets import QApplication, QMainWindow
-from pdf_converter.logic.logic import *
+from PySide2.QtWidgets import QApplication, QMainWindow, QFileDialog
+from wand.image import Image as WI
+from pdf_converter.page_object import PageObject
 
 
 class MainWindow(QMainWindow):
@@ -13,114 +14,100 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.pdf_path_list = ["../tests/test2.pdf"]
-        self.list_of_images = []
-        self.push_button_to_image = {} #image object instead of image
-        self.logic = Logic()
-        self.ui.openFileButton.clicked.connect(partial(self.setup, self.pdf_path_list))
-        self.ui.splitButton.clicked.connect(self.split_pdfs_ui)
-        self.ui.changePositionOfPicButton.clicked.connect(self.change_position_of_pic_button)
-        self.ui.rotateButton.clicked.connect(self.rotate_pdf)
-        self.ui.cropButton.clicked.connect(Logic.cropp_pdf)
-        self.ui.trashButton.clicked.connect(self.delete_old_position)
-        self.ui.leftButton.clicked.connect(Logic.swipe_left)
-        self.ui.rightButton.clicked.connect(Logic.swipe_right)
-        self.ui.testButton.clicked.connect(Logic.ui_jpeg_split)
+        self.page_objects = []
+        self.ui.openFileButton.clicked.connect(self.dialog_to_select_pdfs)
+        self.ui.openFolderButton.clicked.connect(self.dialog_to_select_folder_with_pdfs)
+        self.ui.splitButton.clicked.connect(partial(self.ui_action_handler, 'split'))
+        self.ui.changePositionOfObjects.clicked.connect(partial(self.ui_action_handler, 'change_position'))
+        self.ui.rotateLeftButton.clicked.connect(partial(self.ui_action_handler, 'rotate_left'))
+        self.ui.rotateRightButton.clicked.connect(partial(self.ui_action_handler, 'rotate_right'))
+        self.ui.cropButton.clicked.connect(self.open_checked_pdf_page_in_new_window)
+        self.ui.trashButton.clicked.connect(partial(self.ui_action_handler, 'delete'))
+        self.ui.resetButton.clicked.connect(self.delete_push_button_from_grid)
+
+    def open_checked_pdf_page_in_new_window(self):
+        if len(self.is_push_button_checked()) is 1:
+            checked_object = self.is_push_button_checked()[0]
+            self.page_window = PdfPageWindow(checked_object, parent=self)
+            self.page_window.show()
+
+    def dialog_to_select_pdfs(self):
+        pdf_dialog_obj = QFileDialog.getOpenFileNames(self, "Open Pdf", "/Downloads", "Pdf Files (*.pdf)",)
+        pdf = pdf_dialog_obj[0][0]
+        self.setup(pdf)
+
+    def dialog_to_select_folder_with_pdfs(self):
+        path = QFileDialog.getExistingDirectory()
+        pass
 
     def setup(self, pdf):
-        self.list_of_images = self.logic.pdf_to_jpeg(pdf[0])
-        self.push_button_to_image.clear()
-        self.push_button_to_image = self.logic.create_push_button(self.list_of_images)
-        self.position_push_buttons_in_grid() #self.push_button_to_image.keys()
+        self.page_objects.clear()
+        self.page_objects = self.convert_pdf_pages_to_push_button(pdf)
+        self.position_push_button_in_grid()
 
-    def split_pdfs_ui(self):
-        images_to_split = []
-        checked_buttons = self.logic.checked_buttons(self.push_button_to_image)
-        for button in checked_buttons:
-            images_to_split.append(self.push_button_to_image[button])
-            del self.push_button_to_image[button]
-        split_images = self.logic.ui_jpeg_split(images_to_split)
-        new_push_buttons_to_images = self.logic.create_push_button(split_images)
-        self.push_button_to_image.update(new_push_buttons_to_images)
-        self.delete_old_position()
-        self.position_push_buttons_in_grid() #self.push_button_to_image.keys()
+    def convert_pdf_pages_to_push_button(self, pdf_path, resolution=25):
+        page_objects = []
+        with WI(filename=pdf_path, resolution=resolution) as pdf_img:
+            for page in pdf_img.sequence:
+                obj = PageObject(page)
+                page_objects.append(obj)
+        return page_objects
 
+    def ui_action_handler(self, action):
+        checked_objects = self.is_push_button_checked()
+        if action == 'change_position' and len(checked_objects) is 2:
+            self.change_position_of_objects_ui(checked_objects)
+        for obj in checked_objects:
+            if action == 'delete':
+                self.page_objects.remove(obj)
+            elif action == 'rotate_right':
+                self.rotate_push_button_ui(obj, 90)
+            elif action == 'rotate_left':
+                self.rotate_push_button_ui(obj, -90)
+            elif action == 'split':
+                self.split_push_button_ui(obj)
+        self.delete_push_button_from_grid()
+        self.position_push_button_in_grid()
 
-    def split_pdfs(self):
-        self.logic.pdf_splitter(self.pdf_path_list[0], self.push_button_to_image.keys())
-        filename = glob.glob('../output/*.pdf')[0]
-        self.delete_old_position()
-        self.pdf_path_list.clear()
-        self.list_of_images.clear()
-        self.push_button_to_image.clear()
-        self.push_button_to_image = self.logic.create_push_button(self.logic.pdf_to_jpeg(filename))
-        self.position_push_buttons_in_grid() #self.push_button_to_image.keys()
-        self.pdf_path_list.append(filename)
+    def is_push_button_checked(self):
+        checked_objects = []
+        for index, object in enumerate(self.page_objects):
+            if object.push_button.isChecked():
+                checked_objects.append(object)
+        return checked_objects
 
-    def position_push_buttons_in_grid(self): #list_of_pushbutton
-        row = 0
-        column = 0
-        for push_button in self.push_button_to_image.keys():
-            self.ui.pushButtonGrid.addWidget(push_button, row, column)
-            column += 1
-            if int(len(self.push_button_to_image.keys()) / 4) is column:
-                row += 1
-                column = 0
-        self.ui.widgetLayout.setLayout(self.ui.pushButtonGrid)
+    def change_position_of_objects_ui(self, checked_objects):
+        index1, index2 = self.page_objects.index(checked_objects[0]), self.page_objects.index(checked_objects[1])
+        self.page_objects[index1], self.page_objects[index2] = checked_objects[1], checked_objects[0]
 
-    def delete_old_position(self):
+    def rotate_push_button_ui(self, obj, degree):
+        obj.rotate(degree)
+        obj.rotation += degree
+
+    def split_push_button_ui(self, obj):
+        second_obj = copy.copy(obj)
+        obj.split_left()
+        second_obj.split_right()
+        self.page_objects.insert(self.page_objects.index(obj)+1, second_obj)
+
+    def delete_push_button_from_grid(self):
         for push_button in reversed(range(self.ui.pushButtonGrid.count())):
             button_to_remove = self.ui.pushButtonGrid.itemAt(push_button).widget()
             self.ui.pushButtonGrid.removeWidget(button_to_remove)
             button_to_remove.setParent(None)
         return self.ui.pushButtonGrid
 
-    def change_position_of_pic_button(self):
-        button_to_switch = []
-        for button in self.push_button_to_image.keys():
-            if button.isChecked():
-                button_to_switch.append(button)
-        self.push_button_to_image[button_to_switch[0]], self.push_button_to_image[button_to_switch[1]] = \
-            self.push_button_to_image[button_to_switch[1]], self.push_button_to_image[button_to_switch[0]]
-        self.delete_old_position()
-        self.push_button_to_image = self.logic.create_push_button(self.push_button_to_image.values())
-        self.position_push_buttons_in_grid()
-        del button_to_switch[:]
+    def position_push_button_in_grid(self):
+        row = 0
+        column = 0
+        for page_object in self.page_objects:
+            self.ui.pushButtonGrid.addWidget(page_object.push_button, row, column)
+            column += 1
+            if int(len(self.page_objects) / 4) is column:
+                row += 1
+                column = 0
+        self.ui.widgetLayout.setLayout(self.ui.pushButtonGrid)
 
-    def rotate_pdf(self):
-        checked_buttons = self.logic.checked_buttons(list(self.push_button_to_image.keys()))
-        pdf = open("../tests/test2.pdf", 'rb')
-        pdf_reader = PdfFileReader(pdf)
-        pdf_writer = PdfFileWriter()
-        for page_number in range(pdf_reader.numPages):
-            if list(self.push_button_to_image.keys())[page_number] in checked_buttons:
-                page = pdf_reader.getPage(page_number)
-                page.rotateClockwise(90)
-                pdf_writer.addPage(page)
-            else:
-                pdf_writer.addPage(pdf_reader.getPage(page_number))
-        output = open("../output/rotated_pdf", 'wb')
-        pdf_writer.write(output)
-        pdf.close()
-        output.close()
-        self.push_button_to_image = self.logic.create_push_button(self.logic.pdf_to_jpeg("../output/rotated_pdf"))
-        self.delete_old_position()
-        self.position_push_buttons_in_grid()
-
-
-    # Todo list of images is of type PIL -> Image not normal image.
-    #def rotate_pdf_ui(self):
-    #    checked_buttons = self.logic.checked_buttons(list(self.push_button_to_image.keys()))
-    #    list_of_images = []
-    #    for index, button in enumerate(checked_buttons):
-    #        image = Image.open(self.push_button_to_image[button])
-    #        rotated_image = image.rotate(90)
-    #        list_of_images.append(rotated_image)
-    #        image.save("../output/rotated{}.jpeg".format(index))
-    #    self.push_button_to_image = self.logic.create_push_button(list_of_images)
-    #    self.delete_old_position()
-    #    self.position_push_buttons_in_grid()
-    #    return list_of_images
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
