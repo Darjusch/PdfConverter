@@ -39,10 +39,7 @@ class PageObject:
         self.x1, self.y1, self.x2, self.y2 = x1, y1, x2, y2
         img = self.img
         w, h = img.width(), img.height()
-        print(f'w: {w}, h: {h}')
         self.img = img.copy(w * x1, h * y1, w * (x2 - x1), h * (y2 - y1))
-        print(f'w * x1: {w * x1}, h * y1: {h * y1}, w * (x2 - x1): {w * (x2 - x1)}, h * y2: {h * (y2 - y1)}')
-        self.img.save(f"{y1 * x1 * x2 * y2}.png")
         self.push_button = self.create_push_button()
 
     def split_left(self):
@@ -75,19 +72,15 @@ class PageObject:
         except ZeroDivisionError:
             self.x1 = 1 / self.img.width()
             print(ZeroDivisionError)
-        print("x1", self.x1)
         try:
             self.y1 = 1 / (self.img.height() / y1)
         except ZeroDivisionError:
             self.y1 = 1 / self.img.height()
-        print("y1", self.y1)
         try:
             self.x2 = self.x1 + (1 / (self.img.width() / width))
         except ZeroDivisionError:
             self.x2 = self.x1 + (1 / self.img.width())
-        print("x2", self.x2)
         try:
             self.y2 = self.y1 + (1 / (self.img.height() / height))
         except ZeroDivisionError:
             self.y2 = self.y1 + (1 / self.img.height())
-        print("y2", self.y2)
