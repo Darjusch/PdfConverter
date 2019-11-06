@@ -1,34 +1,19 @@
-from PySide2.QtWidgets import QMainWindow, QPushButton, QApplication, QLabel
+from PySide2.QtWidgets import QMainWindow, QPushButton, QApplication, QFileDialog
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.button = ''
-        btn = QPushButton('Open Second', self)
+        btn = QPushButton('Open File', self)
         btn.move(10, 10)
-        btn.clicked.connect(self.openSecond)
-
+        btn.clicked.connect(self.open_file)
         self.resize(420, 450)
 
-        button = QPushButton(self)
-        button.move(100,100)
-        button.setText("current text")
-        self.button = button
-
-    def openSecond(self):
-        self.SW = SecondWindow(self.button, parent=self)
-        self.SW.show()
-
-
-class SecondWindow(QMainWindow):
-    def __init__(self, button, parent=None):
-        super(SecondWindow, self).__init__()
-        self.parent = parent
-        lbl = QLabel('Second Window', self)
-        button.setText("updated text")
-        self.parent.buttons = button
-
+    def open_file(self):
+        pdf_dialog_obj = QFileDialog.getOpenFileNames(self, "Open Pdf", "/Downloads", "Pdf Files (*.pdf)",)
+        pdf_path = pdf_dialog_obj[0]
+        print(pdf_path)
 
 if __name__ == '__main__':
     import sys
