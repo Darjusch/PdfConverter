@@ -40,37 +40,28 @@ class PdfPageWindow(QMainWindow):
 
     def mouseReleaseEvent(self, mouse_click_event):
         self.selected_area_in_pagewindow.hide()
-        selected_area_in_pagewindow_rectangle = self.selected_area_in_pagewindow.geometry()
-        # Because we are working with windows the starting point is always in the top left corner and not in the lower left.
-        # selected_area_in_pagewindow_rectangle.x() and selected_area_in_pagewindow_rectangle.y() tells you
-        # where the image of the pdf_page is located inside the main window
-        # selected_area_in_pagewindow_rectangle.width() and selected_area_in_pagewindow_rectangle.height() tells you
-        # the width and height of the selected area inside the image
-        # we take the x and y position in the window minus the x and y position of the picture
-        # to save the changes for the pdf later on.
-        selected_area_in_image_rectangle = \
-            QRect(selected_area_in_pagewindow_rectangle.x()-self.x1,
-                  selected_area_in_pagewindow_rectangle.y()-self.y1,
-                  selected_area_in_pagewindow_rectangle.width(),
-                  selected_area_in_pagewindow_rectangle.height()
-                  )
+        self.selected_area_in_page_window_to_area_in_image()
         self.selected_area_in_pagewindow.deleteLater()
-        #self.pixmap = self.pixmap.copy(selected_area_in_image_rectangle)
-        #cropped_pixmap = self.pixmap
-        #cropped_pixmap.save('cropped_area.png')
-        # Takes the current q rect and converts its coordinates into a percentage range
-        # where 1 is 100 % ,0.5 == 50% and 0 is 0 %
-        # Because we want to change the pdf in the end and we cant work with pixels with out destroying the pdf structure.
+        self.page_obj.update_image()
+        self.parent.page_objects.remove(self.parent.page_objects[self.index])
+        self.parent.page_objects.insert(self.index, self.page_obj)
+        self.parent.delete_push_button_from_grid()
+        self.parent.position_push_button_in_grid()
+
+    def selected_area_in_page_window_to_area_in_image(self):
+        selected_area_in_page_window_rectangle = self.selected_area_in_pagewindow.geometry()
+        selected_area_in_image_rectangle = \
+            QRect(selected_area_in_page_window_rectangle.x()-self.x1,
+                  selected_area_in_page_window_rectangle.y()-self.y1,
+                  selected_area_in_page_window_rectangle.width(),
+                  selected_area_in_page_window_rectangle.height()
+                  )
+        self.convert_coordinates_to_percentage(selected_area_in_image_rectangle)
+
+    def convert_coordinates_to_percentage(self, selected_area_in_image_rectangle):
         self.page_obj.convert_coordinates_into_percentage(
             selected_area_in_image_rectangle.x(),
             selected_area_in_image_rectangle.y(),
             selected_area_in_image_rectangle.width(),
             selected_area_in_image_rectangle.height()
         )
-        #self.page_obj.img.save('whole_img.png')
-        self.page_obj.update_image()
-        #self.page_obj.img.save('after_cropping.png')
-        self.parent.page_objects.remove(self.parent.page_objects[self.index])
-        self.parent.page_objects.insert(self.index, self.page_obj)
-        self.parent.delete_push_button_from_grid()
-        self.parent.position_push_button_in_grid()
