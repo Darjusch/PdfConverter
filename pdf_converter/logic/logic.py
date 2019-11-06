@@ -2,37 +2,10 @@ import copy
 import logging
 import os
 import uuid
-from PIL import Image
 from PyPDF2 import PdfFileReader, PdfFileWriter
-from PySide2.QtCore import QSize
-from PySide2.QtGui import QPixmap, QIcon
-from PySide2.QtWidgets import QPushButton
-from wand.image import Image as WI
 
 
 class Logic:
-
-    def create_push_button(self, list_of_pics):
-        push_button_to_image = {}
-        for pic in list_of_pics:
-            push_button = QPushButton()
-            pixmap = QPixmap(pic)
-            button_icon = QIcon(pixmap)
-            push_button.setIcon(button_icon)
-            push_button.setIconSize(QSize(100, 100))
-            push_button.setCheckable(True)
-            push_button_to_image[push_button] = pic
-        return push_button_to_image
-
-    def pdf_to_jpeg(self, pdf_path):
-        list_of_images = []
-        wand_image_pdf = WI(filename=pdf_path, resolution=20)
-        wand_image_jpegs = wand_image_pdf.convert("jpeg")
-        for page_number, wand_image_jpeg in enumerate(wand_image_jpegs.sequence):
-            jpeg = WI(image=wand_image_jpeg)
-            jpeg.save(filename="../output/{0}.jpeg".format(str(page_number)))
-            list_of_images.append("../output/{0}.jpeg".format(str(page_number)))
-        return list_of_images
 
     # Todo: Problem with file saving / replacing.
     def pdf_splitter(self, path, list_of_push_buttons):
@@ -72,29 +45,3 @@ class Logic:
             if button.isChecked():
                 checked_buttons.append(button)
         return checked_buttons
-
-
-    def cropp_pdf(self):
-        pass
-
-    def swipe_right(self):
-        pass
-
-    def swipe_left(self):
-        pass
-
-    def ui_jpeg_split(self, images_to_split):
-        split_images = []
-        for image_nr, image in enumerate(images_to_split):
-            img = Image.open(image)
-            img_width, img_height = img.size
-            box = (0, 0, img_width/2, img_height)
-            image1 = img.crop(box)
-            image1.save("../output/split1" + str(image_nr) + ".jpeg")
-            box = (img_width/2, 0, img_width, img_height)
-            image2 = img.crop(box)
-            image2.save("../output/split2" + str(image_nr) + ".jpeg")
-            split_images.append("../output/split1" + str(image_nr) +".jpeg")
-            split_images.append("../output/split2" + str(image_nr) + ".jpeg")
-        return split_images
-
