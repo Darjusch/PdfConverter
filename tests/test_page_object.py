@@ -55,6 +55,3 @@ class PageObjectTest(unittest.TestCase):
             [0.136, 0.161, 0.407, 0.484]
         )
 
-
-if __name__ == '__main__':
-    unittest.main()
