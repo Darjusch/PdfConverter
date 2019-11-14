@@ -1,10 +1,13 @@
 import copy
 import sys
+import PyPDF2
 from functools import partial
-from pdf_converter.gui.pdf_pagewindow import PdfPageWindow
+from pdf_converter.gui.crop_pagewindow import PdfPageWindow
 from pdf_converter.gui.ui_mainwindow import Ui_MainWindow
 from PySide2.QtWidgets import QApplication, QMainWindow, QFileDialog
 from wand.image import Image as WI
+
+from pdf_converter.logic.logic import Logic
 from pdf_converter.page_object import PageObject
 
 
@@ -14,6 +17,7 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.logic = Logic()
         self.page_objects = []
         self.ui.openFileButton.clicked.connect(self.dialog_to_select_pdfs)
         self.ui.openFolderButton.clicked.connect(self.dialog_to_select_folder_with_pdfs)
@@ -24,6 +28,7 @@ class MainWindow(QMainWindow):
         self.ui.cropButton.clicked.connect(self.open_checked_pdf_page_in_new_window)
         self.ui.trashButton.clicked.connect(partial(self.ui_action_handler, 'delete'))
         self.ui.resetButton.clicked.connect(self.delete_push_button_from_grid)
+        self.ui.createPdfButton.clicked.connect(self.send_data_for_creating_pdf)
 
     def open_checked_pdf_page_in_new_window(self):
         if len(self.is_push_button_checked()) is 1:
@@ -47,9 +52,11 @@ class MainWindow(QMainWindow):
 
     def convert_pdf_pages_to_push_button(self, pdf_path, resolution=25):
         page_objects = []
+        pdfFileObj = open(pdf_path, 'rb')
+        pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
         with WI(filename=pdf_path, resolution=resolution) as pdf_img:
-            for page in pdf_img.sequence:
-                obj = PageObject(page)
+            for index, wi_page in enumerate(pdf_img.sequence):
+                obj = PageObject(wi_page, pdfReader.getPage(index))
                 page_objects.append(obj)
         return page_objects
 
@@ -108,6 +115,8 @@ class MainWindow(QMainWindow):
                 column = 0
         self.ui.widgetLayout.setLayout(self.ui.pushButtonGrid)
 
+    def send_data_for_creating_pdf(self):
+        return self.logic.create_pdf_action_handler(self.page_objects)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

@@ -6,14 +6,14 @@ from PySide2 import QtGui
 
 
 class PageObject:
-    def __init__(self, page):
-        self.pdf_page = page
+    def __init__(self, wi_page, original_page):
+        self.page = original_page
         self.x1 = 0
         self.x2 = 1
         self.y1 = 0
         self.y2 = 1
         self.rotation = 0
-        self.img = self.page_to_qimage(page)
+        self.img = self.page_to_qimage(wi_page)
         self.push_button = self.create_push_button()
 
     def page_to_qimage(self, page, fmt='png'):
@@ -46,7 +46,6 @@ class PageObject:
         if self.x1 == 0 and self.x2 == 1:
             w = (self.x2 - self.x1) / 2
             self.resize_image(self.x1, self.y1, self.x1 + w, self.y2)
-        # ToDo Fixes bug with splitting after cropping but overrides coordinates wrong!
         else:
             self.resize_image(0, 0, 0.5, 1)
 
@@ -54,7 +53,6 @@ class PageObject:
         if self.x1 == 0 and self.x2 == 1:
             w = (self.x2 - self.x1) / 2
             self.resize_image(self.x1 + w, self.y1, self.x2, self.y2)
-        # ToDo Fixes bug with splitting after cropping but overrides coordinates wrong!
         else:
             self.resize_image(0.5, 0, 1, 1)
 
@@ -62,7 +60,7 @@ class PageObject:
         my_transform = QTransform()
         my_transform.rotate(rotation)
         self.img = self.img.transformed(my_transform)
-        self.rotation += rotation
+        self.rotation = self.rotation + rotation
         self.push_button = self.create_push_button()
 
     # 1 is 100 %, 0.5 = 50 % ..
