@@ -1,47 +1,38 @@
 import copy
-import logging
-import os
-import uuid
-from PyPDF2 import PdfFileReader, PdfFileWriter
+
+from PyPDF2 import PdfFileWriter
 
 
 class Logic:
 
-    # Todo: Problem with file saving / replacing.
-    def pdf_splitter(self, path, list_of_push_buttons):
-        input = PdfFileReader(open(path, 'rb'))
-        #os.remove("../output/output.pdf")
-        name_with_path = os.path.join("../output/" + str(uuid.uuid4()) + ".pdf")
-        output_pdf = open(name_with_path, 'wb')
-        output = PdfFileWriter()
-        for page_number, pdf_content in enumerate([input.getPage(page) for page in range(0, input.getNumPages())]):
-            logging.info('Pagenumber: %s is being processed.', str(page_number))
-            if list_of_push_buttons[page_number] in self.checked_buttons(list_of_push_buttons):
-                logging.info('Pagenumber: %s is being split.', str(page_number))
-                left, right = self.split(pdf_content)
-                # In python even numbers are True and odd numbers are False
-                if page_number or page_number is 0:
-                    output.addPage(left)
-                output.addPage(right)
-            else:
-                output.addPage(pdf_content)
-        output.write(output_pdf)
-        output_pdf.close()
+    def create_pdf_action_handler(self, page_objects):
+        original_pdf_writer = PdfFileWriter()
+        for page_object in page_objects:
+            page_object.page = copy.copy(page_object.page)
+            page_object.page, x1, y1, x2, y2 = self.adjust_coordinates(page_object)
+            self.adjust_pdf(page_object.page, x1, y1, x2, y2)
+            page_object.page.rotateClockwise(page_object.rotation * 0.5)
+            original_pdf_writer.addPage(page_object.page)
+        with open('original.pdf', 'wb') as original_pdf:
+            original_pdf_writer.write(original_pdf)
 
-    def split(self, pdf_content):
-        pdf_content_left = copy.copy(pdf_content)
-        pdf_content_right = copy.copy(pdf_content)
-        # Example width of pdf is 500.000
-        # Width / 2 = 250.000 -> upperRight is 500.000
-        # Width / 2 = 250.000 -> lowerLeft is 0
-        (w, h) = pdf_content.mediaBox.upperRight
-        pdf_content_left.mediaBox.upperRight = (w / 2, h)
-        pdf_content_right.mediaBox.upperLeft = (w / 2, h)
-        return pdf_content_left, pdf_content_right
 
-    def checked_buttons(self, list_of_push_buttons):
-        checked_buttons = []
-        for button in list_of_push_buttons:
-            if button.isChecked():
-                checked_buttons.append(button)
-        return checked_buttons
+    def adjust_coordinates(self, page_object):
+        x1, y1, x2, y2 = page_object.x1, page_object.y1, page_object.x2, page_object.y2
+        page = page_object.page.mediaBox
+        original_x1, original_y1, original_x2, original_y2 = page.getLowerLeft_x(), \
+                                                             page.getLowerLeft_y(), \
+                                                             page.getUpperRight_x(), \
+                                                             page.getUpperRight_y()
+        lower_left_x, lower_left_y, upper_right_x, upper_right_y = \
+            int(original_x2) * x1,\
+            int(original_y1) * y1,\
+            int(original_x2) * x2,\
+            int(original_y2) * y2
+        print(f'x1 to x2:  {lower_left_x} to {upper_right_x}')
+        return page_object.page, int(lower_left_x), int(lower_left_y), int(upper_right_x), int(upper_right_y)
+
+
+    def adjust_pdf(self, page, x1, y1, x2, y2):
+        page.mediaBox.lowerLeft = (x1, y1)
+        page.mediaBox.upperRight = (x2, y2)
