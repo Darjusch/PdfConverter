@@ -8,10 +8,10 @@ from PySide2 import QtGui
 class PageObject:
     def __init__(self, wi_page, original_page):
         self.page = original_page
-        self.x1 = 0
-        self.x2 = 1
-        self.y1 = 0
-        self.y2 = 1
+        self.edited_lower_left_x = 0
+        self.edited_lower_left_y = 0
+        self.edited_upper_right_x = 1
+        self.edited_upper_right_y = 1
         self.rotation = 0
         self.img = self.page_to_qimage(wi_page)
         self.push_button = self.create_push_button()
@@ -33,26 +33,26 @@ class PageObject:
         return push_button
 
     def update_image(self):
-        self.resize_image(self.x1, self.y1, self.x2, self.y2)
+        self.resize_image(self.edited_lower_left_x, self.edited_lower_left_y, self.edited_upper_right_x, self.edited_upper_right_y)
 
     def resize_image(self, x1, y1, x2, y2):
-        self.x1, self.y1, self.x2, self.y2 = x1, y1, x2, y2
+        self.edited_lower_left_x, self.edited_lower_left_y, self.edited_upper_right_x, self.edited_upper_right_y = x1, y1, x2, y2
         img = self.img
         w, h = img.width(), img.height()
         self.img = img.copy(w * x1, h * y1, w * (x2 - x1), h * (y2 - y1))
         self.push_button = self.create_push_button()
 
     def split_left(self):
-        if self.x1 == 0 and self.x2 == 1:
-            w = (self.x2 - self.x1) / 2
-            self.resize_image(self.x1, self.y1, self.x1 + w, self.y2)
+        if self.edited_lower_left_x == 0 and self.edited_upper_right_x == 1:
+            w = (self.edited_upper_right_x - self.edited_lower_left_x) / 2
+            self.resize_image(self.edited_lower_left_x, self.edited_lower_left_y, self.edited_lower_left_x + w, self.edited_upper_right_y)
         else:
             self.resize_image(0, 0, 0.5, 1)
 
     def split_right(self):
-        if self.x1 == 0 and self.x2 == 1:
-            w = (self.x2 - self.x1) / 2
-            self.resize_image(self.x1 + w, self.y1, self.x2, self.y2)
+        if self.edited_lower_left_x == 0 and self.edited_upper_right_x == 1:
+            w = (self.edited_upper_right_x - self.edited_lower_left_x) / 2
+            self.resize_image(self.edited_lower_left_x + w, self.edited_lower_left_y, self.edited_upper_right_x, self.edited_upper_right_y)
         else:
             self.resize_image(0.5, 0, 1, 1)
 
@@ -66,19 +66,19 @@ class PageObject:
     # 1 is 100 %, 0.5 = 50 % ..
     def convert_coordinates_into_percentage(self, x1, y1, width, height):
         try:
-            self.x1 = 1 / (self.img.width() / x1)
+            self.edited_lower_left_x = 1 / (self.img.width() / x1)
         except ZeroDivisionError:
-            self.x1 = 1 / self.img.width()
+            self.edited_lower_left_x = 1 / self.img.width()
             print(ZeroDivisionError)
         try:
-            self.y1 = 1 / (self.img.height() / y1)
+            self.edited_lower_left_y = 1 / (self.img.height() / y1)
         except ZeroDivisionError:
-            self.y1 = 1 / self.img.height()
+            self.edited_lower_left_y = 1 / self.img.height()
         try:
-            self.x2 = self.x1 + (1 / (self.img.width() / width))
+            self.edited_upper_right_x = self.edited_lower_left_x + (1 / (self.img.width() / width))
         except ZeroDivisionError:
-            self.x2 = self.x1 + (1 / self.img.width())
+            self.edited_upper_right_x = self.edited_lower_left_x + (1 / self.img.width())
         try:
-            self.y2 = self.y1 + (1 / (self.img.height() / height))
+            self.edited_upper_right_y = self.edited_lower_left_y + (1 / (self.img.height() / height))
         except ZeroDivisionError:
-            self.y2 = self.y1 + (1 / self.img.height())
+            self.edited_upper_right_y = self.edited_lower_left_y + (1 / self.img.height())
