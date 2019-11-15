@@ -126,16 +126,16 @@ class MainWindow(QMainWindow):
 
     def position_push_button_in_grid(self):
         for page_object in self.page_objects:
-            self.position_push_button_in_grid_row(page_object.push_button)
+            self.position_push_button_in_grid_row_and_moves_to_next_column(page_object.push_button)
             if int(len(self.page_objects) / 4) is self.column:
-                self.create_new_grid_row()
+                self.create_new_grid_row_and_sets_column_position_to_zero()
         self.ui.widgetLayout.setLayout(self.ui.pushButtonGrid)
 
-    def position_push_button_in_grid_row(self, push_button):
+    def position_push_button_in_grid_row_and_moves_to_next_column(self, push_button):
         self.ui.pushButtonGrid.addWidget(push_button, self.row, self.column)
         self.column += 1
 
-    def create_new_grid_row(self):
+    def create_new_grid_row_and_sets_column_position_to_zero(self):
         self.row += 1
         self.column = 0
 
