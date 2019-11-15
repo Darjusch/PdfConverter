@@ -1,11 +1,13 @@
 import copy
 import sys
-import PyPDF2
 from functools import partial
+
+from PyPDF2 import PdfFileReader
+
 from pdf_converter.gui.crop_pagewindow import PdfPageWindow
 from pdf_converter.gui.ui_mainwindow import Ui_MainWindow
 from PySide2.QtWidgets import QApplication, QMainWindow, QFileDialog
-from wand.image import Image as WI
+from wand.image import Image as WandImage
 
 from pdf_converter.logic.logic import Logic
 from pdf_converter.page_object import PageObject
@@ -19,6 +21,8 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.logic = Logic()
         self.page_objects = []
+        self.checked_objects = []
+        self.pdf_path = ''
         self.ui.openFileButton.clicked.connect(self.dialog_to_select_pdfs)
         self.ui.openFolderButton.clicked.connect(self.dialog_to_select_folder_with_pdfs)
         self.ui.splitButton.clicked.connect(partial(self.ui_action_handler, 'split'))
@@ -31,40 +35,39 @@ class MainWindow(QMainWindow):
         self.ui.createPdfButton.clicked.connect(self.send_data_for_creating_pdf)
 
     def open_checked_pdf_page_in_new_window(self):
-        if len(self.is_push_button_checked()) is 1:
-            checked_object = self.is_push_button_checked()[0]
+        self.is_push_button_checked()
+        if len(self.checked_objects) is 1:
+            checked_object = self.checked_objects[0]
             self.page_window = PdfPageWindow(checked_object, parent=self)
             self.page_window.show()
 
     def dialog_to_select_pdfs(self):
         pdf_dialog_obj = QFileDialog.getOpenFileNames(self, "Open Pdf", "/Downloads", "Pdf Files (*.pdf)",)
-        pdf = pdf_dialog_obj[0][0]
-        self.setup(pdf)
+        self.pdf_path = pdf_dialog_obj[0][0]
+        self.setup()
 
     def dialog_to_select_folder_with_pdfs(self):
         path = QFileDialog.getExistingDirectory()
         pass
 
-    def setup(self, pdf):
+    def setup(self):
         self.page_objects.clear()
-        self.page_objects = self.convert_pdf_pages_to_push_button(pdf)
+        self.convert_pdf_pages_to_push_button()
         self.position_push_button_in_grid()
 
-    def convert_pdf_pages_to_push_button(self, pdf_path, resolution=25):
-        page_objects = []
-        pdfFileObj = open(pdf_path, 'rb')
-        pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
-        with WI(filename=pdf_path, resolution=resolution) as pdf_img:
+    def convert_pdf_pages_to_push_button(self, resolution=25):
+        pdfFileObj = open(self.pdf_path, 'rb')
+        pdfReader = PdfFileReader(pdfFileObj)
+        with WandImage(filename=self.pdf_path, resolution=resolution) as pdf_img:
             for index, wi_page in enumerate(pdf_img.sequence):
                 obj = PageObject(wi_page, pdfReader.getPage(index))
-                page_objects.append(obj)
-        return page_objects
+                self.page_objects.append(obj)
 
     def ui_action_handler(self, action):
-        checked_objects = self.is_push_button_checked()
-        if action == 'change_position' and len(checked_objects) is 2:
-            self.change_position_of_objects_ui(checked_objects)
-        for obj in checked_objects:
+        self.is_push_button_checked()
+        if action == 'change_position' and len(self.checked_objects) is 2:
+            self.change_position_of_objects_ui()
+        for obj in self.checked_objects:
             if action == 'delete':
                 self.page_objects.remove(obj)
             elif action == 'rotate_right':
@@ -77,18 +80,17 @@ class MainWindow(QMainWindow):
         self.position_push_button_in_grid()
 
     def is_push_button_checked(self):
-        checked_objects = []
+        self.checked_objects = []
         for index, object in enumerate(self.page_objects):
             if object.push_button.isChecked():
-                checked_objects.append(object)
-        return checked_objects
+                self.checked_objects.append(object)
 
-    def change_position_of_objects_ui(self, checked_objects):
-        index1, index2 = self.page_objects.index(checked_objects[0]), self.page_objects.index(checked_objects[1])
-        self.page_objects[index1], self.page_objects[index2] = checked_objects[1], checked_objects[0]
+    def change_position_of_objects_ui(self):
+        index1, index2 = self.page_objects.index(self.checked_objects[0]), self.page_objects.index(self.checked_objects[1])
+        self.page_objects[index1], self.page_objects[index2] = self.checked_objects[1], self.checked_objects[0]
 
     def rotate_push_button_ui(self, obj, degree):
-        obj.rotate(degree)
+        obj.rotate_image_update_rotation_and_push_button(degree)
         obj.rotation += degree
 
     def split_push_button_ui(self, obj):
@@ -102,7 +104,6 @@ class MainWindow(QMainWindow):
             button_to_remove = self.ui.pushButtonGrid.itemAt(push_button).widget()
             self.ui.pushButtonGrid.removeWidget(button_to_remove)
             button_to_remove.setParent(None)
-        return self.ui.pushButtonGrid
 
     def position_push_button_in_grid(self):
         row = 0
@@ -116,7 +117,7 @@ class MainWindow(QMainWindow):
         self.ui.widgetLayout.setLayout(self.ui.pushButtonGrid)
 
     def send_data_for_creating_pdf(self):
-        return self.logic.create_pdf_action_handler(self.page_objects)
+        self.logic.create_pdf_action_handler(self.page_objects)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

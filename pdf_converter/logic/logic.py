@@ -14,8 +14,8 @@ class Logic:
 
     def create_pdf_action_handler(self, page_objects):
         for page_object in page_objects:
-            self.page = page_object.page
             self.page_object = page_object
+            self.page = page_object.page
             self.create_copy_of_page()
         self.write_adjusted_output_pdf()
 
@@ -25,10 +25,10 @@ class Logic:
 
     def adjust_coordinates_of_output_pdf_to_edited_pdf(self):
         self.output_lower_left_x, self.output_lower_left_y, self.output_upper_right_x, self.output_upper_right_y = \
-                                                int(int(self.page.mediaBox.getUpperRight_x()) * self.page_object.edited_lower_left_x),\
-                                                int(int(self.page.mediaBox.getLowerLeft_y()) * self.page_object.edited_lower_left_y),\
-                                                int(int(self.page.mediaBox.getUpperRight_x()) * self.page_object.edited_upper_right_x),\
-                                                int(int(self.page.mediaBox.getUpperRight_y()) * self.page_object.edited_upper_right_y)
+                                                int(int(self.page.mediaBox.getUpperRight_x()) * self.page_object.current_lower_left_x),\
+                                                int(int(self.page.mediaBox.getLowerLeft_y()) * self.page_object.current_lower_left_y),\
+                                                int(int(self.page.mediaBox.getUpperRight_x()) * self.page_object.current_upper_right_x),\
+                                                int(int(self.page.mediaBox.getUpperRight_y()) * self.page_object.current_upper_right_y)
         self.adjust_output_pdf_according_to_new_coordinates()
 
     def adjust_output_pdf_according_to_new_coordinates(self):
