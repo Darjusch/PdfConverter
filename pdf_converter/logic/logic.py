@@ -1,38 +1,49 @@
 import copy
-
 from PyPDF2 import PdfFileWriter
 
 
 class Logic:
+    def __init__(self):
+        self.page = None
+        self.page_object = None
+        self.output_lower_left_x = None
+        self.output_lower_left_y = None
+        self.output_upper_right_x = None
+        self.output_upper_right_y = None
+        self.output_pdf_writer = PdfFileWriter()
 
     def create_pdf_action_handler(self, page_objects):
-        original_pdf_writer = PdfFileWriter()
         for page_object in page_objects:
-            page_object.page = copy.copy(page_object.page)
-            page_object.page, x1, y1, x2, y2 = self.adjust_coordinates(page_object)
-            self.adjust_pdf(page_object.page, x1, y1, x2, y2)
-            page_object.page.rotateClockwise(page_object.rotation * 0.5)
-            original_pdf_writer.addPage(page_object.page)
-        with open('original.pdf', 'wb') as original_pdf:
-            original_pdf_writer.write(original_pdf)
+            self.page = page_object.page
+            self.page_object = page_object
+            self.create_copy_of_page()
+        self.write_adjusted_output_pdf()
 
+    def create_copy_of_page(self):
+        self.page = copy.copy(self.page)
+        self.adjust_coordinates_of_output_pdf_to_edited_pdf()
 
-    def adjust_coordinates(self, page_object):
-        x1, y1, x2, y2 = page_object.x1, page_object.y1, page_object.x2, page_object.y2
-        page = page_object.page.mediaBox
-        original_x1, original_y1, original_x2, original_y2 = page.getLowerLeft_x(), \
-                                                             page.getLowerLeft_y(), \
-                                                             page.getUpperRight_x(), \
-                                                             page.getUpperRight_y()
-        lower_left_x, lower_left_y, upper_right_x, upper_right_y = \
-            int(original_x2) * x1,\
-            int(original_y1) * y1,\
-            int(original_x2) * x2,\
-            int(original_y2) * y2
-        print(f'x1 to x2:  {lower_left_x} to {upper_right_x}')
-        return page_object.page, int(lower_left_x), int(lower_left_y), int(upper_right_x), int(upper_right_y)
+    def adjust_coordinates_of_output_pdf_to_edited_pdf(self):
+        self.output_lower_left_x, self.output_lower_left_y, self.output_upper_right_x, self.output_upper_right_y = \
+                                                int(int(self.page.mediaBox.getUpperRight_x()) * self.page_object.edited_lower_left_x),\
+                                                int(int(self.page.mediaBox.getLowerLeft_y()) * self.page_object.edited_lower_left_y),\
+                                                int(int(self.page.mediaBox.getUpperRight_x()) * self.page_object.edited_upper_right_x),\
+                                                int(int(self.page.mediaBox.getUpperRight_y()) * self.page_object.edited_upper_right_y)
+        self.adjust_output_pdf_according_to_new_coordinates()
 
+    def adjust_output_pdf_according_to_new_coordinates(self):
+        self.page.mediaBox.lowerLeft = (self.output_lower_left_x, self.output_lower_left_y)
+        self.page.mediaBox.upperRight = (self.output_upper_right_x, self.output_upper_right_y)
+        self.rotate_output_pdf_according_to_edited_pdf_rotation()
 
-    def adjust_pdf(self, page, x1, y1, x2, y2):
-        page.mediaBox.lowerLeft = (x1, y1)
-        page.mediaBox.upperRight = (x2, y2)
+    def rotate_output_pdf_according_to_edited_pdf_rotation(self):
+        self.page.rotateClockwise(self.page_object.rotation*0.5)
+        self.add_adjusted_output_page()
+
+    def add_adjusted_output_page(self):
+        self.output_pdf_writer.addPage(self.page)
+
+    def write_adjusted_output_pdf(self):
+        with open('output_pdf.pdf', 'wb') as output_pdf:
+            self.output_pdf_writer.write(output_pdf)
+
