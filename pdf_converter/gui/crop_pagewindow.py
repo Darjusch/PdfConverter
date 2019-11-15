@@ -42,7 +42,7 @@ class PdfPageWindow(QMainWindow):
         self.selected_area_in_pagewindow.hide()
         self.selected_area_in_page_window_to_area_in_image()
         self.selected_area_in_pagewindow.deleteLater()
-        self.page_obj.resize_image()
+        self.page_obj.update_image()
         self.parent.page_objects.remove(self.parent.page_objects[self.index])
         self.parent.page_objects.insert(self.index, self.page_obj)
         self.parent.delete_push_button_from_grid()
@@ -59,7 +59,7 @@ class PdfPageWindow(QMainWindow):
         self.convert_coordinates_to_percentage(selected_area_in_image_rectangle)
 
     def convert_coordinates_to_percentage(self, selected_area_in_image_rectangle):
-        self.page_obj.convert_coordinates_into_decimal_percentage(
+        self.page_obj.convert_coordinates_into_percentage(
             selected_area_in_image_rectangle.x(),
             selected_area_in_image_rectangle.y(),
             selected_area_in_image_rectangle.width(),
