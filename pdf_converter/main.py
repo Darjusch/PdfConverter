@@ -36,7 +36,7 @@ class MainWindow(QMainWindow):
         self.ui.rotateRightButton.clicked.connect(partial(self.ui_action_handler, 'rotate', 90))
         self.ui.cropButton.clicked.connect(self.open_checked_pdf_page_in_new_window)
         self.ui.trashButton.clicked.connect(partial(self.ui_action_handler, 'delete'))
-        self.ui.resetButton.clicked.connect(self.get_position_from_push_button_in_grid)
+        self.ui.resetButton.clicked.connect(partial(self.get_position_from_push_button_in_grid, self.page_objects.clear()))
         self.ui.createPdfButton.clicked.connect(self.send_data_for_creating_pdf)
 
     def open_checked_pdf_page_in_new_window(self):
@@ -94,7 +94,8 @@ class MainWindow(QMainWindow):
                 self.checked_objects.append(object)
 
     def change_position_of_objects_ui(self):
-        self.page_objects[0], self.page_objects[1] = self.checked_objects[1], self.checked_objects[0]
+        first_checked_button, second_checked_button = self.page_objects.index(self.checked_objects[0]), self.page_objects.index(self.checked_objects[1])
+        self.page_objects[first_checked_button], self.page_objects[second_checked_button] = self.checked_objects[1], self.checked_objects[0]
 
     def rotate_push_button_ui(self, obj, degree):
         obj.rotate_image_update_rotation_and_push_button(degree)
