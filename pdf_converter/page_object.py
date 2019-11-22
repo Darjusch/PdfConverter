@@ -33,9 +33,20 @@ class PageObject:
     def create_push_button(self):
         push_button = QPushButton()
         pixmap = QPixmap(self.img)
+        if pixmap.width() > 140 and pixmap.height() > 150:
+            pixmap = pixmap.scaled(130, 155)
+        else:
+            if pixmap.width() < 140:
+                pixmap = pixmap.scaled(65, 155)
+            elif pixmap.height() < 220:
+                pixmap = pixmap.scaled(130, 70)
+
         icon = QIcon(pixmap)
+        w = pixmap.width()
+        h = pixmap.height()
         push_button.setIcon(icon)
-        push_button.setIconSize(QSize(100, 100))
+        push_button.setIconSize(QSize(w, h))
+        push_button.setFixedSize(QSize(w+26, h+26))
         push_button.setCheckable(True)
         self.push_button = push_button
 
