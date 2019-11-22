@@ -157,3 +157,5 @@ class Ui_MainWindow(object):
         self.actionOpen_Folder.setText(QtWidgets.QApplication.translate("MainWindow", "Open Folder", None, -1))
         self.actionOpen_File.setText(QtWidgets.QApplication.translate("MainWindow", "Open File", None, -1))
         self.createPdfButton.setText(QtWidgets.QApplication.translate("MainWindow", "CreatePdf", None, -1))
+        self.leftButton.setText(QtWidgets.QApplication.translate("MainWindow", "SwipeLeft", None, -1))
+        self.rightButton.setText(QtWidgets.QApplication.translate("MainWindow", "SwipeRight", None, -1))

@@ -1,6 +1,6 @@
 from PySide2.QtCore import QSize, QRect
 from PySide2.QtGui import QPixmap
-from PySide2.QtWidgets import QMainWindow, QLabel, QRubberBand
+from PySide2.QtWidgets import QMainWindow, QLabel, QRubberBand, QWidget, QGridLayout, QScrollArea, QPushButton
 
 
 class PdfPageWindow(QMainWindow):
