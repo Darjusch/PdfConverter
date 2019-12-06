@@ -26,6 +26,17 @@ class TestPdfCreation(unittest.TestCase):
         self.pdf_creator.create_copy_of_page()
         self.assertEquals(type(self.pdf_creator.page), type(page_copy))
 
+    def test_adjusting_of_coordinates(self):
+        self.pdf_creator.adjust_coordinates_of_output_pdf_to_edited_pdf()
+        output_coordinates = [
+            self.pdf_creator.output_lower_left_x,
+            self.pdf_creator.output_lower_left_y,
+            self.pdf_creator.output_upper_right_x,
+            self.pdf_creator.output_upper_right_y
+        ]
+        expected_coordinates = [0, 0, 1062, 892]
+        self.assertListEqual(output_coordinates, expected_coordinates)
+
 
 if __name__ == '__main__':
     unittest.main()
