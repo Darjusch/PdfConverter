@@ -37,6 +37,9 @@ class TestPdfCreation(unittest.TestCase):
         expected_coordinates = [0, 0, 1062, 892]
         self.assertListEqual(output_coordinates, expected_coordinates)
 
+    def test_set_output_coordinates(self):
+        self.assertTupleEqual(self.pdf_creator.page.mediaBox.lowerLeft, (0, 0))
+
 
 if __name__ == '__main__':
     unittest.main()
