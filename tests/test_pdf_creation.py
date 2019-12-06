@@ -40,6 +40,11 @@ class TestPdfCreation(unittest.TestCase):
     def test_set_output_coordinates(self):
         self.assertTupleEqual(self.pdf_creator.page.mediaBox.lowerLeft, (0, 0))
 
+    def test_rotate_output_pdf(self):
+        self.pdf_creator.page_object.rotation = 180
+        self.pdf_creator.rotate_output_pdf_according_to_edited_pdf_rotation()
+        self.assertEqual(self.pdf_creator.page['/Rotate'], 90)
+
 
 if __name__ == '__main__':
     unittest.main()
