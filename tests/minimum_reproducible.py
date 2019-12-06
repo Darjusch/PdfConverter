@@ -1,19 +1,21 @@
-from PySide2.QtWidgets import QMainWindow, QPushButton, QApplication, QFileDialog
+from PySide2.QtWidgets import QMainWindow, QPushButton, QApplication, QFileDialog, QScrollArea, QGridLayout, QWidget
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.button = ''
-        btn = QPushButton('Open File', self)
-        btn.move(10, 10)
-        btn.clicked.connect(self.open_file)
-        self.resize(420, 450)
+        self.main_widget = QWidget()
+        self.scroll = QScrollArea()
+        self.scroll.setWidget(self.main_widget)
+        self.grid = QGridLayout(self.main_widget)
 
-    def open_file(self):
-        pdf_dialog_obj = QFileDialog.getOpenFileNames(self, "Open Pdf", "/Downloads", "Pdf Files (*.pdf)",)
-        pdf_path = pdf_dialog_obj[0]
-        print(pdf_path)
+        for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+            btn = QPushButton(c)
+            self.grid.addWidget(btn)
+
+        self.scroll.setFixedHeight(400)
+        self.grid.addWidget(self.scroll)
+
 
 if __name__ == '__main__':
     import sys
