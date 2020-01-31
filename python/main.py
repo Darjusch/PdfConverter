@@ -5,13 +5,13 @@ from functools import partial
 
 from PyPDF2 import PdfFileReader
 
-from pdf_converter.gui.crop_pagewindow import PdfPageWindow
-from pdf_converter.gui.ui_mainwindow import Ui_MainWindow
+from python.gui.crop_pagewindow import PdfPageWindow
+from python.gui.ui_mainwindow import Ui_MainWindow
 from PySide2.QtWidgets import QApplication, QMainWindow, QFileDialog
 from wand.image import Image as WandImage
 
-from pdf_converter.logic.logic import Logic
-from pdf_converter.page_object import PageObject
+from python.logic.pdf_creation import PdfCreator
+from python.page_object import PageObject
 
 
 class MainWindow(QMainWindow):
@@ -20,7 +20,7 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.logic = Logic()
+        self.logic = PdfCreator()
         self.page_objects = []
         self.checked_objects = []
         self.pdf_path = ''

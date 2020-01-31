@@ -2,12 +2,12 @@ import PySide2
 import sys
 from PySide2.QtGui import QImage
 from PySide2.QtWidgets import QApplication
-from pdf_converter.main import MainWindow
+from python.main import MainWindow
 import unittest
 app = QApplication(sys.argv)
 
 
-class PageObjectTest(unittest.TestCase):
+class TestPageObject(unittest.TestCase):
 
     def setUp(self):
         self.main = MainWindow()
@@ -57,3 +57,5 @@ class PageObjectTest(unittest.TestCase):
             [0.136, 0.161, 0.407, 0.484]
         )
 
+if __name__ == '__main__':
+    unittest.main()

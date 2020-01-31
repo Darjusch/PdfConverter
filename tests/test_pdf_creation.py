@@ -4,8 +4,8 @@ import unittest
 
 from PySide2.QtWidgets import QApplication
 
-from pdf_converter.logic.pdf_creation import PdfCreator
-from pdf_converter.main import MainWindow
+from python.logic.pdf_creation import PdfCreator
+from python.main import MainWindow
 
 app = QApplication(sys.argv)
 

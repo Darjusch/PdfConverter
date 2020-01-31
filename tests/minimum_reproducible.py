@@ -1,25 +1,21 @@
-from PySide2.QtWidgets import QMainWindow, QPushButton, QApplication, QFileDialog, QScrollArea, QGridLayout, QWidget
+#!/usr/bin/env python
+import sys
+
+from PySide2.QtWidgets import QApplication, QMainWindow, QMenuBar, QMenu
 
 
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super(MainWindow, self).__init__()
-        self.main_widget = QWidget()
-        self.scroll = QScrollArea()
-        self.scroll.setWidget(self.main_widget)
-        self.grid = QGridLayout(self.main_widget)
+class MyWindow(QMainWindow):
 
-        for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-            btn = QPushButton(c)
-            self.grid.addWidget(btn)
-
-        self.scroll.setFixedHeight(400)
-        self.grid.addWidget(self.scroll)
+    def __init__(self, *args, **kwargs):
+        super(MyWindow, self).__init__(*args, **kwargs)
+        self.setWindowTitle("Example MainWindow")
+        menu_bar = self.menuBar()  # type: QMenuBar
+        file_menu = menu_bar.addMenu("File")  # type: QMenu
+        file_menu.addAction("Exit", QApplication.quit)
 
 
 if __name__ == '__main__':
-    import sys
-    app = QApplication(sys.argv)
-    MW = MainWindow()
-    MW.show()
-    sys.exit(app.exec_())
+    application = QApplication(sys.argv)
+    window = MyWindow()
+    window.show()
+    sys.exit(application.exec_())

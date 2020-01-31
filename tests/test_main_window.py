@@ -1,7 +1,7 @@
 import sys
 from PySide2.QtWidgets import QApplication
-from pdf_converter.gui.ui_mainwindow import Ui_MainWindow
-from pdf_converter.main import MainWindow
+from python.gui.ui_mainwindow import Ui_MainWindow
+from python.main import MainWindow
 import unittest
 
 app = QApplication(sys.argv)

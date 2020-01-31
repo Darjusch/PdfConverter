@@ -2,7 +2,7 @@ import copy
 from PyPDF2 import PdfFileWriter
 
 
-class Logic:
+class PdfCreator:
     def __init__(self):
         self.page = None
         self.page_object = None
