@@ -23,6 +23,8 @@ class MainWindow(QMainWindow):
         self.logic = PdfCreator()
         self.page_objects = []
         self.checked_objects = []
+        page_objects = self.page_objects[:]
+        self.manipulation_tracker = [page_objects]
         self.pdf_path = ''
         self.pdf_reader = None
         self.page_window = None
@@ -31,6 +33,7 @@ class MainWindow(QMainWindow):
         self.column = 0
         self.visible_from = 0
         self.visible_until = 15
+        self.current_position = -1
         self.ui.openFileButton.clicked.connect(self.dialog_to_select_pdfs)
         self.ui.openFolderButton.clicked.connect(self.dialog_to_select_folder_with_pdfs)
         self.ui.splitButton.clicked.connect(partial(self.ui_action_handler, 'split'))
@@ -43,6 +46,8 @@ class MainWindow(QMainWindow):
         self.ui.createPdfButton.clicked.connect(self.send_data_for_creating_pdf)
         self.ui.rightButton.clicked.connect(partial(self.update_visible_button, "+"))
         self.ui.leftButton.clicked.connect(partial(self.update_visible_button, "-"))
+        self.ui.undoManipulationButton.clicked.connect(partial(self.re_or_undo_manipulation, -1))
+        self.ui.redoManipulationButton.clicked.connect(partial(self.re_or_undo_manipulation, +1))
 
     def open_checked_pdf_page_in_new_window(self):
         self.is_push_button_checked()
@@ -87,6 +92,8 @@ class MainWindow(QMainWindow):
         with WandImage(filename=self.pdf_path, resolution=resolution) as pdf_img:
             for index, wi_page in enumerate(pdf_img.sequence):
                 self.create_page_objects(index, wi_page)
+        page_objects = self.page_objects[:]
+        self.manipulation_tracker.append(page_objects)
 
     def create_page_objects(self, index, wi_page):
         obj = PageObject(wi_page, self.pdf_reader.getPage(index))
@@ -104,6 +111,8 @@ class MainWindow(QMainWindow):
                     self.rotate_push_button_ui(obj, degree)
                 elif action == 'split':
                     self.split_push_button_ui(obj)
+        page_objects = self.page_objects[:]
+        self.manipulation_tracker.append(page_objects)
         self.deleted_old_and_position_new_push_button_in_grid()
 
     def is_push_button_checked(self):
@@ -117,14 +126,20 @@ class MainWindow(QMainWindow):
         self.page_objects[first_checked_button], self.page_objects[second_checked_button] = self.checked_objects[1], self.checked_objects[0]
 
     def rotate_push_button_ui(self, obj, degree):
-        obj.rotate_image_update_rotation_and_push_button(degree)
-        obj.rotation += degree
+        copy_object = copy.copy(obj)
+        copy_object.rotate_image_update_rotation_and_push_button(degree)
+        copy_object.rotation += degree
+        self.page_objects.insert(self.page_objects.index(obj), copy_object)
+        self.page_objects.remove(obj)
 
     def split_push_button_ui(self, object):
-        copy_of_object = copy.copy(object)
-        object.split_left()
-        copy_of_object.split_right()
-        self.page_objects.insert(self.page_objects.index(object) + 1, copy_of_object)
+        first_copy_of_object = copy.copy(object)
+        second_copy_of_object = copy.copy(object)
+        first_copy_of_object.split_left()
+        second_copy_of_object.split_right()
+        self.page_objects.insert(self.page_objects.index(object) + 1, second_copy_of_object)
+        self.page_objects.insert(self.page_objects.index(object), first_copy_of_object)
+        self.page_objects.remove(object)
 
     def deleted_old_and_position_new_push_button_in_grid(self):
         self.get_position_from_push_button_in_grid()
@@ -161,6 +176,11 @@ class MainWindow(QMainWindow):
 
     def send_data_for_creating_pdf(self):
         self.logic.create_pdf_action_handler(self.page_objects)
+
+    def re_or_undo_manipulation(self, change):
+        self.current_position = self.current_position + change
+        self.page_objects = self.manipulation_tracker[self.current_position]
+        self.deleted_old_and_position_new_push_button_in_grid()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
