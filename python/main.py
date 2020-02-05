@@ -46,8 +46,8 @@ class MainWindow(QMainWindow):
         self.ui.createPdfButton.clicked.connect(self.send_data_for_creating_pdf)
         self.ui.rightButton.clicked.connect(partial(self.update_visible_button, "+"))
         self.ui.leftButton.clicked.connect(partial(self.update_visible_button, "-"))
-        self.ui.undoManipulationButton.clicked.connect(partial(self.undo_manipulation, -1))
-
+        self.ui.undoManipulationButton.clicked.connect(partial(self.re_or_undo_manipulation, -1))
+        self.ui.redoManipulationButton.clicked.connect(partial(self.re_or_undo_manipulation, +1))
 
     def open_checked_pdf_page_in_new_window(self):
         self.is_push_button_checked()
@@ -177,7 +177,7 @@ class MainWindow(QMainWindow):
     def send_data_for_creating_pdf(self):
         self.logic.create_pdf_action_handler(self.page_objects)
 
-    def undo_manipulation(self, change):
+    def re_or_undo_manipulation(self, change):
         self.current_position = self.current_position + change
         self.page_objects = self.manipulation_tracker[self.current_position]
         self.deleted_old_and_position_new_push_button_in_grid()
