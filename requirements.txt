@@ -1,4 +1,5 @@
 PySide2==5.13.0
 ghostscript==0.6
 PyPDF2==1.26.0
-Wand==0.5.4
+wand==0.5.4
+ghostscript
