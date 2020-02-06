@@ -1,7 +1,9 @@
 *.pdf
 !test2.pdf
 *.jpeg
+output/*.jpeg
+output/*.pdf
 venv/
 .DS_Store
-.idea
 __pycache__
+.idea/
