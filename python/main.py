@@ -48,6 +48,7 @@ class MainWindow(QMainWindow):
         self.ui.leftButton.clicked.connect(partial(self.update_visible_button, "-"))
         self.ui.undoManipulationButton.clicked.connect(partial(self.re_or_undo_manipulation, -1))
         self.ui.redoManipulationButton.clicked.connect(partial(self.re_or_undo_manipulation, +1))
+        self.ui.actionOpen_Output.triggered.connect(self.open_outputfolder)
 
     def open_checked_pdf_page_in_new_window(self):
         self.is_push_button_checked()
@@ -181,6 +182,9 @@ class MainWindow(QMainWindow):
         self.current_position = self.current_position + change
         self.page_objects = self.manipulation_tracker[self.current_position]
         self.deleted_old_and_position_new_push_button_in_grid()
+
+    def open_outputfolder(self):
+        outputfolder_dialog = QFileDialog.getOpenFileNames(self, 'Your output Pdf', 'Output-folder', 'pdf(*)')
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
