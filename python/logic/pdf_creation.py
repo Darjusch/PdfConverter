@@ -2,6 +2,7 @@ import copy
 import os
 
 from PyPDF2 import PdfFileWriter
+from PySide2.QtWidgets import QFileDialog
 
 
 class PdfCreator:
@@ -46,14 +47,6 @@ class PdfCreator:
         self.output_pdf_writer.addPage(self.page)
 
     def write_adjusted_output_pdf(self):
-        self.create_output_dir()
-        with open(f'Output-folder/output_pdf.pdf', 'wb') as output_pdf:
+        filename = QFileDialog.getSaveFileName()
+        with open(filename[0], 'wb') as output_pdf:
             self.output_pdf_writer.write(output_pdf)
-
-    def create_output_dir(self):
-        # Create target Directory if don't exist
-        if not os.path.exists('Output-folder'):
-            os.mkdir(path='Output-folder')
-            print("Directory ", 'Output-folder', " Created ")
-        else:
-            print("Directory ", 'Output-folder', " already exists")

@@ -4,7 +4,6 @@ import sys
 from functools import partial
 
 from PyPDF2 import PdfFileReader
-from PySide2.QtCore import QDir
 
 from python.gui.ui_mainwindow import Ui_MainWindow
 from PySide2.QtWidgets import QApplication, QMainWindow, QFileDialog, QInputDialog, QLineEdit
