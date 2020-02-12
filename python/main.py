@@ -4,10 +4,10 @@ import sys
 from functools import partial
 
 from PyPDF2 import PdfFileReader
+from PySide2.QtCore import QDir
 
-from python.gui.crop_pagewindow import PdfPageWindow
 from python.gui.ui_mainwindow import Ui_MainWindow
-from PySide2.QtWidgets import QApplication, QMainWindow, QFileDialog
+from PySide2.QtWidgets import QApplication, QMainWindow, QFileDialog, QInputDialog, QLineEdit
 from wand.image import Image as WandImage
 
 from python.logic.pdf_creation import PdfCreator
@@ -54,8 +54,10 @@ class MainWindow(QMainWindow):
     def open_checked_pdf_page_in_new_window(self):
         self.is_push_button_checked()
         if len(self.checked_objects) is 1:
-            self.page_window = PdfPageWindow(self.checked_objects[0], parent=self)
-            self.page_window.show()
+            pixel, ok = QInputDialog().getText(self, "QInputDialog().getText()",
+                                                 "Pixel to crop:", QLineEdit.Normal)
+            self.checked_objects[0].cropp(int(pixel))
+            self.deleted_old_and_position_new_push_button_in_grid()
 
     def dialog_to_select_pdfs(self):
         pdf_dialog_obj = QFileDialog.getOpenFileNames(self, "Open Pdf", "/Downloads", "Pdf Files (*.pdf)",)

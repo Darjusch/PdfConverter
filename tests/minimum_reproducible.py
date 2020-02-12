@@ -1,21 +1,22 @@
-#!/usr/bin/env python
 import sys
+from PySide2.QtWidgets import QInputDialog, QApplication, QLineEdit, QPushButton, QFormLayout, QWidget, QLabel
 
-from PySide2.QtWidgets import QApplication, QMainWindow, QMenuBar, QMenu
+
+class inputdialogdemo(QWidget):
+    def __init__(self, parent=None):
+        super(inputdialogdemo, self).__init__(parent)
+        text, ok = QInputDialog.getText(self, 'Text Input Dialog', 'Pixel: ')
+        if ok:
+            print(str(text))
+        self.setWindowTitle("Pdf Cropping")
 
 
-class MyWindow(QMainWindow):
-
-    def __init__(self, *args, **kwargs):
-        super(MyWindow, self).__init__(*args, **kwargs)
-        self.setWindowTitle("Example MainWindow")
-        menu_bar = self.menuBar()  # type: QMenuBar
-        file_menu = menu_bar.addMenu("File")  # type: QMenu
-        file_menu.addAction("Exit", QApplication.quit)
+def main():
+    app = QApplication(sys.argv)
+    ex = inputdialogdemo()
+    ex.show()
+    sys.exit(app.exec_())
 
 
 if __name__ == '__main__':
-    application = QApplication(sys.argv)
-    window = MyWindow()
-    window.show()
-    sys.exit(application.exec_())
+    main()

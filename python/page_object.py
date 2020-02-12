@@ -92,6 +92,16 @@ class PageObject:
             self.updated_lower_left_x, self.updated_lower_left_y, self.updated_upper_right_x, self.updated_upper_right_y = 1, 0, 1, 1
         self.updated_coordinates()
 
+    def cropp(self, pixel):
+        # self.updated_lower_left_x = self.current_upper_right_x / pixel
+        # self.updated_lower_left_y = self.current_upper_right_y / pixel
+        # self.updated_upper_right_x = self.current_lower_left_x + (self.current_upper_right_x / pixel)
+        # self.updated_upper_right_y = self.current_lower_left_y + (self.current_upper_right_y / pixel)
+        # self.updated_coordinates()
+        w, h = self.img.width() - (pixel*2), self.img.height() - (pixel*2)
+        self.img = self.img.copy(pixel, pixel, w, h)
+        self.create_push_button()
+
     def resize_image(self):
         w, h = self.img.width(), self.img.height()
         self.img = self.img.copy(w * self.current_lower_left_x,

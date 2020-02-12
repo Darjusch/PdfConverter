@@ -3,11 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="286f7b8e-947c-4b11-91b6-1d53b67fa2ab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/pdflogo.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/Output-folder/output_pdf.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/python/Output-folder/output_pdf.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/gui/ui_mainwindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/gui/ui_mainwindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/Output-folder/output_pdf.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/gui/crop_pagewindow.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/python/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/page_object.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/page_object.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/minimum_reproducible.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/minimum_reproducible.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,9 +25,10 @@
     <SUITE FILE_PATH="coverage/PyPdfConverter$testingSplit__1_.coverage" NAME="pdfSplitter Coverage Results" MODIFIED="1561712497705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$eeffe.coverage" NAME="eeffe Coverage Results" MODIFIED="1561559577735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/main" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$pic_button.coverage" NAME="pic_button Coverage Results" MODIFIED="1566208307426" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter/gui" />
+    <SUITE FILE_PATH="coverage/PdfConverter$minimum_reproducible.coverage" NAME="minimum_reproducible Coverage Results" MODIFIED="1581511186841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$testingSplit.coverage" NAME="testingSplit Coverage Results" MODIFIED="1561464547726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/src" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$main.coverage" NAME="main Coverage Results" MODIFIED="1569504655504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf_converter" />
-    <SUITE FILE_PATH="coverage/PdfConverter$main.coverage" NAME="main Coverage Results" MODIFIED="1581502306995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python" />
+    <SUITE FILE_PATH="coverage/PdfConverter$main.coverage" NAME="main Coverage Results" MODIFIED="1581516465338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python" />
     <SUITE FILE_PATH="coverage/PyPdfConverter$pdfMain.coverage" NAME="pdfMain Coverage Results" MODIFIED="1561455022747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/src" />
   </component>
   <component name="FavoritesManager">
@@ -35,32 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/python/page_object.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="971">
-              <caret line="94" column="45" lean-forward="true" selection-start-line="94" selection-start-column="45" selection-end-line="94" selection-end-column="45" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="154" column="88" selection-start-line="153" selection-start-column="8" selection-end-line="154" selection-end-column="88" />
+            <state relative-caret-position="615">
+              <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -69,47 +49,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7/lib/python3.7/importlib/resources.py">
+        <entry file="file://$PROJECT_DIR$/python/page_object.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="168" selection-start-line="168" selection-end-line="168" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/python/gui/ui_mainwindow.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="806">
-              <caret line="112" column="69" selection-start-line="112" selection-start-column="69" selection-end-line="112" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.spec">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" selection-start-line="37" selection-end-line="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/easy_install.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/magic.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="376">
+              <caret line="101" selection-start-line="101" selection-end-line="101" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,8 +71,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>crop</find>
-      <find>left</find>
       <find>gridLayout</find>
       <find>PYDEVD_USE_FRAME_EVAL</find>
       <find>picButtonGrid</find>
@@ -155,13 +99,15 @@
       <find>dict_btn_to_image</find>
       <find>dict</find>
       <find>tripple</find>
+      <find>crop</find>
+      <find>open_checked</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
   </component>
@@ -206,16 +152,19 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/python/gui/ui_mainwindow.py" />
-        <option value="$PROJECT_DIR$/python/main.py" />
+        <option value="$PROJECT_DIR$/python/logic/pdf_creation.py" />
+        <option value="$PROJECT_DIR$/python/gui/crop_pagewindow.py" />
+        <option value="$PROJECT_DIR$/tests/minimum_reproducible.py" />
         <option value="$PROJECT_DIR$/python/page_object.py" />
+        <option value="$PROJECT_DIR$/python/main.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1280" />
-    <option name="y" value="-462" />
+    <option name="x" value="-1920" />
+    <option name="y" value="74" />
     <option name="width" value="1080" />
-    <option name="height" value="1850" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -234,61 +183,7 @@
             <path>
               <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
               <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
-              <item name="icons" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
               <item name="python" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
-              <item name="python" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
-              <item name="python" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
-              <item name="python" type="462c0819:PsiDirectoryNode" />
-              <item name="Output-folder" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="python3.7" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PdfConverter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PdfConverter" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="python3.7" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -397,6 +292,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="minimum_reproducible" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="PdfConverter" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/minimum_reproducible.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="pic_button" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PyPdfConverter" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -411,28 +328,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pdf_converter/gui/pic_button.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="testing (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="PyPdfConverter" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/testing.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -504,19 +399,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.testing (1)" />
       <item itemvalue="Python.gui (1)" />
       <item itemvalue="Python.logic" />
       <item itemvalue="Python.pic_button" />
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.minimum_reproducible" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.minimum_reproducible" />
         <item itemvalue="Python.pic_button" />
         <item itemvalue="Python.logic" />
         <item itemvalue="Python.gui (1)" />
-        <item itemvalue="Python.testing (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -553,7 +448,7 @@
       <workItem from="1570696783249" duration="549000" />
       <workItem from="1580999430462" duration="87000" />
       <workItem from="1580999531711" duration="1853000" />
-      <workItem from="1581066281559" duration="6198000" />
+      <workItem from="1581066281559" duration="13735000" />
     </task>
     <task id="LOCAL-00001" summary="Import fix, structure changes, cleaner code">
       <created>1568972395330</created>
@@ -580,7 +475,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="324066000" />
+    <option name="totallyTimeSpent" value="331603000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -592,16 +487,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1280" y="-462" width="1080" height="1850" extended-state="0" />
+    <frame x="-1920" y="74" width="1080" height="1057" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7883212" visible="true" weight="0.34971097" />
       <window_info id="Structure" order="1" sideWeight="0.5014881" side_tool="true" weight="0.2768903" />
       <window_info id="Favorites" order="2" sideWeight="0.2119883" side_tool="true" weight="0.17838125" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4877529" weight="0.3235457" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8647497" visible="true" weight="0.31968147" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.87007457" weight="0.27986348" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4877529" weight="0.32331607" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8647497" visible="true" weight="0.1326425" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.87007457" weight="0.27875647" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.5857295" weight="0.32953367" />
@@ -609,7 +504,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49946752" weight="0.3284974" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.13525027" side_tool="true" weight="0.36435643" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.6688207" weight="0.07257618" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.6688207" weight="0.36683938" />
       <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.4978701" weight="0.3284974" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -694,24 +589,14 @@
           <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/python/page_object.py</url>
-          <line>76</line>
-          <option name="timeStamp" value="99" />
+          <url>file://$PROJECT_DIR$/python/main.py</url>
+          <line>59</line>
+          <option name="timeStamp" value="110" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/python/page_object.py</url>
-          <line>79</line>
-          <option name="timeStamp" value="100" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/python/page_object.py</url>
-          <line>82</line>
-          <option name="timeStamp" value="101" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/python/page_object.py</url>
-          <line>91</line>
-          <option name="timeStamp" value="102" />
+          <line>101</line>
+          <option name="timeStamp" value="114" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -725,6 +610,27 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>self.updated_lower_left_y</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.updated_lower_left_y,\
+self.updated_lower_left_x,\
+self.updated_upper_right_x,\
+self.updated_upper_right_y = -pixel, -pixel, -pixel, -pixel</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.updated_lower_left_y,\
+self.updated_lower_left_x,\
+self.updated_upper_right_x,\
+self.updated_upper_right_y = pixel, pixel, pixel, pixel</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>self.ui.widgetLayout</expression-string>
         <language-id>Python</language-id>
@@ -755,85 +661,56 @@
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>self.ui.picButtonGrid</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>self.ui.picButtonGrid.setColumnStretch(x, x + 1)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>list_of_pic_buttons[0]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>list_of_pic_buttons</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>self.list_of_push_buttons</expression-string>
+        <expression-string>self.img.width()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.pdf_path_list[0]</expression-string>
+        <expression-string>pixel, pixel, w, h</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.pdf_path_list</expression-string>
+        <expression-string>self.img.copy(pixel, pixel, w, h)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>glob.glob('../output/*.pdf')[0]</expression-string>
+        <expression-string>self.img.height()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>glob.glob('../output/*.pdf')</expression-string>
+        <expression-string>self.img.heigth()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>list_of_push_buttons[0] in self.checked_buttons(list_of_push_buttons)</expression-string>
+        <expression-string>self.img</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>list_of_push_buttons[4] in self.checked_buttons(list_of_push_buttons)</expression-string>
+        <expression-string>( (pixel / self.current_upper_right_x))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>list_of_push_buttons[3] in self.checked_buttons(list_of_push_buttons)</expression-string>
+        <expression-string>self.current_lower_left_x + ( (pixel / self.current_upper_right_x))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>list_of_push_buttons[2] in self.checked_buttons(list_of_push_buttons)</expression-string>
+        <expression-string>self.current_lower_left_x + (1 / (pixel / self.current_upper_right_x))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/PyQt5/uic/Compiler/qtproxies.py" />
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/1269580573/PySide2/QtCore/QCoreApplication.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="207" column="75" selection-start-line="207" selection-start-column="75" selection-end-line="207" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pdf_converter/gui/gui.py" />
     <entry file="file://$PROJECT_DIR$/logging.config">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -930,23 +807,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
+    <entry file="file://$PROJECT_DIR$/python/logic/pdf_creation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/easy_install.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/magic.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.spec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="870">
+          <caret line="58" column="30" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -964,22 +831,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/python/main.py">
+    <entry file="file://$PROJECT_DIR$/main.spec">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="154" column="88" selection-start-line="153" selection-start-column="8" selection-end-line="154" selection-end-column="88" />
+        <state relative-caret-position="555">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/easy_install.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/magic.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/minimum_reproducible.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-end-line="8" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/python/page_object.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="971">
-          <caret line="94" column="45" lean-forward="true" selection-start-line="94" selection-start-column="45" selection-end-line="94" selection-end-column="45" />
+        <state relative-caret-position="376">
+          <caret line="101" selection-start-line="101" selection-end-line="101" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/gui/crop_pagewindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
