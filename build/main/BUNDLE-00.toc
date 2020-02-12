@@ -1,0 +1,3 @@
+([('main',
+   '/Users/darjusch.schrand/PycharmProjects/PdfConverter/dist/main',
+   'EXECUTABLE')],)

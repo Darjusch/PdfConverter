@@ -10,6 +10,13 @@
 
 from PySide2 import QtCore, QtGui, QtWidgets
 
+try:
+    import importlib.resources as pkg_resources
+except ImportError:
+    # Try backported to PY<37 `importlib_resources`.
+    import importlib_resources as pkg_resources
+
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -98,6 +105,13 @@ class Ui_MainWindow(object):
         self.createPdfButton.setIconSize(QtCore.QSize(50, 50))
         self.createPdfButton.setObjectName("createPdfButton")
         self.toolButtonLayout.addWidget(self.createPdfButton)
+        self.trippleSplittButton = QtWidgets.QToolButton(self.centralwidget)
+        icon14 = QtGui.QIcon()
+        icon14.addPixmap(QtGui.QPixmap("../icons/tripplesplitt.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.trippleSplittButton.setIcon(icon14)
+        self.trippleSplittButton.setIconSize(QtCore.QSize(50, 50))
+        self.trippleSplittButton.setObjectName("trippleSplittButton")
+        self.toolButtonLayout.addWidget(self.trippleSplittButton)
         self.gridLayout_2.addLayout(self.toolButtonLayout, 3, 1, 1, 1)
         self.widgetLayout = QtWidgets.QWidget(self.centralwidget)
         self.widgetLayout.setObjectName("widgetLayout")
@@ -172,3 +186,4 @@ class Ui_MainWindow(object):
         self.rightButton.setText(QtWidgets.QApplication.translate("MainWindow", "SwipeRight", None, -1))
         self.undoManipulationButton.setText(QtWidgets.QApplication.translate("MainWindow", "Undo Manipulation", None, -1))
         self.redoManipulationButton.setText(QtWidgets.QApplication.translate("MainWindow", "Redo Manipulation", None, -1))
+        self.trippleSplittButton.setText(QtWidgets.QApplication.translate("MainWindow", "Tripple Split", None, -1))

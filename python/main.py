@@ -49,6 +49,7 @@ class MainWindow(QMainWindow):
         self.ui.undoManipulationButton.clicked.connect(partial(self.re_or_undo_manipulation, -1))
         self.ui.redoManipulationButton.clicked.connect(partial(self.re_or_undo_manipulation, +1))
         self.ui.actionOpen_Output.triggered.connect(self.open_outputfolder)
+        self.ui.trippleSplittButton.clicked.connect(partial(self.ui_action_handler, 'tripple_split'))
 
     def open_checked_pdf_page_in_new_window(self):
         self.is_push_button_checked()
@@ -112,6 +113,8 @@ class MainWindow(QMainWindow):
                     self.rotate_push_button_ui(obj, degree)
                 elif action == 'split':
                     self.split_push_button_ui(obj)
+                elif action == 'tripple_split':
+                    self.tripple_split_ui(obj)
         page_objects = self.page_objects[:]
         self.manipulation_tracker.append(page_objects)
         self.deleted_old_and_position_new_push_button_in_grid()
@@ -133,14 +136,26 @@ class MainWindow(QMainWindow):
         self.page_objects.insert(self.page_objects.index(obj), copy_object)
         self.page_objects.remove(obj)
 
-    def split_push_button_ui(self, object):
-        first_copy_of_object = copy.copy(object)
-        second_copy_of_object = copy.copy(object)
+    def split_push_button_ui(self, obj):
+        first_copy_of_object = copy.copy(obj)
+        second_copy_of_object = copy.copy(obj)
         first_copy_of_object.split_left()
         second_copy_of_object.split_right()
-        self.page_objects.insert(self.page_objects.index(object) + 1, second_copy_of_object)
-        self.page_objects.insert(self.page_objects.index(object), first_copy_of_object)
-        self.page_objects.remove(object)
+        self.page_objects.insert(self.page_objects.index(obj) + 1, second_copy_of_object)
+        self.page_objects.insert(self.page_objects.index(obj), first_copy_of_object)
+        self.page_objects.remove(obj)
+
+    def tripple_split_ui(self, obj):
+        first_copy_of_object = copy.copy(obj)
+        second_copy_of_object = copy.copy(obj)
+        third_copy_of_object = copy.copy(obj)
+        first_copy_of_object.split_first_third()
+        second_copy_of_object.split_second_third()
+        third_copy_of_object.split_third_third()
+        self.page_objects.insert(self.page_objects.index(obj) + 2, third_copy_of_object)
+        self.page_objects.insert(self.page_objects.index(obj) + 1, second_copy_of_object)
+        self.page_objects.insert(self.page_objects.index(obj), first_copy_of_object)
+        self.page_objects.remove(obj)
 
     def deleted_old_and_position_new_push_button_in_grid(self):
         self.get_position_from_push_button_in_grid()

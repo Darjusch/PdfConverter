@@ -66,6 +66,32 @@ class PageObject:
             self.updated_lower_left_x, self.updated_lower_left_y, self.updated_upper_right_x, self.updated_upper_right_y = 0.5, 0, 1, 1
         self.updated_coordinates()
 
+    def split_first_third(self):
+        if self.current_lower_left_x == 0 and self.current_upper_right_x == 1:
+            w = (self.current_upper_right_x - self.current_lower_left_x) / 3
+            self.updated_upper_right_x = self.current_lower_left_x + w
+        else:
+            self.updated_lower_left_x, self.updated_lower_left_y, self.updated_upper_right_x, self.updated_upper_right_y = 0.33, 0, 1, 1
+        self.updated_coordinates()
+
+    def split_second_third(self):
+        if self.current_lower_left_x == 0 and self.current_upper_right_x == 1:
+            w = (self.current_upper_right_x - self.current_lower_left_x) / 3
+            self.updated_upper_right_x = self.current_lower_left_x + (w * 2)
+            self.updated_lower_left_x = w
+        else:
+            self.updated_lower_left_x, self.updated_lower_left_y, self.updated_upper_right_x, self.updated_upper_right_y = 0.66, 0, 1, 1
+        self.updated_coordinates()
+
+    def split_third_third(self):
+        if self.current_lower_left_x == 0 and self.current_upper_right_x == 1:
+            w = (self.current_upper_right_x - self.current_lower_left_x) / 3
+            self.updated_upper_right_x = self.current_lower_left_x + (w * 3)
+            self.updated_lower_left_x = w * 2
+        else:
+            self.updated_lower_left_x, self.updated_lower_left_y, self.updated_upper_right_x, self.updated_upper_right_y = 1, 0, 1, 1
+        self.updated_coordinates()
+
     def resize_image(self):
         w, h = self.img.width(), self.img.height()
         self.img = self.img.copy(w * self.current_lower_left_x,
