@@ -153,9 +153,9 @@ class MainWindow(QMainWindow):
         first_copy_of_object.split_first_third()
         second_copy_of_object.split_second_third()
         third_copy_of_object.split_third_third()
-        self.page_objects.insert(self.page_objects.index(obj) + 2, third_copy_of_object)
-        self.page_objects.insert(self.page_objects.index(obj) + 1, second_copy_of_object)
         self.page_objects.insert(self.page_objects.index(obj), first_copy_of_object)
+        self.page_objects.insert(self.page_objects.index(obj) + 1, second_copy_of_object)
+        self.page_objects.insert(self.page_objects.index(obj) + 2, third_copy_of_object)
         self.page_objects.remove(obj)
 
     def deleted_old_and_position_new_push_button_in_grid(self):
